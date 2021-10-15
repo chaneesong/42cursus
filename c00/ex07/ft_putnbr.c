@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 14:02:41 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/14 15:59:56 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/15 01:12:46 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ void	ft_putnbr(int nb)
 		write(1, "-2147483648", 11);
 		return ;
 	}
+	if (nb < 0)
+	{
+		nb = -nb;
+		ft_putchar('-');
+	}
 	if (nb / 10 == 0)
 	{
 		ft_putchar('0' + nb);
 	}
 	else
 	{
-		if (nb < 0)
-		{
-			nb = -nb;
-			ft_putchar('-');
-		}
 		ft_putnbr(nb / 10);
 		ft_putchar('0' + (nb % 10));
 	}

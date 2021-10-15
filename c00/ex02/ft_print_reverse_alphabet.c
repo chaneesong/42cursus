@@ -6,11 +6,12 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 02:58:14 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/14 11:39:04 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/15 01:14:14 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
 void	ft_print_reverse_alphabet(void);
 void	ft_putchar(char c);
 

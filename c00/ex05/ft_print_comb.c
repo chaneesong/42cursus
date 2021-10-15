@@ -6,11 +6,12 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 11:49:16 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/14 16:07:34 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/15 01:14:32 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
 void	ft_putchar(char first, char second, char third);
 void	ft_print_comb(void);
 int		ft_is_last(char first, char second, char third);
