@@ -1,263 +1,113 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seounlee <seounlee@student.42seoul.kr      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/17 03:03:26 by seounlee          #+#    #+#             */
+/*   Updated: 2021/10/17 21:34:45 by seounlee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h>
 #include "tower.h"
 
-#define COL 0
-#define ROW 1
-
-int	condition[9][2][2];
-int	possible[9][2];
-int	board[9][9];
-int	SIZE;
-int	MASK;
-
-int	row_condition[9][2];
-int col_condition[9][2];
-void	print_nbr(int i, int j)
-{
-	char	c;
-
-	while (j < SIZE)
-	{
-		c = '0' + board[i][j] % 10;
-		write(1, &c, 1);
-		if (j != SIZE - 1)
-			write(1, " ", 1);
-		j++;
-	}
-}
-
-void	print_board(void)
-{
-	int	i;
-
-	i = -1;
-	while (++i < SIZE)
-	{
-		print_nbr(i, 0);
-		write(1, "\n", 1);
-	}
-}
-
-int	count_boxes(int tab[SIZE])
+int	get_intput_length(char *arr)
 {
 	int	cnt;
-	int	max;
 	int	i;
 
-	i = -1;
-	max = 0;
 	cnt = 0;
-	while (++i < SIZE)
-	{
-		if (tab[i] && tab[i] > max)
-		{
-			cnt++;
-			max = tab[i];
-		}
-	}
-	return	(cnt);
-}
-
-void	copy_row(int arr[SIZE], int x)
-{
-	int	i;
-
-	i = -1;
-	while (++i < SIZE)
-		arr[i] = board[x][i];
-}
-
-void	copy_col(int arr[SIZE], int y)
-{
-	int	i;
-
-	i = -1;
-	while (++i < SIZE)
-		arr[i] = board[i][y];
-}
-
-void	rev_tab(int arr[SIZE])
-{
-	int	i;
-	int	tmp;
-
 	i = 0;
-	while (i < SIZE / 2)
+	while (arr[i])
 	{
-		tmp = arr[i];
-		arr[i] = arr[SIZE - i - 1];
-		arr[SIZE - i - 1] = tmp;
+		while ((arr[i] == ' ' || arr[i] == '\n' || arr[i] == '\t'))
+			i++;
+		if (!arr[i])
+			return (cnt);
+		if ('0' <= arr[i] && arr[i] <= 'z')
+		{
+			if (i != 0 && !(arr[i - 1] == ' ' || arr[i - 1] == '\n'
+					|| arr[i - 1] == '\t'))
+				return (-1);
+			cnt++;
+		}
+		else
+			return (-1);
 		i++;
 	}
+	if ('0' <= arr[i - 1] && arr[i - 1] <= 'z')
+		return (cnt);
+	return (-1);
 }
 
-int	check_row(int x, int y, int val)
-{
-	int ret;
-	int	tab[9];
-	
-	if (y != SIZE - 1)
-		return (1);
-	copy_row(tab, x);
-	tab[y] = val;
-	ret = count_boxes(tab) == row_condition[x][0];
-	rev_tab(tab);
-	return (ret && count_boxes(tab) == row_condition[x][1]);
-}
-
-int	check_col(int x, int y, int val)
-{
-	int ret;
-	int	tab[9];
-	
-	if (x != SIZE - 1)
-		return (1);
-	copy_col(tab, y);
-	tab[x] = val;
-	ret = count_boxes(tab) == col_condition[y][0];
-	rev_tab(tab);
-	return (ret && count_boxes(tab) == col_condition[y][1]);
-}
-
-int	validate_move(int x, int y, int val)
-{
-	return (check_row(x, y, val) && check_col(x, y, val));
-}
-
-void	find_unfilled(int *x, int *y)
+int	setup_input(t_status *status, char *arr)
 {
 	int	i;
 	int	j;
-	
-	i = -1;
-	while (++i < SIZE)
-	{
-		j = -1;
-		while (++j < SIZE)
-		{
-			if (board[i][j] == 0)
-			{
-				*x = i;
-				*y = j;
-				return ;
-			}
-		}
-	}
-	*x = -1;
-	*y = -1;
-}
-
-int	check_candidate(int x, int y, int val)
-{
-	return (!(possible[x][0] & (1 << val))
-		&& !(possible[y][1] & (1 << val)));
-}
-
-int	flip_bit(int n)
-{
-	return MASK ^ (1 << n);
-}
-
-int	solve(void)
-{
 	int	x;
-	int	y;
-	int	c;
-
-	find_unfilled(&x, &y);
-	if (x == -1 || y == -1)
-		return (1);
-	c = 1;
-	while (c <= SIZE)
-	{
-		if (check_candidate(x, y, c) && validate_move(x, y, c))
-		{
-			board[x][y] = c;
-			possible[x][0] |= 1 << (c);
-			possible[y][1] |= 1 << (c);
-			if (solve())
-				return (1);
-			board[x][y] = 0;
-			possible[x][0] &= flip_bit(c);
-			possible[y][1] &= flip_bit(c);
-		}
-		c++;
-	}
-	return (0);
-}
-
-int	fatoi(char c)
-{
-	return (c - '0');
-}
-
-void	setup_input(int size, char const **arr)
-{
-	int	i;
-	int	j;
+	int	v;
 
 	i = 0;
 	j = 0;
-
-	while (j < SIZE)
+	while (arr[j])
 	{
-		col_condition[i%SIZE][0] = fatoi(arr[j][0]);
-		i++;
+		if ('0' <= arr[j] && arr[j] <= '9')
+		{
+			x = i % status->size;
+			v = arr[j] - '0';
+			if (i < (status->size * 2))
+				status->col_constraints[x][i / status->size] = v;
+			else
+				status->row_constraints[x][i / (status->size * 3)] = v;
+			i++;
+		}
 		j++;
 	}
-	i = 0;
-	while (j < SIZE * 2)
-	{
-		col_condition[i%SIZE][1] = fatoi(arr[j][0]);
-		i++;
-		j++;
-	}
-	i = 0;
-	while (j < SIZE * 3)
-	{
-		row_condition[i%SIZE][0] = fatoi(arr[j][0]);
-		i++;
-		j++;
-	}
-	i = 0;
-	while (j < size)
-	{
-		row_condition[i%SIZE][1] = fatoi(arr[j][0]);
-		i++;
-		j++;
-	}
+	return (i);
 }
 
-void	init()
+void	initialize_status(t_status *status)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i < SIZE)
+	while (++i < status->size)
 	{
-		possible[i][0] = 0;
-		possible[i][1] = 0;
+		status->col_candidates[i] = 0;
+		status->row_candidates[i] = 0;
 		j = -1;
-		while (++j < SIZE)
-			board[i][j] = 0;
+		while (++j < status->size)
+			status->grid[i][j] = 0;
 	}
 }
 
-int main(int argc, char const **argv)
+int	main(int argc, char **argv)
 {
-	init();
-	SIZE = (argc - 1) / 4;
-	MASK = (1 << (SIZE + 1)) - 1;
-	setup_input(argc - 1, argv + 1);
+	t_status	*status;
+	int			lenght;
 
-	if (solve())
-		print_board();
+	if (argc != 2)
+	{
+		print_str("Error\n");
+		return (1);
+	}
+	lenght = get_intput_length(argv[1]);
+	if (lenght <= 4 || lenght % 4 != 0)
+	{
+		print_str("Error\n");
+		return (1);
+	}
+	status = malloc(sizeof(t_status));
+	status->size = lenght / 4;
+	initialize_status(status);
+	setup_input(status, argv[1]);
+	if (solve(status))
+		print_board(status->grid, status->size);
 	else
-		write(1, "no solution error", 17);
-	return 0;
+		print_str("Error\n");
+	free(status);
+	return (0);
 }
