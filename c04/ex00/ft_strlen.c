@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/20 18:54:18 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/20 18:54:52 by chsong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	ft_strlen(char *str)
 {
 	int	cnt;
@@ -7,14 +19,6 @@ int	ft_strlen(char *str)
 	cnt = 0;
 	while (*(str + cnt))
 		cnt++;
+	*(str + cnt) = '\0';
 	return (cnt);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char arr[] = "\0";
-
-	printf("%d\n", ft_strlen(arr));
 }

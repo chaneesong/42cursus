@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/20 19:26:50 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/20 22:58:57 by chsong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	cnt;
@@ -5,20 +17,11 @@ int	ft_strcmp(char *s1, char *s2)
 	cnt = 0;
 	while (*(s1 + cnt))
 	{
-		if (*(s1 + cnt) != *(s1 + cnt))
-			return (0);
+		if (*(s1 + cnt) != *(s2 + cnt))
+			return (1);
 		cnt++;
 	}
 	if (*(s2 + cnt))
-		return (0);
-	return (1);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char arr1[] = "hello";
-	char arr2[] = "";
-	printf("%d\n", ft_strcmp(arr1, arr2));
+		return (1);
+	return (0);
 }

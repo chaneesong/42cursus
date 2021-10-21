@@ -1,4 +1,14 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/20 18:56:00 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/20 18:56:02 by chsong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 void	ft_putstr(char *str)
 {
@@ -12,13 +22,4 @@ void	ft_putstr(char *str)
 		write(1, str + cnt, 1);
 		cnt++;
 	}
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char arr1[] = "hello";
-
-	ft_putstr(arr1);
 }
