@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 19:27:35 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/20 23:11:39 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/21 19:43:35 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	while (*(dest + dest_cnt))
 		dest_cnt++;
 	src_cnt = 0;
-	while (src_cnt < nb)
+	while (src_cnt < nb && *(src + src_cnt))
 	{
 		*(dest + dest_cnt) = *(src + src_cnt);
 		dest_cnt++;
@@ -27,14 +27,4 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	}
 	*(dest + dest_cnt) = '\0';
 	return (dest);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char arr1[] = "hello";
-	char arr2[] = "world";
-	ft_strncat(arr1, arr2, 4);
-	printf("%s\n", arr1);
 }

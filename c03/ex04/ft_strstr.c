@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 19:28:29 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/20 23:42:11 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/21 21:40:01 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,4 @@ char	*ft_strstr(char *str, char *to_find)
 		str++;
 	}
 	return ("\0");
-}
-
-#include <stdio.h>
-int main()
-{
-	char	arr1[] = "My name song";
-	char	arr2[] = "name";
-	char	*res = NULL;
-	*res = *ft_strstr(arr1, arr2);
-	printf("%s\n", res);
 }

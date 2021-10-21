@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/17 00:18:10 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/21 14:36:22 by chsong           ###   ########.fr       */
+/*   Created: 2021/10/21 19:25:30 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/21 19:25:33 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_is_printable(char c)
 {
-	int	cnt;
+	if (c < 32 || c == 127)
+		return (1);
+	return (0);
+}
 
-	cnt = 0;
-	while (*(src + cnt))
+int	ft_str_is_printable(char *str)
+{
+	if (!*str)
+		return (1);
+	while (*str)
 	{
-		*(dest + cnt) = *(src + cnt);
-		cnt++;
+		if (ft_is_printable(*str))
+			return (0);
+		str++;
 	}
-	*(dest + cnt) = '\0';
-	return (dest);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 00:24:07 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/17 00:24:10 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/21 14:05:04 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_str_is_alpha(char *str)
 		return (1);
 	cnt = 0;
 	while (*(str + cnt))
-	{		
+	{
 		if (!(ft_is_upper(*(str + cnt))) && !(ft_is_lower(*(str + cnt))))
 			return (0);
 		cnt++;
