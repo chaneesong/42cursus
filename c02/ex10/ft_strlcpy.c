@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/21 10:04:02 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/21 10:11:51 by chsong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	cnt;
-	int i;
+	int				i;
 
 	cnt = 0;
 	i = 0;
@@ -16,14 +28,4 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	}
 	*dest = '\0';
 	return (i);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char *src = "123456dsahjskadbghjdskasdagnjas";
-	char dest[20];
-	size_t ret = ft_strlcpy(dest, src, 21);
-	printf("dest = %s\nreturn = %zu\n", dest, ret);
 }
