@@ -5,115 +5,85 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 19:08:28 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/21 09:23:05 by chsong           ###   ########.fr       */
+/*   Created: 2021/10/22 00:10:03 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/22 15:50:59 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	ft_is_negative(char *str)
+int	ft_is_space(char c)
 {
-	int	cnt;
-
-	while(*str)
-	{
-		if (*str == ' ' || *str == '\n' || *str == '\v' 
-			|| *str == '\f' || *str == '\r' || *str == '\t')
-			str++;
-	}
-	cnt = 0;
-	while (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			cnt++;
-		str++;
-	}
-	return (cnt);
+	if (c == '\t' || c == '\n' || c == '\v'
+		|| c == '\f' || c == '\r' || c == ' ')
+		return (1);
+	return (0);
 }
 
-int	ft_is_base(char c, char *base)
+int	ft_check_possible_base(char *base)
+{
+	int	offset;
+	int	cur;
+
+	if (*(base) == '\0' || *(base + 1) == '\0')
+		return (0);
+	cur = 0;
+	while (*(base + cur))
+	{
+		offset = cur + 1;
+		if (*(base + cur) == '+' || *(base + cur) == '-'
+			|| ft_is_space(*(base + cur)))
+			return (0);
+		while (*(base + offset))
+		{
+			if (*(base + cur) == *(base + offset))
+				return (0);
+			offset++;
+		}
+		cur++;
+	}
+	return (cur);
+}
+
+int	ft_char_in_base(char c, char *base)
 {
 	int	cnt;
 
 	cnt = 0;
 	while (*(base + cnt))
 	{
-		if (*(base + cnt) == c)
-			return (1);
+		if (c == *(base + cnt))
+			return (cnt + 1);
 		cnt++;
 	}
 	return (0);
 }
 
-int	ft_is_invalued_base(char *ptr)
-{
-	int	i;
-	int	j;
-
-	if (*ptr == '\0' || *(ptr + 1) == '\0')
-		return (0);
-	i = 0;
-	while (*(ptr + i))
-	{
-		if (*(ptr + i) )
-			return (0);
-		if (ft_is_space(*(ptr + i)))
-			return (0);
-		j = i + 1;
-		while (*(base + j))
-		{
-			if (*(ptr + i) == *(ptr + j))
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (i);
-}
-
-int	ft_btoi(char c, int s, int base_cnt)
-{
-	int	res;
-	int	i;
-	
-	i = 0;
-	res = c - '0';
-	while (i < s)
-	{
-		res *= base_cnt;
-		i++;
-	}
-	return (res);
-}
-
 int	ft_atoi_base(char *str, char *base)
 {
 	int	base_cnt;
-	int	negative_cnt;
-	int	sqrt_cnt;
-	int	res;
+	int	negative;
+	int	cur;
+	int	result;
 
-	if (ft_is_invalued_base(base))
+	base_cnt = ft_check_possible_base(base);
+	if (!base_cnt)
 		return (0);
-	negative_cnt = ft_is_negative(str);
-	sqrt_cnt = 0;
-	res = 0;
-	while (ft_is_base(*str, base))
+	while (ft_is_space(*str))
+		str++;
+	negative = 1;
+	while (*str == '+' || *str == '-')
 	{
-		sqrt_cnt++;
-		res += ft_btoi(*str, sqrt_cnt, base_cnt);
+		if (*str == '-')
+			negative *= -1;
 		str++;
 	}
-	if (negative_cnt % 2 == 0)
-		res *= -1;
-	return (res);
+	cur = 0;
+	result = 0;
+	while (*(str + cur) && ft_char_in_base(*(str + cur), base))
+	{
+		result = (result * base_cnt) + (ft_char_in_base(*(str + cur), base));
+		cur++;
+	}
+	return (result * negative);
 }
-/*
-int main()
-{
-	char arr1[] = "   ---+--+1234ab567";
-	char arr2[] = "0123456789ABCDEF";
-	int num = ft_atoi_base(arr1, arr2);
-	printf("%d\n", num);
-}*/
