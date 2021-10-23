@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 00:18:10 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/24 03:06:31 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/24 03:11:55 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ char	*ft_strcpy(char *dest, char *src)
 		cnt++;
 	}
 	*(dest + cnt) = '\0';
-	return (src);
+	return (dest);
 }
