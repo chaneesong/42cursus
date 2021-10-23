@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 19:28:29 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/23 16:21:42 by chsong           ###   ########.fr       */
+/*   Created: 2021/10/22 21:18:21 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/22 21:18:23 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *str, char *to_find)
-{
-	int	cnt;
+#include <unistd.h>
 
-	cnt = 0;
-	while (*(to_find + cnt))
-	{
-		if (*(str + cnt) != *(to_find + cnt))
-			return (0);
-		cnt++;
-	}
-	return (1);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
-char	*ft_strstr(char *str, char *to_find)
+void	ft_rev_params(int cnt, char **str)
 {
-	int	cnt;
+	int	cur;
 
-	if (!*to_find)
-		return (str);
-	cnt = 0;
-	while (*(str + cnt))
+	while (cnt > 0)
 	{
-		if (ft_strcmp(str + cnt, to_find))
-			return ((str + cnt));
-		cnt++;
+		cur = 0;
+		while (str[cnt][cur])
+		{
+			ft_putchar(str[cnt][cur]);
+			cur++;
+		}
+		ft_putchar('\n');
+		cnt--;
 	}
-	return ("\0");
+}
+
+int	main(int argc, char *argv[])
+{
+	ft_rev_params(argc - 1, argv);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 19:26:50 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/21 19:33:58 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/23 21:11:49 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@ int	ft_strcmp(char *s1, char *s2)
 {
 	int	cnt;
 
+	if (!*s1 && !*s2)
+		return (0);
 	cnt = 0;
-	while (*(s1 + cnt))
+	if (!*s1)
+		return (-(*s2));
+	if (!*s2)
+		return (*s1);
+	while (*(s1 + cnt) && *(s2 + cnt))
 	{
-		if (*(s1 + cnt) > *(s2 + cnt))
-			return (1);
-		else if (*(s1 + cnt) < *(s2 + cnt))
-			return (-1);
+		if (*(s1 + cnt) != *(s2 + cnt))
+			break ;
 		cnt++;
 	}
-	if (*(s2 + cnt))
-		return (1);
-	return (0);
+	return (*(s1 + cnt) - *(s2 + cnt));
 }
