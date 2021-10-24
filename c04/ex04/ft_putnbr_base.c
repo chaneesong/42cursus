@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 19:00:10 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/20 19:00:54 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/25 01:32:08 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,15 @@ int	ft_is_invalued_base(char *base)
 	return (0);
 }
 
-void	ft_putnbr(int nbr, char *base)
+void	ft_putnbr(long int nbr, char *base)
 {
-	int	cnt;
-
+	long int	cnt;
 	cnt = 0;
 	while (*(base + cnt))
 		cnt++;
-	if (nbr <= cnt)
+	if (nbr < cnt)
 	{
-		ft_putchar(base[nbr % cnt]);
+		ft_putchar(base[nbr]);
 		return ;
 	}
 	ft_putnbr(nbr / cnt, base);
@@ -62,12 +61,24 @@ void	ft_putnbr(int nbr, char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
+	long int temp;
+
+	temp = (long int)nbr;
 	if (ft_is_invalued_base(base))
 		return ;
 	if (nbr < 0)
 	{
 		ft_putchar('-');
-		nbr = -nbr;
+		temp = -temp;
+		ft_putnbr(temp, base);
 	}
-	ft_putnbr(nbr, base);
+	else
+		ft_putnbr(temp, base);
+}
+
+int main()
+{
+	int a = 648;
+	char arr[] = "01";
+	ft_putnbr_base(a, arr);
 }
