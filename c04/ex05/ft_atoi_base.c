@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 00:10:03 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/22 15:50:59 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/23 23:38:32 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int	ft_atoi_base(char *str, char *base)
 {
 	int	base_cnt;
 	int	negative;
-	int	cur;
 	int	result;
 
 	base_cnt = ft_check_possible_base(base);
@@ -78,12 +77,11 @@ int	ft_atoi_base(char *str, char *base)
 			negative *= -1;
 		str++;
 	}
-	cur = 0;
 	result = 0;
-	while (*(str + cur) && ft_char_in_base(*(str + cur), base))
+	while (*str && ft_char_in_base(*str, base))
 	{
-		result = (result * base_cnt) + (ft_char_in_base(*(str + cur), base));
-		cur++;
+		result = (result * base_cnt) + (ft_char_in_base(*str, base) - 1);
+		str++;
 	}
 	return (result * negative);
 }
