@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 19:28:29 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/23 16:21:42 by chsong           ###   ########.fr       */
+/*   Created: 2021/10/23 21:47:38 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/24 00:49:25 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *str, char *to_find)
-{
-	int	cnt;
+#include <stdlib.h>
 
+char	*ft_strdup(char *src)
+{
+	int		cnt;
+	char	*src_clone;
+
+	if (!*src)
+		return (NULL);
 	cnt = 0;
-	while (*(to_find + cnt))
+	while (*(src + cnt))
+		cnt++;
+	src_clone = malloc(sizeof(char) * (cnt + 1));
+	cnt = 0;
+	while (*(src + cnt))
 	{
-		if (*(str + cnt) != *(to_find + cnt))
-			return (0);
+		*(src_clone + cnt) = *(src + cnt);
 		cnt++;
 	}
-	return (1);
-}
-
-char	*ft_strstr(char *str, char *to_find)
-{
-	int	cnt;
-
-	if (!*to_find)
-		return (str);
-	cnt = 0;
-	while (*(str + cnt))
-	{
-		if (ft_strcmp(str + cnt, to_find))
-			return ((str + cnt));
-		cnt++;
-	}
-	return ("\0");
+	*(src_clone + cnt) = '\0';
+	return (src_clone);
 }

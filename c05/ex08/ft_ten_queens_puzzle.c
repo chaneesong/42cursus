@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_ten_queens_puzzle.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 19:28:29 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/23 16:21:42 by chsong           ###   ########.fr       */
+/*   Created: 2021/10/23 21:26:11 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/23 21:30:34 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *str, char *to_find)
+void	insert_queen(int **board, int *x, int *y)
 {
-	int	cnt;
-
-	cnt = 0;
-	while (*(to_find + cnt))
+	if (board[*x][*y] == 0)
 	{
-		if (*(str + cnt) != *(to_find + cnt))
-			return (0);
-		cnt++;
+		board[*x][*y] = 2;
 	}
-	return (1);
 }
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_ten_queens_puzzle(void)
 {
-	int	cnt;
+	int	x;
+	int	y;
+	int	board[10][10];
 
-	if (!*to_find)
-		return (str);
-	cnt = 0;
-	while (*(str + cnt))
+	x = -1;
+	while (++x < 10)
 	{
-		if (ft_strcmp(str + cnt, to_find))
-			return ((str + cnt));
-		cnt++;
+		y = -1;
+		while (++y < 10)
+		{
+			board[x][y] = 0;
+		}
 	}
-	return ("\0");
+	x = 0;
+	return (x);
 }

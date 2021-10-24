@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 19:28:29 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/23 16:21:42 by chsong           ###   ########.fr       */
+/*   Created: 2021/10/24 01:00:53 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/24 03:04:25 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *str, char *to_find)
+#include <stdlib.h>
+
+int	ft_ultimate_range(int **range, int min, int max)
 {
-	int	cnt;
+	int	*num_ptr;
+	int	num;
 
-	cnt = 0;
-	while (*(to_find + cnt))
+	if (min >= max)
+		return (0);
+	num_ptr = (int *)malloc(sizeof(int) * (max - min));
+	num = 0;
+	while (min < max)
 	{
-		if (*(str + cnt) != *(to_find + cnt))
-			return (0);
-		cnt++;
+		*(num_ptr + num) = min;
+		min++;
 	}
-	return (1);
-}
-
-char	*ft_strstr(char *str, char *to_find)
-{
-	int	cnt;
-
-	if (!*to_find)
-		return (str);
-	cnt = 0;
-	while (*(str + cnt))
-	{
-		if (ft_strcmp(str + cnt, to_find))
-			return ((str + cnt));
-		cnt++;
-	}
-	return ("\0");
+	*range = num_ptr;
+	return (num);
 }
