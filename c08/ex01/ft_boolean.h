@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/17 00:22:51 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/25 17:22:13 by chsong           ###   ########.fr       */
+/*   Created: 2021/10/25 15:22:06 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/25 16:25:02 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int	cnt;
+#	ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
 
-	cnt = 0;
-	while (cnt < n && *(src + cnt))
-	{
-		*(dest + cnt) = *(src + cnt);
-		cnt++;
-	}
-	while (cnt < n)
-	{
-		*(dest + cnt) = '\0';
-		cnt++;
-	}
-	return (dest);
-}
+# include <unistd.h>
+
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
+# define TRUE 1
+# define FALSE 0
+# define SUCCESS FASLE
+
+# define EVEN(i) i % 2 == 0
+
+typedef int	t_bool;
+
+#	endif

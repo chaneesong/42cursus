@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/17 00:22:51 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/25 17:22:13 by chsong           ###   ########.fr       */
+/*   Created: 2021/10/25 16:00:23 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/25 16:03:17 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int	cnt;
+#	ifndef FT_POINT_H
+# define FT_POINT_H
 
-	cnt = 0;
-	while (cnt < n && *(src + cnt))
-	{
-		*(dest + cnt) = *(src + cnt);
-		cnt++;
-	}
-	while (cnt < n)
-	{
-		*(dest + cnt) = '\0';
-		cnt++;
-	}
-	return (dest);
-}
+typedef struct point
+{
+	int	x;
+	int	y;
+}	t_point;
+
+#	endif

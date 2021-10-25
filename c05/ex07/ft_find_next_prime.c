@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 18:02:39 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/23 18:02:54 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/26 00:16:14 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_is_prime(int nb)
 
 int	ft_find_next_prime(int nb)
 {
-	while (!(ft_is_prime(nb)))
+	while (nb < 2147483647 && !(ft_is_prime(nb)))
 		nb++;
 	return (nb);
 }

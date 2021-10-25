@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 16:36:41 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/22 18:06:36 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/26 00:07:25 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_sqrt(int nb)
 	if (nb < 1)
 		return (0);
 	sqrt = 1;
-	while (sqrt * sqrt <= nb)
+	while (sqrt * sqrt <= nb && n < 46341)
 	{
 		if (sqrt * sqrt == nb)
 			return (sqrt);
