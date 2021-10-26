@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_interative_factorial.c                          :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 16:00:40 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/22 16:00:41 by chsong           ###   ########.fr       */
+/*   Created: 2021/10/26 21:43:10 by chsong            #+#    #+#             */
+/*   Updated: 2021/10/26 21:43:16 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_interative_factorial(int nb)
+int	ft_iterative_power(int nb, int power)
 {
 	int	result;
 
-	if (nb < 0)
+	if (power < 0)
 		return (0);
-	if (nb == 1 || nb == 0)
-		return (1);
 	result = 1;
-	while (nb > 0)
+	while (power > 0)
 	{
 		result = result * nb;
-		nb--;
+		power--;
 	}
 	return (result);
 }
