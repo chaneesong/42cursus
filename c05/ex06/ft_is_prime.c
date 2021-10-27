@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 18:14:49 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/26 12:40:52 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/27 20:00:58 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_is_prime(int nb)
 	if (nb < 2)
 		return (0);
 	cur = 2;
-	while (cur * cur <= nb)
+	while (cur * cur <= nb && cur <= 46341)
 	{
-		if (nb % cur != 0)
+		if (nb % cur == 0)
 			return (0);
 		cur++;
 	}

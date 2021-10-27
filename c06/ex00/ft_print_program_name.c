@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 19:52:58 by chsong            #+#    #+#             */
-/*   Updated: 2021/10/22 19:53:00 by chsong           ###   ########.fr       */
+/*   Updated: 2021/10/27 20:13:12 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_print_program_name(char *str)
 		ft_putchar(*str);
 		str++;
 	}
+	write(1, "\n", 1);
 }
 
 int	main(int argc, char *argv[])
