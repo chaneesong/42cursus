@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 00:08:06 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/11 00:08:35 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/11 00:09:25 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/11 00:11:00 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include "libft.h"
-
-int	main(void)
+int ft_isprint(int c)
 {
-	char a[5] = {'a', 'b', 'c', 'd', 'e'};
-
-	printf("%lu\n", ft_strlen(a));
-	printf("%lu\n", strlen(a));
-
-	return (0);
+    if (c < 32 || c > 126)
+        return (0);
+    return (1);
 }
