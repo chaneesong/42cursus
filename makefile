@@ -1,16 +1,40 @@
-CC = gcc
-TARGET = libft.a
-OBJS = main.o kor.o usa.o
+SRC			= ft_strlen.c
 
-CFLAGS = -Wall -Werror -Wextra
+SRCS		= ${addprefix ${PRE}, ${SRC}}
 
-all : $(TARGET)
+OBJS		= ${SRCS:.c=.o}
 
-$(TARGET) : $(OBJS)
-	$(CC) -o $@ $^
+PRE			= ./srcs/
+
+HEAD		= ./includes/
+
+NAME		= libft.a
+
+AR			= ar rc
+
+RM			= rm -f
+
+LIB			= ranlib
+
+GCC			= gcc
+
+CFLAGS		= -Wall -Wextra -Werror
+
+all:		${NAME}
 
 .c.o:
-	$(CC) $(CFLAGS) -c -o $@ $<
+			${GCC} ${CFLAGS} -c -I ${HEAD} $< -o ${<:.c=.o}
 
-clean :
-	rm -f $(OBJS) $(TARGET)
+${NAME}:	${OBJS}
+			${AR} ${NAME} ${OBJS}
+			${LIB} ${NAME}
+
+clean:
+			rm -f ${OBJS}
+
+fclean:		clean
+			rm -f ${NAME}
+
+re:			fclean all
+
+.PHONY:		all clean fclean re
