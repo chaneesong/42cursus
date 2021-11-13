@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 00:08:06 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/13 01:35:39 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/13 18:47:12 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,23 @@
 
 int	main(void)
 {
-	char a[11] = "BlockDMask";
+	char a = 'b';
 	// char dest1[5];
-	// char dest2[12] = "abcdeasddlf";
-	// char dest3[12] = "abcdeasddlf";
-
-	// memcpy(dest1, a, sizeof(char) * 10);
-	// memcpy(dest2, a, sizeof(char) * 15);
+	char dest2[16] = "aaaaabbbbbccccc";
+	char dest3[16] = "aaaaabbbbbccccc";
+	char *tmp;
+	// for (size_t i = 0; i < 11; i++)
+	// {
+	// 	printf("%zu\n", ft_strlcpy(dest2, a, i));
+	// 	printf("%zu\n", strlcpy(dest3, a, i));
+	// }
+	tmp = ft_strchr(dest2, 'd');
+	printf("%s\n", tmp);
 	// ft_memcpy(dest3, a, sizeof(char) * 11);
-
-	printf("%zu\n", ft_strlen(a));
-	// printf("%s\n", dest2);
-	// printf("%s\n", dest3);
+	// printf("%p\n", dest2);
+	// ft_memmove(dest2, a, sizeof(dest2));
+	// ft_memmove(dest3 + 9, a, sizeof(char) * 3);
+	// printf("%zu\n", ft_strlen(a));
 	// printf("%lu\n", ft_strlen(a));
 	// printf("%zu\n", strlen(a));
 	// for(int i = 0; i < 200; i++)

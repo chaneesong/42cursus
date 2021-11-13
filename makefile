@@ -1,4 +1,4 @@
-SRC			= ft_strlen.c
+SRC			= ft_strchr.c
 
 SRCS		= ${addprefix ${PRE}, ${SRC}}
 

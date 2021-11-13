@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 00:09:25 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/11 00:11:00 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/13 18:06:38 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    if (c < 32 || c > 126)
-        return (0);
-    return (1);
+	if (c < 32 || c > 126)
+		return (0);
+	return (1);
 }

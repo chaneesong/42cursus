@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/13 17:59:29 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/13 18:01:11 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/13 02:13:14 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/13 18:10:45 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	ft_memset(s, 0, n);
+	char		*tmp;
+	const char	*s;
+
+	tmp = dst;
+	s = src;
+	if (dst <= src)
+	{
+		while (len--)
+			*tmp++ = *s++;
+	}
+	else
+	{
+		tmp += len - 1;
+		s += len - 1;
+		while (len--)
+			*tmp-- = *s--;
+	}
+	return (dst);
 }

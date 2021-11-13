@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 00:09:17 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/11 00:11:00 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/13 18:02:20 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (0 <= c && c <= 127)
-        return (1);
-    return (0);
+	if (0 <= c && c <= 127)
+		return (1);
+	return (0);
 }

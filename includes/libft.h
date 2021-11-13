@@ -6,19 +6,21 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 00:08:43 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/12 16:11:28 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/13 19:05:53 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #   ifndef LIBFT_H
 # define LIBFT_H
 
+#include "mytypedef.h"
+
 typedef __SIZE_TYPE__   size_t;
 typedef struct  s_list
 {
-    void    *content;
-    struct s_list   *next;
-    
+	void    *content;
+	struct s_list   *next;
+	
 }   t_list;
 
 
