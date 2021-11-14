@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 00:08:43 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/13 19:05:53 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/14 19:27:41 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 #include "mytypedef.h"
+// #include <stdlib.h>
 
 typedef __SIZE_TYPE__   size_t;
 typedef struct  s_list
@@ -29,6 +30,7 @@ int		ft_islower(int c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
+int		ft_isspace(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
