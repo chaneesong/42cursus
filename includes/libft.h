@@ -6,24 +6,20 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 00:08:43 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/14 19:27:41 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/14 20:27:47 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#   ifndef LIBFT_H
+#	ifndef LIBFT_H
 # define LIBFT_H
 
-#include "mytypedef.h"
-// #include <stdlib.h>
+# include <stdlib.h>
 
-typedef __SIZE_TYPE__   size_t;
-typedef struct  s_list
+typedef struct s_list
 {
-	void    *content;
-	struct s_list   *next;
-	
-}   t_list;
-
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_isupper(int c);
 int		ft_islower(int c);
@@ -49,8 +45,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char * restrict dest, const char * restrict src, size_t dstsize);
-size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize);
+size_t	ft_strlcpy(char *restrict dest, const char *restrict src,
+			size_t dstsize);
+size_t	ft_strlcat(char *restrict dst, const char *restrict src,
+			size_t dstsize);
 
-
-#   endif
+#	endif

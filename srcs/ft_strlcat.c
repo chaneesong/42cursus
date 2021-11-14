@@ -6,17 +6,17 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 18:12:25 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/13 18:16:54 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/14 20:17:10 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize)
+size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {
 	size_t	src_cnt;
 	size_t	dst_cnt;
-	
+
 	if (dstsize <= ft_strlen(dst))
 		return (dstsize + ft_strlen(src));
 	src_cnt = 0;
@@ -28,5 +28,5 @@ size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize
 		src_cnt++;
 	}
 	*(dst + dst_cnt) = '\0';
-	return (ft_strlen(dst) + ft_strlen(src + src_cnt));	
+	return (ft_strlen(dst) + ft_strlen(src + src_cnt));
 }

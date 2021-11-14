@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:57:06 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/14 20:06:45 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/14 20:17:43 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	negative;
 	int	res;
@@ -21,7 +21,7 @@ int		ft_atoi(const char *str)
 	while (*str)
 	{
 		if (!ft_isspace(*str))
-			break;
+			break ;
 		str++;
 	}
 	if (*str == '-')
