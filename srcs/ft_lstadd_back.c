@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 23:04:26 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/17 16:36:07 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/17 18:06:05 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/17 20:13:55 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char *tmp;
-	unsigned int i;
+	t_list	*tmp;
 
-	i = 0;
-	tmp = (char *)malloc(sizeof(char) * (len + 1));
-	while (len && start + i < ft_strlen(s))
+	if (!new)
+		return ;
+	if (*lst == 0)
+		*lst = new;
+	else
 	{
-		tmp[i] = s[start + i];
-		i++;
-		len--;
+		tmp = *lst;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
 	}
-	tmp[i] = '\0';
-	return (tmp);
 }

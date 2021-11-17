@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 23:04:26 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/17 16:36:07 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/17 16:19:34 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/17 16:21:09 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char *tmp;
-	unsigned int i;
-
-	i = 0;
-	tmp = (char *)malloc(sizeof(char) * (len + 1));
-	while (len && start + i < ft_strlen(s))
-	{
-		tmp[i] = s[start + i];
-		i++;
-		len--;
-	}
-	tmp[i] = '\0';
-	return (tmp);
+	char	*tmp;
+	
+	if (fd < 0)
+		return ;
+	tmp = ft_itoa(n);
+	write(fd, tmp, ft_strlen(tmp));	
 }
