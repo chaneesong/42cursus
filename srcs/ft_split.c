@@ -6,23 +6,26 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:54:58 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/16 18:28:49 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/17 00:33:41 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <stdio.h>
 int	ft_cntchr(char const *s, char c)
 {
-	size_t	i;
-	int		res;
+	int	i;
+	int	res;
 
-	i = ft_strlen(s);
+	i = 0;
 	res = 0;
-	while (i--)
+	while (s[i])
 	{
 		if (s[i] == c)
 			res++;
+		while (s[i] && s[i] == c)
+			i++;
+		i++;
 	}
 	return (res);
 }
@@ -42,18 +45,27 @@ char	**ft_split(char const *s, char c)
 	char	**arr;
 	size_t	size;
 	size_t	i;
-	size_t tmp;
+	size_t	j;
 
-	s = ft_strtrim(s, &c);
 	size = ft_cntchr(s, c) + 1;
-	arr = (char **)malloc(sizeof(char *) * (size + 1));
+	arr = (char **)malloc(sizeof(char *) * ft_strlen(s) + 1);
 	i = 0;
-	while (i < size)
+	while (*s && i < size)
 	{
-		arr[i] = (char *)malloc(sizeof(char) * ft_tofind(s, c) + 1);
-		tmp = ft_strlcpy(arr[i], s, ft_tofind(s, c) + 1);
-		s += ft_tofind(s, c) + 1;
-		
+		j = 0;
+		while (*s && *s == c)
+			s++;
+		if (!*s)
+			break;
+		size = ft_tofind(s, c);
+		arr[i] = (char *)malloc(sizeof(char) * (size + 1));
+		while (j < size)
+		{
+			arr[i][j] = *s;
+			s++;
+			j++;
+		}
+		arr[i][j] = '\0';
 		i++;
 	}
 	arr[i] = NULL;
