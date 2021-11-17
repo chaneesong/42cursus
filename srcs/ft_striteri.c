@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:35:52 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/17 15:42:59 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/17 16:08:15 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-    char    *tmp;
     size_t  i;
 
+    i = 0;
     while (s[i])
     {
         f(i, &s[i]);
