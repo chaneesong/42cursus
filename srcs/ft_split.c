@@ -6,12 +6,12 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:54:58 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/17 11:16:27 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/17 23:17:49 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <stdio.h>
 int	ft_cntchr(char const *s, char c)
 {
 	int	i;
@@ -50,7 +50,7 @@ char	**ft_split(char const *s, char c)
 	size = ft_cntchr(s, c) + 1;
 	arr = (char **)malloc(sizeof(char *) * ft_strlen(s) + 1);
 	i = 0;
-	while (*s && i < size)
+	while (*s && i < size + 1)
 	{
 		j = 0;
 		while (*s && *s == c)
