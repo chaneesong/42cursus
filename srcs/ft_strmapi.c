@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:17:10 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/19 16:00:15 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/19 21:05:17 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	i;
 
 	tmp = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!tmp)
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{
