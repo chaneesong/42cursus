@@ -6,16 +6,24 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:57:06 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/14 20:17:43 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/19 20:08:18 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_isspace(int c)
+{
+	if (c == '\t' || c == '\n' || c == '\v'
+		|| c == '\f' || c == '\r' || c == ' ')
+		return (1);
+	return (0);
+}
+
 int	ft_atoi(const char *str)
 {
-	int	negative;
-	int	res;
+	long long	negative;
+	long long	res;
 
 	negative = 1;
 	while (*str)

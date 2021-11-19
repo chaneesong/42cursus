@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:38:35 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/14 20:14:55 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/19 19:49:34 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 	size_t	len_needle;
 
-	if (len == 0 || !needle || !haystack)
-		return (0);
+	if (!needle && !len)
+		return (NULL);
 	i = 0;
 	len_needle = ft_strlen(needle);
-	while (haystack[i] && len-- && len_needle <= len)
+	if (!len_needle)
+		return ((char *)haystack);
+	while (haystack[i] && len && len_needle <= len)
 	{
 		if (ft_strncmp(&haystack[i], needle, len_needle) == 0)
 			return ((char *)&haystack[i]);
+		len--;
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
