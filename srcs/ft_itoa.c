@@ -6,16 +6,18 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:19:11 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/17 13:46:24 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/19 14:10:44 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_numlen(int n)
+int	ft_numlen(long n)
 {
 	int	res;
 
+	if (n == 0)
+		return (1);
 	res = 0;
 	if (n < 0)
 		n *= -1;
@@ -54,6 +56,11 @@ void	ft_setnum(char *s, long n)
 	long	i;
 
 	i = 0;
+	if (n == 0)
+	{
+		s[i] = '0';
+		i++;
+	}
 	if (n < 0)
 	{
 		s[i] = '-';
@@ -76,11 +83,11 @@ char	*ft_itoa(int n)
 	long	tmp;
 
 	tmp = (long)n;
-	len = ft_numlen(n);
+	len = ft_numlen(tmp);
 	if (n < 0)
 		res = (char *)malloc(sizeof(char) * (len + 2));
 	else
-		res = (char *)malloc(sizeof(char) * (len + 2));
+		res = (char *)malloc(sizeof(char) * (len + 1));
 	ft_setnum(res, tmp);
 	ft_strrev(res, len);
 	return (res);

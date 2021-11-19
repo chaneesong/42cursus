@@ -6,12 +6,12 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:54:58 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/17 23:17:49 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/19 17:09:36 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
 int	ft_cntchr(char const *s, char c)
 {
 	int	i;
@@ -30,9 +30,9 @@ int	ft_cntchr(char const *s, char c)
 	return (res);
 }
 
-size_t	ft_tofind(char const * s, char c)
+size_t	ft_tofind(char const *s, char c)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] && s[i] != c)
@@ -40,32 +40,40 @@ size_t	ft_tofind(char const * s, char c)
 	return (i);
 }
 
+char	*ft_cutstr(char const **s, size_t n)
+{
+	char	*tmp;
+	size_t	i;
+
+	i = 0;
+	tmp = (char *)malloc(sizeof(char) * (n + 1));
+	while (i < n)
+	{
+		tmp[i] = **s;
+		(*s)++;
+		i++;
+	}
+	tmp[i] = '\0';
+	return (tmp);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 	size_t	size;
 	size_t	i;
-	size_t	j;
+	size_t	k;
 
+	s = ft_strtrim(s, &c);
 	size = ft_cntchr(s, c) + 1;
-	arr = (char **)malloc(sizeof(char *) * ft_strlen(s) + 1);
+	arr = (char **)malloc(sizeof(char *) * (size + 1));
 	i = 0;
-	while (*s && i < size + 1)
+	while (*s && i + 1 < size)
 	{
-		j = 0;
 		while (*s && *s == c)
 			s++;
-		if (!*s)
-			break ;
-		size = ft_tofind(s, c);
-		arr[i] = (char *)malloc(sizeof(char) * (size + 1));
-		while (j < size)
-		{
-			arr[i][j] = *s;
-			s++;
-			j++;
-		}
-		arr[i][j] = '\0';
+		k = ft_tofind(s, c);
+		arr[i] = ft_cutstr(&s, k);
 		i++;
 	}
 	arr[i] = NULL;

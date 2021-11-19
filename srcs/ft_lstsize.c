@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:41:26 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/17 17:52:12 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/19 15:55:38 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int		i;
 	t_list	*tmp;
 
 	i = 0;

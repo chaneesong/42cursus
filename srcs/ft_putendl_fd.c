@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 16:14:12 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/17 16:15:32 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/19 15:56:13 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	if (fd < 0)
-	return ;
+		return ;
 	write(fd, s, ft_strlen(s));
 	write(fd, "\n", 1);
 }

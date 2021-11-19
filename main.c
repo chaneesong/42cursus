@@ -6,11 +6,11 @@
 int main()
 {
 	char **tmp;
-	char dest[] = "1234   12345    123";
-	char set = ' ';
+	char dest[] = "123 1234 12345   1234 123 12 1  ";
+	char c = ' ';
 	int i = 0;
-	free(tmp);
-	tmp = ft_split(dest, set);
+
+	tmp = ft_split(dest, c);
 	while (tmp[i])
 	{
 		printf("%s\n", tmp[i]);
