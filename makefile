@@ -57,9 +57,10 @@ CC			= gcc
 
 CFLAGS		= -Wall -Wextra -Werror
 
+
 SRCS		= $(addprefix $(SRC_PATH), $(SRC))
 
-SRCS_BONUS	= $(addprefix $(SRC_PATH), $(BONUS))
+SRCS_BONUS	= $(addprefix $(SRC_PATH), $(SRC) $(BONUS))
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -70,10 +71,10 @@ $(NAME):	$(OBJS)
 
 all:		$(NAME)
 
-.c.o:	$(SRCS_PATH)
+.c.o:	$(SRCS)
 			$(CC) $(CFLAGS) -c -o $@ $< -I${HEAD_PATH}
 
-bonus:		$(OBJS_BONUS)
+bonus:		$(OBJS) $(OBJS_BONUS)
 			$(AR) $(NAME) $^
 
 clean:
