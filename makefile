@@ -59,11 +59,11 @@ CFLAGS		= -Wall -Wextra -Werror
 
 SRCS		= $(addprefix $(SRC_PATH), $(SRC))
 
-SRCS_BONUS	= $(addprefix $(PATH), $(BONUS))
+SRCS_BONUS	= $(addprefix $(SRC_PATH), $(BONUS))
 
 OBJS		= $(SRCS:.c=.o)
 
-OBJS_BONUS	= $(SRCS:.c=.o)
+OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
 
 $(NAME):	$(OBJS)
 			$(AR) $@ $^
@@ -77,7 +77,7 @@ bonus:		$(OBJS_BONUS)
 			$(AR) $(NAME) $^
 
 clean:
-			$(RM) $(OBJS)
+			$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean:		clean
 			$(RM) $(NAME)
