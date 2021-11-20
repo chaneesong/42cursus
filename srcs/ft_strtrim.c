@@ -6,20 +6,20 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 23:43:04 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/19 20:59:51 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/20 15:04:01 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_lshift(char const *s1, char const *set)
+static char	*ft_lshift(char const *s1, char const *set)
 {
 	while (*s1 && ft_strchr(set, *s1) != NULL)
 		s1++;
 	return ((char *)s1);
 }
 
-char	*ft_rshift(char const *s1, char const *set)
+static char	*ft_rshift(char const *s1, char const *set)
 {
 	size_t	r;
 

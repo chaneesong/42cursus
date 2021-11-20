@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 18:08:19 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/19 19:14:37 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/20 15:42:55 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char		*tmp;
 	const char	*s;
-	
+
 	if (!src && !dst)
 		return (NULL);
 	tmp = dst;

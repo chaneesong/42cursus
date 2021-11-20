@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 23:54:49 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/19 15:54:11 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/20 13:29:15 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	if (!lst)
 		return ;
 	tmp = lst;
+	f(tmp->content);
 	while (tmp->next)
 	{
-		f(tmp->content);
 		tmp = tmp->next;
+		f(tmp->content);
 	}
 }

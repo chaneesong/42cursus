@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:54:58 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/19 21:04:07 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/20 15:43:19 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_cntchr(char const *s, char c)
+static int	ft_cntchr(char const *s, char c)
 {
 	int	i;
 	int	res;
@@ -30,7 +30,7 @@ int	ft_cntchr(char const *s, char c)
 	return (res);
 }
 
-size_t	ft_tofind(char const *s, char c)
+static size_t	ft_tofind(char const *s, char c)
 {
 	size_t	i;
 
@@ -40,7 +40,7 @@ size_t	ft_tofind(char const *s, char c)
 	return (i);
 }
 
-char	*ft_cutstr(char const **s, size_t n)
+static char	*ft_cutstr(char const **s, size_t n)
 {
 	char	*tmp;
 	size_t	i;
@@ -57,6 +57,17 @@ char	*ft_cutstr(char const **s, size_t n)
 	}
 	tmp[i] = '\0';
 	return (tmp);
+}
+
+static char	**ft_arr_free(char **arr)
+{
+	size_t	i;
+
+	i = 0;
+	while (arr[i])
+		free(arr[i]);
+	free(arr);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -78,6 +89,8 @@ char	**ft_split(char const *s, char c)
 			s++;
 		k = ft_tofind(s, c);
 		arr[i] = ft_cutstr(&s, k);
+		if (!arr[i])
+			return (ft_arr_free(arr));
 		i++;
 	}
 	arr[i] = NULL;

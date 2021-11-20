@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:09:11 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/19 21:23:36 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/20 15:43:39 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list **tmp;
+	t_list	**tmp;
 
 	tmp = lst;
 	if (!lst)

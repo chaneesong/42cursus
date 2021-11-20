@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:19:11 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/19 21:10:27 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/20 15:01:58 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_numlen(long n)
+static int	ft_numlen(long n)
 {
 	int	res;
 
@@ -29,7 +29,7 @@ int	ft_numlen(long n)
 	return (res);
 }
 
-void	ft_strrev(char *s, int len)
+static void	ft_strrev(char *s, int len)
 {
 	int		i;
 	char	tmp;
@@ -51,7 +51,7 @@ void	ft_strrev(char *s, int len)
 	}
 }
 
-void	ft_setnum(char *s, long n)
+static void	ft_setnum(char *s, long n)
 {
 	long	i;
 

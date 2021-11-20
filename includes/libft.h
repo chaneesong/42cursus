@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 00:08:43 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/17 16:11:22 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/20 15:07:42 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,9 @@ typedef struct s_list
 /*
 ** Part 1 Starting Point
 */
-int		ft_isupper(int c);
-int		ft_islower(int c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
-int		ft_isspace(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
