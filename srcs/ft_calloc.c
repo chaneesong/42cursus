@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 21:37:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/20 14:43:37 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/21 00:48:16 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_calloc(size_t count, size_t size)
 	tmp = (void *)malloc(size * count);
 	if (!tmp)
 		return (NULL);
-	ft_bzero(tmp, (count * size));
+	tmp = ft_memset(tmp, 0, size * count);
 	return (tmp);
 }
