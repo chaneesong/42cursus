@@ -57,7 +57,6 @@ CC			= gcc
 
 CFLAGS		= -Wall -Wextra -Werror
 
-
 SRCS		= $(addprefix $(SRC_PATH), $(SRC))
 
 SRCS_BONUS	= $(addprefix $(SRC_PATH), $(SRC) $(BONUS))
