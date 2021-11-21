@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 20:35:33 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/13 22:30:28 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/21 08:27:05 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	const char	*tmp;
+	char	*tmp;
 
 	tmp = NULL;
 	while (*s != '\0')
 	{
 		if (*s == (char)c)
-			tmp = s;
+			tmp = (char *)s;
 		s++;
 	}
 	if (c == 0)
-		tmp = s;
+		tmp = (char *)s;
 	return ((char *)tmp);
 }

@@ -6,9 +6,11 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 00:09:17 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/13 18:02:20 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/21 07:40:27 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

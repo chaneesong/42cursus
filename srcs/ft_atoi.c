@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:57:06 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/20 15:02:47 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/21 08:45:31 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static int	ft_isspace(int c)
 
 int	ft_atoi(const char *str)
 {
-	long long	negative;
-	long long	res;
+	int	negative;
+	int	res;
 
 	negative = 1;
 	while (*str)
