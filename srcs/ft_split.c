@@ -6,30 +6,33 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:54:58 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/22 19:00:44 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/23 03:21:39 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_cntstr(char const *s, char c)
+size_t	ft_get_size(char const *s, char c)
 {
+	size_t	res;
 	size_t	i;
 
+	res = 0;
 	i = 0;
-	while (*s)
+	while (s[i])
 	{
-		while (*s && *s == c)
-			s++;
-		if (*s != c)
+		while (s[i] && s[i] == c)
 			i++;
-		while (*s && *s != c)
-			s++;
+		if (!s[i])
+			return (res);
+		res++;
+		while (s[i] && s[i] != c)
+			i++;
 	}
-	return (i);
+	return (res);
 }
 
-static char	*ft_cutstr(char const **s, char c)
+char	*ft_cutstr(char const **s, char c)
 {
 	char	*tmp;
 	size_t	i;
@@ -39,12 +42,14 @@ static char	*ft_cutstr(char const **s, char c)
 	while (**s && s[0][i] != c)
 		i++;
 	tmp = (char *)malloc(sizeof(char) * (i + 1));
+	if (!tmp)
+		return (NULL);
 	j = 0;
-	while (j < i)
+	while (**s && **s != c)
 	{
 		tmp[j] = **s;
-		(*s)++;
 		j++;
+		(*s)++;
 	}
 	tmp[j] = '\0';
 	return (tmp);
@@ -66,19 +71,17 @@ static char	**ft_error_free(char **arr)
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	size_t	size;
 	size_t	i;
+	size_t	size;
 
-	if (*s == c || s[ft_strlen(s)] == c)
-		s = ft_strtrim((char *)s, &c);
-	size = ft_cntstr(s, c);
+	size = ft_get_size(s, c);
 	arr = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!arr)
 		return (NULL);
 	i = 0;
-	while (s && i < size && *s)
+	while (*s && i < size)
 	{
-		while (*s == c)
+		while (*s && *s == c)
 			s++;
 		arr[i] = ft_cutstr(&s, c);
 		if (!arr[i])
