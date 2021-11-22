@@ -61,27 +61,33 @@ SRCS		= $(addprefix $(SRC_PATH), $(SRC))
 
 SRCS_BONUS	= $(addprefix $(SRC_PATH), $(SRC) $(BONUS))
 
-OBJS		= $(SRCS:.c=.o)
+OBJS_SRCS	= $(SRCS:.c=.o)
 
 OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
 
-$(NAME):	$(OBJS)
+ifdef _BONUS
+	OBJS = $(OBJS_SRCS) $(OBJS_BONUS)
+else
+	OBJS = $(OBJS_SRCS)
+endif
+
+$(NAME): 	$(OBJS)
 			$(AR) $@ $^
 
 all:		$(NAME)
 
-.c.o:	$(SRCS)
+.c.o:		$(SRCS)
 			$(CC) $(CFLAGS) -c -o $@ $< -I${HEAD_PATH}
 
-bonus:		$(OBJS) $(OBJS_BONUS)
-			$(AR) $(NAME) $^
+bonus:		$(OBJS_BONUS)
+			make _BONUS=1 all
 
 clean:
 			$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean:		clean
-			$(RM) $(NAME) 
+			$(RM) $(NAME)
 
 re:			fclean all
 
-.PHONY:		bonus all clean fclean re
+.PHONY:		all bonus clean fclean re
