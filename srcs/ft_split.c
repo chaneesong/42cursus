@@ -6,66 +6,59 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:54:58 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/22 11:20:39 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/22 19:00:44 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_cntchr(char const *s, char c)
-{
-	int	i;
-	int	res;
-
-	i = 0;
-	res = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			res++;
-		while (s[i] && s[i] == c)
-			i++;
-		i++;
-	}
-	return (res);
-}
-
-static size_t	ft_tofind(char const *s, char c)
+static size_t	ft_cntstr(char const *s, char c)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
+	while (*s)
+	{
+		while (*s && *s == c)
+			s++;
+		if (*s != c)
+			i++;
+		while (*s && *s != c)
+			s++;
+	}
 	return (i);
 }
 
-static char	*ft_cutstr(char const **s, size_t n)
+static char	*ft_cutstr(char const **s, char c)
 {
 	char	*tmp;
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	tmp = (char *)malloc(sizeof(char) * (n + 1));
-	if (!tmp)
-		return (NULL);
-	while (i < n)
-	{
-		tmp[i] = **s;
-		(*s)++;
+	while (**s && s[0][i] != c)
 		i++;
+	tmp = (char *)malloc(sizeof(char) * (i + 1));
+	j = 0;
+	while (j < i)
+	{
+		tmp[j] = **s;
+		(*s)++;
+		j++;
 	}
-	tmp[i] = '\0';
+	tmp[j] = '\0';
 	return (tmp);
 }
 
-static char	**ft_arr_free(char **arr)
+static char	**ft_error_free(char **arr)
 {
 	size_t	i;
 
 	i = 0;
 	while (arr[i])
+	{
 		free(arr[i]);
+	}
 	free(arr);
 	return (NULL);
 }
@@ -75,22 +68,21 @@ char	**ft_split(char const *s, char c)
 	char	**arr;
 	size_t	size;
 	size_t	i;
-	size_t	k;
 
-	size = ft_cntchr(s, c) + 1;
+	if (*s == c || s[ft_strlen(s)] == c)
+		s = ft_strtrim((char *)s, &c);
+	size = ft_cntstr(s, c);
 	arr = (char **)malloc(sizeof(char *) * (size + 1));
-	s = ft_strtrim(s, &c);
 	if (!arr)
 		return (NULL);
 	i = 0;
-	while (*s && i < size)
+	while (s && i < size && *s)
 	{
-		while (*s && *s == c)
+		while (*s == c)
 			s++;
-		k = ft_tofind(s, c);
-		arr[i] = ft_cutstr(&s, k);
+		arr[i] = ft_cutstr(&s, c);
 		if (!arr[i])
-			return (ft_arr_free(arr));
+			return (ft_error_free(arr));
 		i++;
 	}
 	arr[i] = NULL;
