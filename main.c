@@ -13,11 +13,11 @@ int main()
 	// tmp = ft_split(s1, ' ');
 	while (result[i])
 	{
-		printf("%s\n", result[i]);
+		// printf("%s\n", result[i]);
 		free(result[i]);
 		i++;
 	}
-	printf("%s\n", result[i]);
+	// printf("%s\n", result[i]);
 	free(result);
 	return (0);
 }
