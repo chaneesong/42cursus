@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 20:41:32 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/20 13:10:48 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/25 00:57:39 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
 
-	if (!lst || !del)
+	if (!lst || !*lst || !del)
 		return ;
-	while (*lst)
+	while (lst && *lst)
 	{
-		del((*lst)->content);
 		tmp = (*lst)->next;
-		free(*lst);
+		ft_lstdelone(*lst, del);
 		*lst = tmp;
 	}
 }
