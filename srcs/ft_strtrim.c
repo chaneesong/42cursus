@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 23:43:04 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/22 18:26:23 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/23 15:16:53 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*tmp;
 	char	*l;
 	char	*r;
-	int		size;
+	size_t	size;
 
 	l = ft_lshift(s1, set);
 	r = ft_rshift(s1, set);
