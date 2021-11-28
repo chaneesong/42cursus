@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 23:04:26 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/23 15:52:02 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/28 14:44:17 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t			i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	tmp = (char *)malloc(sizeof(char) * (len + 1));
 	if (!tmp)
 		return (NULL);

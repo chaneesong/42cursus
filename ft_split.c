@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:54:58 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/23 14:35:41 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/28 14:46:52 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	size;
 
+	if (!s)
+		return (NULL);
 	size = ft_get_size(s, c);
 	arr = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!arr)

@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 23:29:12 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/25 00:13:42 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/28 14:45:35 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		join_len;
 	int		cnt;
 
+	if (!s1 || !s2)
+		return (NULL);
 	join_len = ft_strlen(s1) + ft_strlen(s2);
 	tmp = (char *)malloc(sizeof(char) * (join_len + 1));
 	if (!tmp)

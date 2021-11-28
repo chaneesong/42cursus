@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 16:12:37 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/21 15:41:30 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/28 14:48:26 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (fd < 0)
+	if (fd < 0 || !s)
 		return ;
 	write(fd, s, ft_strlen(s));
 }

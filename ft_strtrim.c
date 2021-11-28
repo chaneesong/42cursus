@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 23:43:04 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/25 00:26:50 by chsong           ###   ########.fr       */
+/*   Updated: 2021/11/28 15:14:43 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*r;
 	size_t	size;
 
+	if (!s1 || !set)
+		return (NULL);
 	l = ft_lshift(s1, set);
 	r = ft_rshift(s1, set);
-	size = ft_strlen(l) - ft_strlen(r);
+	size = ft_strlen(l) - ft_strlen(r) + 1;
 	if (!ft_strlen(l))
-		size = 0;
-	tmp = (char *)malloc(sizeof(char) * (size + 1));
+		size = 1;
+	tmp = (char *)malloc(sizeof(char) * size);
 	if (!tmp)
 		return (NULL);
-	size = 0;
 	if (ft_strlen(l))
-	{
-		while (l != r)
-		{
-			tmp[size] = *l;
-			l++;
-			size++;
-		}
-	}
-	tmp[size] = '\0';
+		ft_strlcpy(tmp, l, size);
+	else
+		tmp[0] = '\0';
 	return (tmp);
 }
