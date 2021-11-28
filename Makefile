@@ -1,6 +1,6 @@
 NAME		= libft.a
 
-SRC			= ft_isalpha.c \
+SRCS			= ft_isalpha.c \
 				ft_isdigit.c \
 				ft_isalnum.c \
 				ft_isascii.c \
@@ -35,7 +35,7 @@ SRC			= ft_isalpha.c \
 				ft_putendl_fd.c \
 				ft_putnbr_fd.c
 
-BONUS		= ft_lstnew.c \
+SRCS_BONUS		= ft_lstnew.c \
 				ft_lstadd_front.c \
 				ft_lstsize.c \
 				ft_lstlast.c \
@@ -45,10 +45,6 @@ BONUS		= ft_lstnew.c \
 				ft_lstiter.c \
 				ft_lstmap.c
 
-SRC_PATH	= ./srcs/
-
-HEAD_PATH	= ./includes/
-
 AR			= ar rcs
 
 RM			= rm -f
@@ -56,10 +52,6 @@ RM			= rm -f
 CC			= gcc
 
 CFLAGS		= -Wall -Wextra -Werror
-
-SRCS		= $(addprefix $(SRC_PATH), $(SRC))
-
-SRCS_BONUS	= $(addprefix $(SRC_PATH), $(SRC) $(BONUS))
 
 OBJS_SRCS	= $(SRCS:.c=.o)
 
@@ -77,9 +69,9 @@ $(NAME): 	$(OBJS)
 all:		$(NAME)
 
 .c.o:		$(SRCS)
-			$(CC) $(CFLAGS) -c -o $@ $< -I${HEAD_PATH}
+			$(CC) $(CFLAGS) -c -o $@ $<
 
-bonus:		$(OBJS_BONUS)
+bonus:
 			make _BONUS=1 all
 
 clean:
