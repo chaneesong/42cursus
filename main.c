@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 21:32:34 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/01 00:33:10 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/01 01:15:50 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(void)
 
 	fd = open("test.txt", O_RDONLY, 444);
 	for(int i = 0; i < 6; i++)
+		// get_next_line(fd);
 		printf("res=%s\n", get_next_line(fd));
 
 	close(fd);

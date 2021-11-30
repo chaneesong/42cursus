@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:03:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/01 00:37:32 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/01 01:15:41 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 size_t	ft_strndup(char **dest, char **src, size_t n)
 {
 	size_t	i;
-
 	*dest = (char *)ft_calloc(sizeof(char), (n + 1));
 	if (!dest)
 		return (0);
@@ -39,6 +38,7 @@ char	*ft_cut_str(char *s)
 
 	len = ft_strlen(s);
 	tmp = (char *)malloc(sizeof(char) * (len + 1));
+	i = 0;
 	if (!tmp)
 		return (NULL);
 	while(i < len)
@@ -67,11 +67,9 @@ char	*get_next_line(int fd)
 		rsize = read(fd, tmp, BUFFER_SIZE);
 		rest = ft_strjoin(rest, tmp);
 	}
-	printf("rest=%s\n", rest);
-	if (ft_strchr(rest, '\n'))
+	if (ft_strchr(rest, '\n') != -1 || !rsize)
 	{
 		ft_strndup(&res, &rest, ft_strchr(rest, '\n') + 1);
-		printf("rest=%s\n", rest);
 		rest = ft_cut_str(rest);
 	}
 	free(tmp);
