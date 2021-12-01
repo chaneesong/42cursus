@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:03:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/01 01:15:41 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/01 18:41:12 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 size_t	ft_strndup(char **dest, char **src, size_t n)
 {
 	size_t	i;
+
 	*dest = (char *)ft_calloc(sizeof(char), (n + 1));
 	if (!dest)
 		return (0);
@@ -41,7 +42,7 @@ char	*ft_cut_str(char *s)
 	i = 0;
 	if (!tmp)
 		return (NULL);
-	while(i < len)
+	while (i < len)
 	{
 		tmp[i] = s[i];
 		i++;
@@ -56,22 +57,28 @@ char	*get_next_line(int fd)
 	char		*tmp;
 	char		*res;
 	size_t		rsize;
-	
+	char		*test;
+
 	if (fd < 0)
 		return (NULL);
 	tmp = (char *)ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
 	if (!tmp)
 		return (NULL);
-	while (ft_strchr(rest, '\n') == -1 && rsize)
+	test = rest;
+	while (ft_strchr(rest, '\n') == -1)
 	{
 		rsize = read(fd, tmp, BUFFER_SIZE);
+		if (!rsize)
+			break;
 		rest = ft_strjoin(rest, tmp);
 	}
-	if (ft_strchr(rest, '\n') != -1 || !rsize)
+	if (ft_strchr(rest, '\n') != -1)
 	{
 		ft_strndup(&res, &rest, ft_strchr(rest, '\n') + 1);
 		rest = ft_cut_str(rest);
 	}
+	if (!rsize && rest)
+		ft_strndup(&res, &rest, ft_strlen(rest) + 1);
 	free(tmp);
 	return (res);
 }
