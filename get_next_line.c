@@ -6,79 +6,84 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:03:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/01 18:41:12 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/02 21:04:03 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
 
-size_t	ft_strndup(char **dest, char **src, size_t n)
+char	*ft_strndup(char const *src, int n)
 {
-	size_t	i;
+	int		i;
+	char	*tmp;
 
-	*dest = (char *)ft_calloc(sizeof(char), (n + 1));
-	if (!dest)
-		return (0);
+	tmp = (char *)ft_calloc(sizeof(char), n + 1);
 	i = 0;
-	while (i < n)
+	while(i < n + 1)
 	{
-		(*dest)[i] = **src;
+		tmp[i] = src[i];
 		i++;
-		(*src)++;
 	}
-	(*dest)[i] = '\0';
-	return (i);
+	return (tmp);
 }
 
-char	*ft_cut_str(char *s)
+static char *get_str(char **s, int fd)
 {
 	char	*tmp;
-	size_t	len;
-	size_t	i;
+	char	*res;
+	size_t	rsize;
 
-	len = ft_strlen(s);
-	tmp = (char *)malloc(sizeof(char) * (len + 1));
-	i = 0;
-	if (!tmp)
-		return (NULL);
-	while (i < len)
+	tmp = (char *)ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+	while (ft_strchr(*s, '\n') == -1)
 	{
-		tmp[i] = s[i];
+		rsize = read(fd, tmp, BUFFER_SIZE);
+		if (!rsize)
+			break ;
+		*s = ft_strjoin(s, tmp);
+	}
+	res = *s;
+	free(tmp);
+	return (res);
+}
+
+static char	*cut_str(char **s, int n)
+{
+	char	*tmp;
+	int		len;
+	int		i;
+
+	if (n == -1)
+		return (NULL);
+	len = ft_strlen(*s);
+	tmp = (char *)ft_calloc(len - n + 1, sizeof(char));
+	i = 0;
+	while (i + n + 1 < len)
+	{
+		tmp[i] = (*s)[i + n + 1];
 		i++;
 	}
-	tmp[i] = '\0';
+	free(&(*s)[0]);
 	return (tmp);
 }
 
 char	*get_next_line(int fd)
 {
 	static char	*rest;
-	char		*tmp;
 	char		*res;
-	size_t		rsize;
-	char		*test;
+	char		*tmp;
+	int			i;
 
 	if (fd < 0)
 		return (NULL);
-	tmp = (char *)ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
+	tmp = get_str(&rest, fd);
+	i = ft_strchr(tmp, '\n');
 	if (!tmp)
 		return (NULL);
-	test = rest;
-	while (ft_strchr(rest, '\n') == -1)
-	{
-		rsize = read(fd, tmp, BUFFER_SIZE);
-		if (!rsize)
-			break;
-		rest = ft_strjoin(rest, tmp);
-	}
-	if (ft_strchr(rest, '\n') != -1)
-	{
-		ft_strndup(&res, &rest, ft_strchr(rest, '\n') + 1);
-		rest = ft_cut_str(rest);
-	}
-	if (!rsize && rest)
-		ft_strndup(&res, &rest, ft_strlen(rest) + 1);
-	free(tmp);
+	if (i == -1)
+		res = ft_strndup(tmp, ft_strlen(tmp));
+	else
+		res = ft_strndup(tmp, i);
+	rest = cut_str(&tmp, i);
 	return (res);
 }
