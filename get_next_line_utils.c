@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:07:32 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/02 20:52:31 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/03 15:42:06 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	*ft_calloc(size_t count, size_t size)
 int	ft_strchr(const char *s, int c)
 {
 	size_t	i;
-	
+
 	if (!s)
 		return (-1);
 	i = 0;

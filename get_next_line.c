@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:03:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/02 21:04:03 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/03 22:35:07 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_strndup(char const *src, int n)
 	int		i;
 	char	*tmp;
 
-	tmp = (char *)ft_calloc(sizeof(char), n + 1);
+	tmp = (char *)ft_calloc(sizeof(char), n + 2);
 	i = 0;
-	while(i < n + 1)
+	while (i < n + 1)
 	{
 		tmp[i] = src[i];
 		i++;
@@ -28,7 +28,7 @@ char	*ft_strndup(char const *src, int n)
 	return (tmp);
 }
 
-static char *get_str(char **s, int fd)
+static char	*get_str(char **s, int fd)
 {
 	char	*tmp;
 	char	*res;
@@ -41,6 +41,7 @@ static char *get_str(char **s, int fd)
 		if (!rsize)
 			break ;
 		*s = ft_strjoin(s, tmp);
+		ft_memset(tmp, 0, ft_strlen(tmp));
 	}
 	res = *s;
 	free(tmp);
@@ -74,7 +75,7 @@ char	*get_next_line(int fd)
 	char		*tmp;
 	int			i;
 
-	if (fd < 0)
+	if (fd < 2)
 		return (NULL);
 	tmp = get_str(&rest, fd);
 	i = ft_strchr(tmp, '\n');
@@ -85,5 +86,10 @@ char	*get_next_line(int fd)
 	else
 		res = ft_strndup(tmp, i);
 	rest = cut_str(&tmp, i);
+	if (!*res)
+	{
+		free(res);
+		return (NULL);
+	}
 	return (res);
 }
