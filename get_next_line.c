@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:03:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/03 22:35:07 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/04 01:21:54 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*get_next_line(int fd)
 	char		*tmp;
 	int			i;
 
-	if (fd < 2)
+	if (fd < 0)
 		return (NULL);
 	tmp = get_str(&rest, fd);
 	i = ft_strchr(tmp, '\n');

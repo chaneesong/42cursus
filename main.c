@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 21:32:34 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/03 22:28:39 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/04 01:15:12 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ int	main(void)
 	for(int i = 0; i < 6; i++)
 	{
 		// get_next_line(fd);
-		printf("res=%s\n", get_next_line(fd));
+		res = get_next_line(fd);
+		printf("res=%s\n", res);
+		if (res)
+			free(res);
 	}
 	close(fd);
-	// while (1)
-	// 	continue ;
+	while (1)
+		continue ;
 	return (0);
 }
