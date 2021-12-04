@@ -6,12 +6,11 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:03:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/05 00:28:52 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/05 00:36:58 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 char	*ft_strndup(char const *src, int n)
 {
@@ -78,9 +77,9 @@ char	*get_next_line(int fd)
 	if (fd < 0)
 		return (NULL);
 	tmp = get_str(&rest, fd);
+	i = ft_strchr(tmp, '\n');
 	if (!tmp)
 		return (NULL);
-	i = ft_strchr(tmp, '\n');
 	if (i == -1)
 		res = ft_strndup(tmp, ft_strlen(tmp));
 	else
@@ -90,6 +89,11 @@ char	*get_next_line(int fd)
 	{
 		free(tmp);
 		free(rest);
+	}
+	if (!*res)
+	{
+		free(res);
+		return (NULL);
 	}
 	return (res);
 }
