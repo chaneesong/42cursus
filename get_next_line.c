@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:03:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/05 16:36:55 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/06 06:55:04 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strndup(char const *src, int n)
 	char	*tmp;
 
 	tmp = (char *)ft_calloc(sizeof(char), n + 2);
+	if (!tmp)
+		return (NULL);
 	i = 0;
 	while (i < n + 1)
 	{
@@ -34,6 +36,8 @@ static char	*get_str(char **s, int fd)
 	size_t	rsize;
 
 	tmp = (char *)ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+	if (!tmp)
+		return (NULL);
 	while (ft_strchr(*s, '\n') == -1)
 	{
 		rsize = read(fd, tmp, BUFFER_SIZE);
