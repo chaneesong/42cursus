@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:03:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/06 16:40:56 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/06 17:37:05 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,14 @@ void	free_rest(char **rest1, char **rest2)
 
 char	*get_next_line(int fd)
 {
-	static char	*rest;
+	static char	*rest[111111];
 	char		*res;
 	char		*tmp;
 	int			i;
 
 	if (fd < 0)
 		return (NULL);
-	tmp = get_str(&rest, fd);
+	tmp = get_str(&rest[fd], fd);
 	i = ft_strchr(tmp, '\n');
 	if (!tmp)
 		return (NULL);
@@ -94,9 +94,9 @@ char	*get_next_line(int fd)
 		res = ft_strndup(tmp, ft_strlen(tmp));
 	else
 		res = ft_strndup(tmp, i);
-	rest = cut_str(&tmp, i);
+	rest[fd] = cut_str(&tmp, i);
 	if (ft_strchr(res, '\n') == -1)
-		free_rest(&rest, &tmp);
+		free_rest(&rest[fd], &tmp);
 	if (!*res)
 	{
 		free(res);
