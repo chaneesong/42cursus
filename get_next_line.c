@@ -6,12 +6,12 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:03:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/06 06:55:04 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/06 15:55:25 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
+#include <stdio.h>
 char	*ft_strndup(char const *src, int n)
 {
 	int		i;
@@ -41,7 +41,7 @@ static char	*get_str(char **s, int fd)
 	while (ft_strchr(*s, '\n') == -1)
 	{
 		rsize = read(fd, tmp, BUFFER_SIZE);
-		if (!rsize)
+		if (!rsize || (int)rsize == -1)
 			break ;
 		*s = ft_strjoin(s, tmp);
 		ft_memset(tmp, 0, ft_strlen(tmp));
