@@ -6,11 +6,11 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:03:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/06 16:40:56 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/08 20:11:06 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 char	*ft_strndup(char const *src, int n)
 {
@@ -71,7 +71,7 @@ static char	*cut_str(char **s, int n)
 	return (tmp);
 }
 
-void	free_rest(char **rest1, char **rest2)
+void	rest_free(char **rest1, char **rest2)
 {
 	free(&(*rest1)[0]);
 	free(&(*rest2)[0]);
@@ -96,7 +96,7 @@ char	*get_next_line(int fd)
 		res = ft_strndup(tmp, i);
 	rest = cut_str(&tmp, i);
 	if (ft_strchr(res, '\n') == -1)
-		free_rest(&rest, &tmp);
+		rest_free(&rest, &tmp);
 	if (!*res)
 	{
 		free(res);
