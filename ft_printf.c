@@ -6,32 +6,32 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:24:28 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/16 21:41:20 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/16 22:09:31 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	is_type(char c)
+static	char	is_type(char c)
 {
-	int		check;
+	char	format;
 
-	check = 0;
-	if (ft_strchr("cspdiuxX%\0", c))
-		check = 1;
-
-	return (check);
+	format = ft_strchr("cspdiuxX%\0", c);
+	return (format);
 }
 
-static t_flags	find_format(const char **str)
+static t_flags	find_flags(const char **str)
 {
 	t_flags	flags;
+	char	format;
 
 	ft_memset(&flags, 0, sizeof(t_flags));
 	while (*str && **str)
 	{
-		if (is_type(**str))
+		format = is_type(**str);
+		if (format)
 			break ;
+		// insert_flags();
 		(*str)++;
 	}
 	return (flags);
@@ -54,8 +54,9 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			flags = find_format(&str);
+			flags = find_flags(&str);
 			// find_type(&str);
+			continue ;
 		}
 		ft_putchar_fd(*str, 1);
 		str++;
