@@ -1,4 +1,4 @@
-NAME		= libft.a
+NAME		= libftprintf.a
 
 SRCS			= ft_isalpha.c \
 				ft_isdigit.c \
