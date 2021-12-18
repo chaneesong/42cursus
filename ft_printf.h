@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/16 21:11:43 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/17 16:23:36 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ typedef struct s_flags
 	int	sign;
 	int	space;
 	int	hash;
-	int	length;
 	int	precision;
+	int	wildcard;
+	int	width;
 }	t_flags;
 
 
-int	ft_printf(const char *str, ...);
+int		ft_printf(const char *str, ...);
+void	insert_flags(t_flags *flags, char c);
 
 #	endif
