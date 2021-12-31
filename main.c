@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:35:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/18 01:11:17 by chsong           ###   ########.fr       */
+/*   Updated: 2021/12/31 17:24:47 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@
 
 int	main()
 {
-	// char tmp[2] = "%%";
-	// char format[10] = "cspdiuxX%\0";
+	int a = 123;
 
-	ft_printf("asd%-#+.1000d\n");
-
+	ft_printf("%d\n", a);
 	return 0;
 }
