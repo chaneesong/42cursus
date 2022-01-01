@@ -6,30 +6,48 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:24:28 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/31 18:04:38 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/01 17:28:00 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	is_type(char c)
+#include <stdio.h>
+static int	args_count(const char *str)
 {
-	if (ft_strchr("cspdiuxX%\0", c))
-		return (1);
-	return (0);
+	size_t	cnt;
+
+	cnt = 0;
+	while (str && *str)
+	{
+		if (*str == '%')
+		{
+			str++;
+			cnt++;
+		}
+		if (*str == '%')
+		{
+			str++;
+			cnt--;
+		}
+		else
+			str++;
+	}
+	return (cnt);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	tmp;
-	int		size;
+	va_list	ap;
+	size_t	ac;
+	size_t	size;
 
-	va_start(tmp, str);
+	ac = args_count(str);
+	va_start(ap, ac);
 	size = 0;
-	while (*str)
+	while (str && *str)
 	{
 		if (*str == '%')
-			size += ft_format_tag();
+			size += ft_format_tag(**str, );
 		ft_putchar_fd(*str, 1);
 		str++;
 		size++;

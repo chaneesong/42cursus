@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 17:42:46 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/31 18:00:16 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/01 16:58:26 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_format_tag(char type, char *str)
+int	ft_format_tag(char **str, char *tmp)
 {
 	
 }

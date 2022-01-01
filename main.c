@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:35:38 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/31 17:24:47 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/01 17:25:33 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,21 @@
 #include "ft_printf.h"
 #include <unistd.h>
 
+void	print_exam(int args, ...)
+{
+	va_list ap;
+
+	va_start(ap, args);
+	printf("%d\n", va_arg(ap, int));
+	printf("%f\n", va_arg(ap, double));
+	printf("%c\n", va_arg(ap, int));
+	printf("%s\n", va_arg(ap, char *));
+	va_end(ap);
+}
+
 int	main()
 {
-	int a = 123;
-
-	ft_printf("%d\n", a);
+	// print_exam(4, 123, 123.123, 'c', "asdasd");
+	ft_printf("%d%c%s%f%%", 123, 'c', "asdasd", 123.123);
 	return 0;
 }
