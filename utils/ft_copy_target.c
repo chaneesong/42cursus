@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_copy_target.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/03 20:59:11 by chsong           ###   ########.fr       */
+/*   Created: 2022/01/03 20:25:38 by chsong            #+#    #+#             */
+/*   Updated: 2022/01/03 20:52:42 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+static int  find_format()
 {
-	va_list	ap;
-	size_t	size;
-	char	*target;
+	
+}
 
-	va_start(ap, str);
-	size = 0;
-	while (str && *str)
-	{
-		if (*str == '%')
-		{
-			target = ft_copy_target(&str);
-			size += ft_processing(target, ap);
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
-		size++;
-	}
-	va_end(ap);
-	return (size);
+int ft_copy_target(const char **str)
+{
+	
 }

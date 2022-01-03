@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/31 17:53:24 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/03 20:59:55 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_flags
 }	t_flags;
 
 int	ft_printf(const char *str, ...);
-int	ft_type(char type, char *str);
+int	ft_type(char *str);
+int ft_copy_target(const char **str);
+int	ft_processing(char *target, va_list ap);
 
 #	endif
