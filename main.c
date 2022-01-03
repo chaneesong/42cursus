@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:35:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/03 20:16:15 by marvin           ###   ########.fr       */
+/*   Updated: 2022/01/03 21:42:50 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ void	print_exam(int args, ...)
 int	main()
 {
 	// print_exam(4, 123, 123.123, 'c', "asdasd");
-	ft_printf("%d%c%s%f%%", 123, 'c', "asdasd", 123.123);
+	ft_printf("%nmb.d%c%s%p%u%%", 123, 'c', "asdasd", 123.123);
 	return 0;
 }

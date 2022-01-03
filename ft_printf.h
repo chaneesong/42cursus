@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/03 20:59:55 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/03 21:47:38 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include "./libft/libft.h"
+#include <stdio.h>
 
 typedef struct s_flags
 {
@@ -29,9 +30,9 @@ typedef struct s_flags
 	int	width;
 }	t_flags;
 
-int	ft_printf(const char *str, ...);
-int	ft_type(char *str);
-int ft_copy_target(const char **str);
-int	ft_processing(char *target, va_list ap);
+int		ft_printf(const char *str, ...);
+int		ft_type(char *str);
+int		ft_processing(char *target, va_list ap);
+char	*ft_copy_target(const char **str);
 
 #	endif
