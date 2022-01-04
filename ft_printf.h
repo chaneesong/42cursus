@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/03 21:47:38 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/04 15:25:05 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "./libft/libft.h"
 #include <stdio.h>
 
-typedef struct s_flags
+typedef struct s_data
 {
 	int	lshift;
 	int	zpadding;
@@ -28,11 +28,17 @@ typedef struct s_flags
 	int	precision;
 	int	wildcard;
 	int	width;
-}	t_flags;
+	int	format;
+}	t_data;
 
 int		ft_printf(const char *str, ...);
-int		ft_type(char *str);
-int		ft_processing(char *target, va_list ap);
-char	*ft_copy_target(const char **str);
+int		type(char *str);
+int		process_format(char *target, va_list ap);
+int		get_precision(char **target);
+int		get_width(char **target);
+
+char	*copy_target(const char **str);
+
+void	contain_data(char *target, t_data *data);
 
 #	endif

@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   copy_target.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/04 15:24:33 by chsong           ###   ########.fr       */
+/*   Created: 2022/01/03 20:25:38 by chsong            #+#    #+#             */
+/*   Updated: 2022/01/04 15:24:20 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+static int  find_format(const char c)
 {
-	va_list	ap;
-	size_t	size;
-	char	*target;
+	if (ft_strchr("cspdiuxx%", c))
+		return (1);
+	return (0);
+}
 
-	va_start(ap, str);
+char	*copy_target(const char **str)
+{
+	size_t	size;
+	char	*tmp;
+
 	size = 0;
-	while (str && *str)
-	{
-		if (*str == '%')
-		{
-			str++;
-			target = copy_target(&str);
-			size += print_format(target, ap);
-			free(target);
-			continue ;
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
+	while (*str && **str && !find_format((*str)[size]))
 		size++;
-	}
-	va_end(ap);
-	return (size);
+	size++;
+	tmp = (char *)malloc(sizeof(char) * (size + 1));
+	ft_strlcpy(tmp, *str, size + 1);
+	(*str) += size;
+	return (tmp);
 }

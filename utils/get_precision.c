@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_processing.c                                    :+:      :+:    :+:   */
+/*   get_precision.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:43:16 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/03 21:28:41 by chsong           ###   ########.fr       */
+/*   Created: 2022/01/04 14:59:24 by chsong            #+#    #+#             */
+/*   Updated: 2022/01/04 15:11:34 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int ft_processing(char *target, va_list ap)
+int	get_precision(char **target)
 {
-	
+	int	result;
+
+	(*target)++;
+	result = ft_atoi(*target);
+	return(result);
 }
