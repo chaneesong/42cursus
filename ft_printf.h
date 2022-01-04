@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/04 15:25:05 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/05 05:59:13 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_data
 
 int		ft_printf(const char *str, ...);
 int		type(char *str);
-int		process_format(char *target, va_list ap);
+int		print_format(char *target, va_list ap);
 int		get_precision(char **target);
 int		get_width(char **target);
 
