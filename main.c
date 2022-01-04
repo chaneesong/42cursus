@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:35:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/05 07:05:29 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/05 07:18:19 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	print_exam(int args, ...)
 int	main()
 {
 	// print_exam(4, 123, 123.123, 'c', "asdasd");
-	ft_printf("%010dprint1%cprint2%sprint3%pprint4%uprint5%%print6", 123, 'c', "asdasd", 123.123);
+	ft_printf("%010.10dprint1%cprint2%sprint3", 123, 'c', "asdasd", 123.123);
 	// printf("%d\n", 123);
 	return 0;
 }

@@ -6,12 +6,12 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:57:06 by chsong            #+#    #+#             */
-/*   Updated: 2021/12/18 01:12:19 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/05 07:16:51 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
 static int	ft_isspace(int c)
 {
 	if (c == '\t' || c == '\n' || c == '\v'
@@ -24,7 +24,7 @@ int	ft_atoi(const char *str)
 {
 	int	negative;
 	int	res;
-	printf("%s\n", str);
+	
 	negative = 1;
 	while (*str)
 	{

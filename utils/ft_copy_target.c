@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_format.c                                     :+:      :+:    :+:   */
+/*   ft_copy_target.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:43:16 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/05 06:00:12 by chsong           ###   ########.fr       */
+/*   Created: 2022/01/03 20:25:38 by chsong            #+#    #+#             */
+/*   Updated: 2022/01/05 07:48:53 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int print_format(char *target, va_list ap)
+static int  ft_find_format(const char c)
 {
-	t_data	t_data;
-	int		size;
+	if (ft_strchr("cspdiuxx%", c))
+		return (1);
+	return (0);
+}
+
+char	*ft_copy_target(const char **str)
+{
+	size_t	size;
+	char	*tmp;
 
 	size = 0;
-	ft_memset(&t_data, 0, sizeof(t_data));
-	contain_data(target, &t_data);
-	return (size);
+	while (*str && **str && !ft_find_format((*str)[size]))
+		size++;
+	size++;
+	tmp = (char *)malloc(sizeof(char) * (size + 1));
+	ft_strlcpy(tmp, *str, size + 1);
+	(*str) += size;
+	return (tmp);
 }

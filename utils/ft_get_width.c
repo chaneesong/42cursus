@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   copy_target.c                                      :+:      :+:    :+:   */
+/*   ft_get_width.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:25:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/04 15:24:20 by chsong           ###   ########.fr       */
+/*   Created: 2022/01/04 15:00:14 by chsong            #+#    #+#             */
+/*   Updated: 2022/01/05 07:49:50 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int  find_format(const char c)
+int	ft_get_width(char **target)
 {
-	if (ft_strchr("cspdiuxx%", c))
-		return (1);
-	return (0);
-}
+	int	result;
 
-char	*copy_target(const char **str)
-{
-	size_t	size;
-	char	*tmp;
-
-	size = 0;
-	while (*str && **str && !find_format((*str)[size]))
-		size++;
-	size++;
-	tmp = (char *)malloc(sizeof(char) * (size + 1));
-	ft_strlcpy(tmp, *str, size + 1);
-	(*str) += size;
-	return (tmp);
+	result = ft_atoi(*target);
+	(*target) += ft_strlen(ft_itoa(result)) - 1;
+	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/05 05:59:13 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/05 07:49:33 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,18 @@ typedef struct s_data
 	int	space;
 	int	hash;
 	int	precision;
-	int	wildcard;
 	int	width;
 	int	format;
 }	t_data;
 
 int		ft_printf(const char *str, ...);
-int		type(char *str);
-int		print_format(char *target, va_list ap);
-int		get_precision(char **target);
-int		get_width(char **target);
+int		ft_type(char *str);
+int		ft_print_format(char *target, va_list ap);
+int		ft_get_precision(char **target);
+int		ft_get_width(char **target);
 
-char	*copy_target(const char **str);
+char	*ft_copy_target(const char **str);
 
-void	contain_data(char *target, t_data *data);
+void	ft_contain_data(char *target, t_data *data);
 
 #	endif
