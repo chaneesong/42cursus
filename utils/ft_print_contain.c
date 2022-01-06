@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_format.c                                  :+:      :+:    :+:   */
+/*   ft_print_contain.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:43:16 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/06 20:35:17 by chsong           ###   ########.fr       */
+/*   Created: 2022/01/06 20:33:11 by chsong            #+#    #+#             */
+/*   Updated: 2022/01/06 20:53:25 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int ft_print_format(char *target, va_list ap)
+int	ft_print_contain(t_data data, va_list ap)
 {
-	t_data	t_data;
 	int		size;
 
-	size = 0;
-	ft_memset(&t_data, 0, sizeof(t_data));
-	ft_contain_data(target, &t_data);
-	size += ft_print_contain(t_data, ap);
-	return (size);
 }
