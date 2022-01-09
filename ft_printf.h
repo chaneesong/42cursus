@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/06 20:36:11 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/10 08:20:38 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ int		ft_print_contain(t_data data, va_list ap);
 
 char	*ft_copy_target(const char **str);
 
-void	ft_contain_data(char *target, t_data *data);
+void	ft_contain_data(char *target, t_data *data, va_list ap);
 
 #	endif
