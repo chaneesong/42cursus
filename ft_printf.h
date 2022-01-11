@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/12 03:08:24 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/12 05:09:17 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ typedef struct s_data
 }	t_data;
 
 int		ft_printf(const char *str, ...);
-int		ft_type(char *str);
 int		ft_print_format(char *target, va_list ap);
 int		ft_get_precision(char **target);
 int		ft_get_width(char **target);
-int		ft_print_contain(t_data data, va_list ap);
+int		ft_print_contain(t_data data);
 int		ft_print_sign(int n);
 int		ft_print_space(int n);
-int		ft_shift(int width, int len, int zpadding);
+int		ft_lshift(int width, int len, int zpadding);
 int		ft_print_char(va_list ap);
 int		ft_print_str(va_list ap);
 int		ft_print_int(va_list ap);
 int		ft_print_unsigned_int(va_list ap);
 int		ft_print_hex_lower(va_list ap);
 int		ft_print_hex_upper(va_list ap);
+int		ft_print_type(t_data data, va_list ap);
 
 char	*ft_copy_target(const char **str);
 

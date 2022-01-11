@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_format.c                                  :+:      :+:    :+:   */
+/*   ft_print_type.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:43:16 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/10 08:14:10 by chsong           ###   ########.fr       */
+/*   Created: 2022/01/12 03:22:51 by chsong            #+#    #+#             */
+/*   Updated: 2022/01/12 03:25:34 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int ft_print_format(char *target, va_list ap)
+int	ft_print_type(t_data data, va_list ap)
 {
-	t_data	t_data;
 	int		size;
 
 	size = 0;
-	ft_memset(&t_data, 0, sizeof(t_data));
-	ft_contain_data(target, &t_data, ap);
-	size += ft_print_contain(t_data, ap);
+	if (data.format == 'c')
+		size = ft_print_char(ap);
+	else if (data.format == 's')
+		size = ft_print_str(ap);
+	else if (data.format == 'd')
+		size = ft_print_int(ap);
+	else if (data.format == 'i')
+		size = ft_print_int(ap);
+	else if (data.format == 'x')
+		size = ft_print_hex_lower(ap);
+	else if (data.format == 'X')
+		size = ft_print_hex_upper(ap);
+	else if (data.format == '%')
+	{
+		ft_putchar_fd('%', 1);
+		size++;
+	}
 	return (size);
 }

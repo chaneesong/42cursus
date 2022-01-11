@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_print_unsigned_int.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 13:53:41 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/10 14:00:52 by chsong           ###   ########.fr       */
+/*   Created: 2022/01/12 02:51:31 by chsong            #+#    #+#             */
+/*   Updated: 2022/01/12 05:00:28 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_print_char(va_list ap)
+int	ft_print_unsigned_int(va_list ap)
 {
-	ft_putchar_fd(va_arg(ap, char), 1);
-	return (1);
+	int		num;
+	char	*tmp;
+
+	num = va_arg(ap, unsigned int);
+	tmp = ft_itoa(num);
+	ft_putstr_fd(tmp, 1);
+	free(tmp);
+	return (ft_strlen(tmp));
 }
