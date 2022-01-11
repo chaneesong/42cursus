@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_print_hex_upper.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 13:58:45 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/11 22:39:06 by chsong           ###   ########.fr       */
+/*   Created: 2022/01/12 03:10:02 by chsong            #+#    #+#             */
+/*   Updated: 2022/01/12 03:10:56 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_print_int(va_list ap)
+static void	ft_print_recur(int num)
 {
-	char	*tmp;
-	int		len;
+	if (num == 0)
+		return ;
+	if (num > 0)
+		ft_print_recur(num / 16);
+	if (num % 16 < 10)
+		ft_putchar_fd((num % 16) + '0', 1);
+	else
+		ft_putchar_fd((num % 16) - 10 + 'A', 1);
+}
 
-	tmp = ft_itoa(va_arg(ap, int));
-	ft_putstr_fd(tmp, 1);
-	len = ft_strlen(tmp);
-	free(tmp);
-	return (len);
+int	ft_print_hex_upper(va_list ap)
+{
+	int		num;
+
+	num = va_arg(ap, int);
+	ft_print_recur(num);
 }
