@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/12 05:09:17 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/13 17:51:56 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int		ft_print_char(va_list ap);
 int		ft_print_str(va_list ap);
 int		ft_print_int(va_list ap);
 int		ft_print_unsigned_int(va_list ap);
+int		ft_print_void_ptr(va_list ap);
 int		ft_print_hex_lower(va_list ap);
 int		ft_print_hex_upper(va_list ap);
 int		ft_print_type(t_data data, va_list ap);

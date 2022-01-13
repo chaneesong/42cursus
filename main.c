@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:35:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/12 05:12:49 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/13 17:53:00 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,14 @@ int	main()
 	// int a = 0xabc + 1;
 	// int b = 2748 + 1;
 	// char *tmp;
+	int a = 123;
 
 	// ft_print_hex(123);
 	// tmp = ft_itoa(a);
 	// free(tmp);
 	// print_exam(4, 123, 123.123, 'c', "asdasd");
-	ft_printf("%d\n%c\n%s\n", 123, 'c', "asdasd");
+	// ft_printf("%d\n%c\n%s\n", 123, 'c', "asdasd");
+	printf("%p\n", &a);
+	ft_printf("%p", &a);
 	return 0;
 }

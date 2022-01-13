@@ -3,6 +3,7 @@ NAME		= libftprintf.a
 FILES			= ft_print_char \
 				ft_print_str \
 				ft_print_int \
+				ft_print_void_ptr \
 				ft_print_hex_lower \
 				ft_print_hex_upper \
 				ft_print_unsigned_int \
