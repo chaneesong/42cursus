@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/14 09:21:43 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/14 13:08:54 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
 	size_t	size;
-	char	*target;
 
 	va_start(ap, str);
 	size = 0;
@@ -25,9 +24,8 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			target = ft_copy_target(&str);
-			size += ft_print_format(target, ap);
-			free(target);
+			size += ft_print_format(*str, ap);
+			str++;
 			continue ;
 		}
 		ft_putchar_fd(*str, 1);

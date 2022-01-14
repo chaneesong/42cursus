@@ -6,32 +6,32 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 03:22:51 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/14 09:08:19 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/14 13:04:34 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_print_type(t_data data, va_list ap)
+int	ft_print_type(char c, va_list ap)
 {
 	int		size;
 
 	size = 0;
-	if (data.format == 'c')
+	if (c == 'c')
 		size = ft_print_char(ap);
-	else if (data.format == 's')
+	else if (c == 's')
 		size = ft_print_str(ap);
-	else if (data.format == 'd')
+	else if (c == 'd')
 		size = ft_print_int(ap);
-	else if (data.format == 'i')
+	else if (c == 'i')
 		size = ft_print_int(ap);
-	else if (data.format == 'x')
+	else if (c == 'x')
 		size = ft_print_hex_lower(ap);
-	else if (data.format == 'X')
+	else if (c == 'X')
 		size = ft_print_hex_upper(ap);
-	else if (data.format == 'p')
+	else if (c == 'p')
 		size = ft_print_void_ptr(ap);
-	else if (data.format == '%')
+	else if (c == '%')
 	{
 		ft_putchar_fd('%', 1);
 		size++;

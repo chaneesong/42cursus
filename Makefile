@@ -7,15 +7,8 @@ FILES			= ft_print_char \
 				ft_print_hex_lower \
 				ft_print_hex_upper \
 				ft_print_unsigned_int \
-				ft_print_sign \
-				ft_print_space \
 				ft_print_type \
-				ft_get_width \
-				ft_get_precision \
-				ft_lshift \
 				ft_copy_target \
-				ft_contain_data \
-				ft_print_contain \
 				ft_print_format \
 				ft_printf
 
