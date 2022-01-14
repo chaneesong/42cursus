@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 20:25:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/05 07:48:53 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/14 09:21:57 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int  ft_find_format(const char c)
 {
-	if (ft_strchr("cspdiuxx%", c))
+	if (ft_strchr("cspdiuxX%", c))
 		return (1);
 	return (0);
 }
