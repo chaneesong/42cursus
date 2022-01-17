@@ -6,21 +6,15 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 02:56:11 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/17 23:38:27 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/18 03:30:49 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void	ft_print_recur(int num, int *size)
+static void	ft_print_recur(unsigned int num, int *size)
 {
-	if (num == 0 && size == 0)
-	{
-		ft_putchar_fd('0', 1);
-		size++;
-		return ;
-	}
-	else if (num == 0)
+	if (num == 0)
 		return ;
 	ft_print_recur(num / 16, size);
 	if (num % 16 < 10)
@@ -32,11 +26,16 @@ static void	ft_print_recur(int num, int *size)
 
 int	ft_print_hex_lower(va_list ap)
 {
-	int		num;
-	int		size;
+	unsigned int	num;
+	int				size;
 
 	size = 0;
-	num = va_arg(ap, int);
+	num = va_arg(ap, unsigned int);
+	if (num == 0)
+	{
+		ft_putchar_fd('0', 1);
+		size++;
+	}
 	ft_print_recur(num, &size);
 	return (size);
 }
