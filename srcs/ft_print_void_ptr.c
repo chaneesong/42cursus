@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 08:19:42 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/14 09:09:50 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/18 00:28:42 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 static void	ft_print_addr(unsigned long num, int *size)
 {
-	if (num == 0)
+	if (num == 0 && *size == 0)
+	{
+		ft_putstr_fd("(nil)\0", 1);
+		*size += 5;
 		return ;
+	}
 	if (num > 0)
 	{
 		ft_print_addr(num / 16, size);
@@ -34,8 +38,12 @@ int	ft_print_void_ptr(va_list ap)
 	unsigned long	tmp;
 	
 	tmp = va_arg(ap, unsigned long);
-	size = 2;
-	ft_putstr_fd("0x", 1);
+	size = 0;
+	if (tmp)
+	{
+		size += 2;
+		ft_putstr_fd("0x", 1);
+	}
 	ft_print_addr(tmp, &size);
 	return (size);
 }

@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 03:22:51 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/14 13:04:34 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/17 23:31:27 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	ft_print_type(char c, va_list ap)
 		size = ft_print_hex_upper(ap);
 	else if (c == 'p')
 		size = ft_print_void_ptr(ap);
+	else if (c == 'u')
+		size = ft_print_unsigned_int(ap);
 	else if (c == '%')
 	{
 		ft_putchar_fd('%', 1);

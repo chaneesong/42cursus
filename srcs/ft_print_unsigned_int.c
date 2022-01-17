@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 02:51:31 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/12 05:00:28 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/17 23:33:49 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	ft_print_unsigned_int(va_list ap)
 	num = va_arg(ap, unsigned int);
 	tmp = ft_itoa(num);
 	ft_putstr_fd(tmp, 1);
+	num = ft_strlen(tmp);
 	free(tmp);
-	return (ft_strlen(tmp));
+	return (num);
 }

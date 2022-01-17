@@ -28,7 +28,7 @@ OBJS 		= $(OBJS_SRCS)
 
 $(NAME): 	$(OBJS) libft
 			cp libft/libft.a ./$(NAME)
-			$(AR) $@ $^
+			$(AR) $(NAME) $(OBJS)
 
 all:		$(NAME)
 
@@ -36,7 +36,7 @@ libft:
 			@$(MAKE) -C ./libft all
 
 .c.o:		$(SRCS)
-			$(CC) $(CFLAGS) -l. -c -o $@ $< -L./libft -lft
+			$(CC) $(CFLAGS) -c -o $@ $< -L./libft -lft.
 
 clean:
 			@$(MAKE) -C ./libft clean

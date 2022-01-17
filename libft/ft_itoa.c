@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:19:11 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/21 09:15:44 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/17 23:41:11 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_numlen(long n)
+static int	ft_numlen(long long n)
 {
 	int	res;
 
@@ -51,7 +51,7 @@ static void	ft_strrev(char *s, int len)
 	}
 }
 
-static void	ft_setnum(char *s, long n)
+static void	ft_setnum(char *s, long long n)
 {
 	long	i;
 
@@ -80,9 +80,9 @@ char	*ft_itoa(int n)
 {
 	char	*res;
 	int		len;
-	long	tmp;
+	long long	tmp;
 
-	tmp = (long)n;
+	tmp = (long long)n;
 	len = ft_numlen(tmp);
 	if (n < 0)
 		res = (char *)malloc(sizeof(char) * (len + 2));

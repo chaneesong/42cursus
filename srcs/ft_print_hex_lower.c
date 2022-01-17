@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 02:56:11 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/14 09:23:39 by chsong           ###   ########.fr       */
+/*   Updated: 2022/01/17 23:38:27 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 static void	ft_print_recur(int num, int *size)
 {
-	if (num == 0)
+	if (num == 0 && size == 0)
+	{
+		ft_putchar_fd('0', 1);
+		size++;
+		return ;
+	}
+	else if (num == 0)
 		return ;
 	ft_print_recur(num / 16, size);
 	if (num % 16 < 10)
