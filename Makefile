@@ -24,10 +24,14 @@ CFLAGS		= -Wall -Wextra -Werror
 
 OBJS_SRCS	= $(SRCS:.c=.o)
 
-OBJS 		= $(OBJS_SRCS)
+OBJS = $(OBJS_SRCS)
 
-$(NAME): 	$(OBJS) libft
-			cp libft/libft.a ./$(NAME)
+define _LIBFT
+		cd libft && $(MAKE) $(1) && cd ..
+endef
+
+$(NAME): 	$(OBJS)
+			$(call _LIBFT, all)
 			$(AR) $(NAME) $(OBJS)
 
 all:		$(NAME)
