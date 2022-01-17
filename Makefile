@@ -24,31 +24,28 @@ CFLAGS		= -Wall -Wextra -Werror
 
 OBJS_SRCS	= $(SRCS:.c=.o)
 
-OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
+OBJS 		= $(OBJS_SRCS)
 
-ifdef _BONUS
-	OBJS = $(OBJS_SRCS) $(OBJS_BONUS)
-else
-	OBJS = $(OBJS_SRCS)
-endif
-
-$(NAME): 	$(OBJS)
+$(NAME): 	$(OBJS) libft
+			cp libft/libft.a ./$(NAME)
 			$(AR) $@ $^
 
 all:		$(NAME)
 
-.c.o:		$(SRCS)
-			$(CC) $(CFLAGS) -c -o $@ $<
+libft:
+			@$(MAKE) -C ./libft all
 
-bonus:
-			make _BONUS=1 all
+.c.o:		$(SRCS)
+			$(CC) $(CFLAGS) -l. -c -o $@ $< -L./libft -lft
 
 clean:
+			@$(MAKE) -C ./libft clean
 			$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean:		clean
+			@$(MAKE) -C ./libft fclean
 			$(RM) $(NAME)
 
 re:			fclean all
 
-.PHONY:		all bonus clean fclean re
+.PHONY:		all clean fclean re libft
