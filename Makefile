@@ -26,12 +26,8 @@ OBJS_SRCS	= $(SRCS:.c=.o)
 
 OBJS = $(OBJS_SRCS)
 
-define _LIBFT
-		cd libft && $(MAKE) $(1) && cd ..
-endef
-
-$(NAME): 	$(OBJS)
-			$(call _LIBFT, all)
+$(NAME): 	$(OBJS) libft
+			cp libft/libft.a ./$(NAME)
 			$(AR) $(NAME) $(OBJS)
 
 all:		$(NAME)
@@ -39,8 +35,8 @@ all:		$(NAME)
 libft:
 			@$(MAKE) -C ./libft all
 
-.c.o:		$(SRCS)
-			$(CC) $(CFLAGS) -c -o $@ $< -L./libft -lft.
+.c.o:		$(SRCS) libft
+			$(CC) $(CFLAGS) -c -o $@ $< -l.
 
 clean:
 			@$(MAKE) -C ./libft clean
