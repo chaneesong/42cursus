@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 20:25:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/14 09:21:57 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/02 10:56:40 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int  ft_find_format(const char c)
+static int	ft_find_format(const char c)
 {
 	if (ft_strchr("cspdiuxX%", c))
 		return (1);

@@ -36,7 +36,7 @@ libft:
 			@$(MAKE) -C ./libft all
 
 .c.o:		$(SRCS) libft
-			$(CC) $(CFLAGS) -c -o $@ $< -l.
+			$(CC) $(CFLAGS) -c -o $@ $< -I.
 
 clean:
 			@$(MAKE) -C ./libft clean
