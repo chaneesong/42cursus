@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/05 11:57:45 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/05 12:03:27 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "./libft/libft.h"
 
 int		ft_printf(const char *str, ...);
-int		ft_print_format(char c, va_list ap);
+int		ft_print_type(char c, va_list ap);
 int		ft_print_char(va_list ap);
 int		ft_print_str(va_list ap);
 int		ft_print_int(va_list ap);
