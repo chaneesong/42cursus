@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/03 12:51:16 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/05 11:50:12 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 int		ft_printf(const char *str, ...);
 int		ft_print_format(char c, va_list ap);
-int		ft_lshift(int width, int len, int zpadding);
 int		ft_print_char(va_list ap);
 int		ft_print_str(va_list ap);
 int		ft_print_int(va_list ap);

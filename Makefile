@@ -8,7 +8,6 @@ FILES			= ft_print_char \
 				ft_print_hex_upper \
 				ft_print_unsigned_int \
 				ft_print_type \
-				ft_copy_target \
 				ft_print_format \
 				ft_printf
 
