@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/14 13:08:54 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/05 11:54:37 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			size += ft_print_format(*str, ap);
+			size += ft_print_type(*str, ap);
 			str++;
 			continue ;
 		}
