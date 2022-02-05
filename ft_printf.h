@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/05 11:50:12 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/05 11:57:45 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ int		ft_print_unsigned_int(va_list ap);
 int		ft_print_void_ptr(va_list ap);
 int		ft_print_hex_lower(va_list ap);
 int		ft_print_hex_upper(va_list ap);
-int		ft_print_type(char c, va_list ap);
 
 #	endif
