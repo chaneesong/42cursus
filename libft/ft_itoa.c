@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:19:11 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/18 01:44:16 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/05 11:35:46 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ static void	ft_setnum(char *s, long long n)
 
 char	*ft_itoa(int n)
 {
-	char	*res;
-	int		len;
+	char		*res;
+	int			len;
 	long long	tmp;
 
 	tmp = (long long)n;

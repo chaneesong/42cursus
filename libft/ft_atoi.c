@@ -24,7 +24,7 @@ int	ft_atoi(const char *str)
 {
 	int	negative;
 	int	res;
-	
+
 	negative = 1;
 	while (*str)
 	{
