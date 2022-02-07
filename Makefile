@@ -8,6 +8,7 @@ FILES			= ft_print_char \
 				ft_print_hex_upper \
 				ft_print_unsigned_int \
 				ft_print_type \
+				ft_valid_type \
 				ft_printf
 
 SRCS = $(addprefix srcs/, $(addsuffix .c, $(FILES)))
