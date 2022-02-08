@@ -25,8 +25,8 @@ OBJS_SRCS	= $(SRCS:.c=.o)
 OBJS = $(OBJS_SRCS)
 
 $(NAME): 	$(OBJS) libft
-			cp libft/libft.a ./$(NAME)
-			$(AR) $(NAME) $(OBJS)
+			@cp libft/libft.a ./$(NAME)
+			@$(AR) $(NAME) $(OBJS)
 
 all:		$(NAME)
 
