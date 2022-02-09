@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_ctos.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 16:10:15 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/28 14:48:04 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/09 17:40:03 by chsong            #+#    #+#             */
+/*   Updated: 2022/02/09 20:25:04 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+char	*ft_ctos(char c)
 {
-	if (fd < 0)
-		return ;
-	write(fd, &c, 1);
+	char	*str;
+
+	return (str);
 }

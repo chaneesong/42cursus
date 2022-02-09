@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_type.c                                    :+:      :+:    :+:   */
+/*   ft_ap_to_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 03:22:51 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/07 09:03:00 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/09 16:46:01 by chsong            #+#    #+#             */
+/*   Updated: 2022/02/09 20:24:34 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_print_type(char c, va_list ap)
+char	*ft_ap_to_str(char c, va_list ap)
 {
-	int		size;
+	char	*str;
 
-	size = 0;
 	if (c == 'c')
-		size = ft_print_char(ap);
+		str = ft_ctos(va_arg(ap, int));
 	else if (c == 's')
-		size = ft_print_str(ap);
-	else if (c == 'd')
-		size = ft_print_int(ap);
-	else if (c == 'i')
-		size = ft_print_int(ap);
-	else if (c == 'x')
-		size = ft_print_hex_lower(ap);
-	else if (c == 'X')
-		size = ft_print_hex_upper(ap);
-	else if (c == 'p')
-		size = ft_print_void_ptr(ap);
+		str = ft_stos(va_arg(ap, char *));
+	else if (c == 'd' || c == 'i')
+		str = ft_itos(va_arg(ap, int));
+	else if (c == 'x' || c == 'X' || c == 'p')
+		str = ft_ultos(va_arg(ap, unsigned long));
 	else if (c == 'u')
-		size = ft_print_unsigned_int(ap);
-	else if (c == '%')
-	{
-		ft_putchar_fd('%', 1);
-		size++;
-	}
-	return (size);
+		str = ft_utos(va_arg(ap, unsigned int));
+	return (str);
 }

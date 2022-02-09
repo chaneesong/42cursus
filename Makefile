@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/02/09 17:47:43 by chsong            #+#    #+#              #
+#    Updated: 2022/02/09 20:16:24 by chsong           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= libftprintf.a
 
 FILES			= ft_print_char \
@@ -7,6 +19,12 @@ FILES			= ft_print_char \
 				ft_print_hex_lower \
 				ft_print_hex_upper \
 				ft_print_unsigned_int \
+				ft_ctos \
+				ft_stos \
+				ft_itos \
+				ft_utos \
+				ft_ultos \
+				ft_ap_to_str \
 				ft_print_type \
 				ft_printf
 
@@ -24,26 +42,20 @@ OBJS_SRCS	= $(SRCS:.c=.o)
 
 OBJS = $(OBJS_SRCS)
 
-$(NAME): 	$(OBJS) libft
-			@cp libft/libft.a ./$(NAME)
-			@$(AR) $(NAME) $(OBJS)
+$(NAME): 	$(OBJS)
+			$(AR) $(NAME) $(OBJS)
 
 all:		$(NAME)
 
-libft:
-			@$(MAKE) -C ./libft all
-
-.c.o:		$(SRCS) libft
+.c.o:		$(SRCS)
 			$(CC) $(CFLAGS) -c -o $@ $< -I.
 
 clean:
-			@$(MAKE) -C ./libft clean
-			$(RM) $(OBJS) $(OBJS_BONUS)
+			$(RM) $(OBJS)
 
 fclean:		clean
-			@$(MAKE) -C ./libft fclean
 			$(RM) $(NAME)
 
 re:			fclean all
 
-.PHONY:		all clean fclean re libft
+.PHONY:		all clean fclean re

@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_utos.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 18:28:57 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/14 20:15:22 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/09 17:43:19 by chsong            #+#    #+#             */
+/*   Updated: 2022/02/09 20:24:58 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+// static void	ft_put_int_to_char(unsigned int num, int *size)
+// {
+// 	if (num == 0)
+// 		return ;
+// 	ft_put_int_to_char(num / 10, size);
+// 	ft_putchar_fd(num % 10 + '0', 1);
+// 	*size += 1;
+// }
+
+char	*ft_utos(unsigned int num)
 {
-	const unsigned char	*tmp1;
-	const unsigned char	*tmp2;
+	char	*str;
 
-	tmp1 = s1;
-	tmp2 = s2;
-	while (n--)
-	{
-		if (*tmp1 != *tmp2)
-			return (*tmp1 - *tmp2);
-		tmp1++;
-		tmp2++;
-	}
-	return (0);
+	return (str);
 }

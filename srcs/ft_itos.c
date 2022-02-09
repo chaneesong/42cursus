@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_itos.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 18:18:29 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/14 18:27:42 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/09 17:43:30 by chsong            #+#    #+#             */
+/*   Updated: 2022/02/09 20:25:01 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+// static void	ft_put_int_to_char(int num, int *size)
+// {
+// 	if (num == 0)
+// 		return ;
+// 	ft_put_int_to_char(num / 10, size);
+// 	ft_putchar_fd(num % 10 + '0', 1);
+// 	*size += 1;
+// }
+
+char	*ft_itos(int num)
 {
-	const unsigned char	*tmp;
+	char	*str;
 
-	tmp = s;
-	while (n--)
-	{
-		if (*tmp == (unsigned char)c)
-			return ((void *)tmp);
-		tmp++;
-	}
-	return (NULL);
+	return (str);
 }
