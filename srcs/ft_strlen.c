@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 00:09:17 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/21 07:40:27 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/10 18:50:40 by chsong            #+#    #+#             */
+/*   Updated: 2022/02/10 19:00:56 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-int	ft_isascii(int c)
+int	ft_strlen(char *str)
 {
-	if (0 <= c && c <= 127)
-		return (1);
-	return (0);
+	int	size;
+	
+	size = 0;
+	while (str && str[size])
+		size++;
+	return(size);
 }

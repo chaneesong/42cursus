@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 16:10:15 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/28 14:48:04 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/10 18:23:31 by chsong            #+#    #+#             */
+/*   Updated: 2022/02/10 20:57:14 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putstr_fd(char *str, int pre_size)
 {
-	if (fd < 0)
-		return ;
-	write(fd, &c, 1);
+	int	size;
+
+	if (!str)
+		return (0);
+	size = ft_check_size(pre_size, ft_strlen(str));
+	if (size != -1)
+		write(1, str, ft_strlen(str));
+	return (size);
 }

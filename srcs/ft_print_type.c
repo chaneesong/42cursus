@@ -6,37 +6,32 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 03:22:51 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/07 09:03:00 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 20:42:31 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_print_type(char c, va_list ap)
+int	ft_print_type(char c, va_list ap, int pre_size)
 {
 	int		size;
 
 	size = 0;
 	if (c == 'c')
-		size = ft_print_char(ap);
+		size = ft_print_char(ap, pre_size);
 	else if (c == 's')
-		size = ft_print_str(ap);
-	else if (c == 'd')
-		size = ft_print_int(ap);
-	else if (c == 'i')
-		size = ft_print_int(ap);
+		size = ft_print_str(ap, pre_size);
+	else if (c == 'd' || c == 'i')
+		size = ft_print_int(ap, pre_size);
 	else if (c == 'x')
-		size = ft_print_hex_lower(ap);
+		size = ft_print_hex_lower(ap, pre_size);
 	else if (c == 'X')
-		size = ft_print_hex_upper(ap);
+		size = ft_print_hex_upper(ap, pre_size);
 	else if (c == 'p')
-		size = ft_print_void_ptr(ap);
+		size = ft_print_void_ptr(ap, pre_size);
 	else if (c == 'u')
-		size = ft_print_unsigned_int(ap);
-	else if (c == '%')
-	{
-		ft_putchar_fd('%', 1);
-		size++;
-	}
+		size = ft_print_unsigned_int(ap, pre_size);
+	else
+		size = ft_putchar_fd(c, pre_size);
 	return (size);
 }

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 18:18:29 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/14 18:27:42 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/10 18:22:29 by chsong            #+#    #+#             */
+/*   Updated: 2022/02/10 20:40:10 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_putchar_fd(char c, int pre_size)
 {
-	const unsigned char	*tmp;
+	int	size;
 
-	tmp = s;
-	while (n--)
-	{
-		if (*tmp == (unsigned char)c)
-			return ((void *)tmp);
-		tmp++;
-	}
-	return (NULL);
+	size = ft_check_size(pre_size, 1);
+	if (size != -1)
+		write(1, &c, 1);
+	return (size);
 }

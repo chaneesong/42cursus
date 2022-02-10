@@ -6,14 +6,14 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 13:53:41 by chsong            #+#    #+#             */
-/*   Updated: 2022/01/12 04:56:20 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 20:42:52 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_print_char(va_list ap)
+int	ft_print_char(va_list ap, int pre_size)
 {
-	ft_putchar_fd(va_arg(ap, int), 1);
+	ft_putchar_fd(va_arg(ap, int), pre_size);
 	return (1);
 }

@@ -1,14 +1,18 @@
 NAME		= libftprintf.a
 
-FILES			= ft_print_char \
+FILES			= ft_printf \
+				ft_print_type \
+				ft_print_char \
 				ft_print_str \
 				ft_print_int \
+				ft_print_unsigned_int \
 				ft_print_void_ptr \
 				ft_print_hex_lower \
 				ft_print_hex_upper \
-				ft_print_unsigned_int \
-				ft_print_type \
-				ft_printf
+				ft_putchar_fd \
+				ft_putstr_fd \
+				ft_itoa \
+				ft_strlen
 
 SRCS = $(addprefix srcs/, $(addsuffix .c, $(FILES)))
 
@@ -24,24 +28,18 @@ OBJS_SRCS	= $(SRCS:.c=.o)
 
 OBJS = $(OBJS_SRCS)
 
-$(NAME): 	$(OBJS) libft
-			@cp libft/libft.a ./$(NAME)
-			@$(AR) $(NAME) $(OBJS)
+$(NAME): 	$(OBJS)
+			$(AR) $(NAME) $(OBJS)
 
 all:		$(NAME)
 
-libft:
-			@$(MAKE) -C ./libft all
-
-.c.o:		$(SRCS) libft
-			$(CC) $(CFLAGS) -c -o $@ $< -I.
+.c.o:		$(SRCS)
+			$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-			@$(MAKE) -C ./libft clean
 			$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean:		clean
-			@$(MAKE) -C ./libft fclean
 			$(RM) $(NAME)
 
 re:			fclean all

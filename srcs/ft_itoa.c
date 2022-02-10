@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 11:19:11 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/05 11:35:46 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/10 20:52:52 by chsong            #+#    #+#             */
+/*   Updated: 2022/02/10 20:53:03 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
 static int	ft_numlen(long long n)
 {

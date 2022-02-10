@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/08 12:42:29 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 20:56:58 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,21 @@
 
 # include <stdarg.h>
 # include <stdlib.h>
-# include "./libft/libft.h"
+# include <unistd.h>
 
-int	ft_printf(const char *str, ...);
-int	ft_print_type(char c, va_list ap);
-int	ft_print_char(va_list ap);
-int	ft_print_str(va_list ap);
-int	ft_print_int(va_list ap);
-int	ft_print_unsigned_int(va_list ap);
-int	ft_print_void_ptr(va_list ap);
-int	ft_print_hex_lower(va_list ap);
-int	ft_print_hex_upper(va_list ap);
+int		ft_printf(const char *str, ...);
+int		ft_print_type(char c, va_list ap, int pre_size);
+int		ft_print_char(va_list ap, int pre_size);
+int		ft_print_str(va_list ap, int pre_size);
+int		ft_print_int(va_list ap, int pre_size);
+int		ft_print_unsigned_int(va_list ap, int pre_size);
+int		ft_print_void_ptr(va_list ap, int pre_size);
+int		ft_print_hex_lower(va_list ap, int pre_size);
+int		ft_print_hex_upper(va_list ap, int pre_size);
+int		ft_putchar_fd(char c, int pre_size);
+int 	ft_putstr_fd(char *str, int pre_size);
+int		ft_check_size(int pre_size, int cur_size);
+int		ft_strlen(char *str);
+char	*ft_itoa(int n);
 
 #endif

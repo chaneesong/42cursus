@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_check_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 16:14:12 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/28 14:48:49 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/10 18:26:00 by chsong            #+#    #+#             */
+/*   Updated: 2022/02/10 18:29:12 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_check_size(int pre_size, int cur_size)
 {
-	if (fd < 0 || !s)
-		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	int	return_size;
+
+	return_size = pre_size + cur_size;
+	if (return_size - pre_size != cur_size)
+		return(-1);
+	return (return_size);
 }

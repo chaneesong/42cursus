@@ -6,42 +6,36 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 08:19:42 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/07 11:55:32 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 20:56:14 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void	ft_print_addr(unsigned long num, int *size)
+static void	ft_print_addr(unsigned long num, int pre_size, int *size)
 {
 	if (num == 0)
 		return ;
 	if (num > 0)
 	{
-		ft_print_addr(num / 16, size);
+		ft_print_addr(num / 16, pre_size, size);
 		if (num % 16 >= 10)
-			ft_putchar_fd((char)(num % 16 - 10 + 'a'), 1);
+			*size = ft_putchar_fd(num % 16 - 10 + 'a', pre_size);
 		else
-			ft_putchar_fd((char)(num % 16 + '0'), 1);
-		*size += 1;
+			*size = ft_putchar_fd(num % 16 + '0', pre_size);
 	}
-	return ;
 }
 
-int	ft_print_void_ptr(va_list ap)
+int	ft_print_void_ptr(va_list ap, int pre_size)
 {
 	int				size;
 	unsigned long	tmp;
 
 	tmp = va_arg(ap, unsigned long);
-	size = 2;
-	ft_putstr_fd("0x", 1);
+	size = ft_putstr_fd("0x", pre_size);
 	if (tmp == 0)
-	{
-		ft_putchar_fd('0', 1);
-		size++;
-	}
+		size = ft_putchar_fd('0', 1);
 	else
-		ft_print_addr(tmp, &size);
+		ft_print_addr(tmp, pre_size, &size);
 	return (size);
 }
