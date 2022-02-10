@@ -6,11 +6,11 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:43:21 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/09 20:24:56 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 11:07:10 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 // static void	ft_print_recur(unsigned int num, int *size)
 // {

@@ -6,11 +6,11 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:43:19 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/09 20:24:58 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 11:06:07 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 // static void	ft_put_int_to_char(unsigned int num, int *size)
 // {

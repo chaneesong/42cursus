@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:40:03 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/09 20:25:04 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 11:02:26 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,8 @@ char	*ft_ctos(char c)
 {
 	char	*str;
 
+	str = (char *)malloc(sizeof(char) * 2);
+	str[0] = c;
+	str[1] = '\0';
 	return (str);
 }

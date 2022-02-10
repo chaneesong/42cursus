@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned_int.c                            :+:      :+:    :+:   */
+/*   ft_parse_value.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 02:51:31 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/09 20:23:25 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/10 10:57:13 by chsong            #+#    #+#             */
+/*   Updated: 2022/02/10 12:16:19 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_print_unsigned_int(char *str)
+char	*ft_parse_value(char **str, va_list ap, int size)
 {
-	return (ft_strlen(str));
+	int		size;
+	char	*tmp;
+
+	if (**str == '%')
+	{
+		(*str)++;
+		tmp = ft_atos(*str, ap);
+	}
+	else
+		tmp = ft_ctos(**str);
+	(*str)++;
+	return (tmp);
 }

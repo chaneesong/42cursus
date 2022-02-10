@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ap_to_str.c                                     :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 16:46:01 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/09 20:24:34 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/10 12:07:14 by chsong            #+#    #+#             */
+/*   Updated: 2022/02/10 12:16:40 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_ap_to_str(char c, va_list ap)
+static int	ft_is_print(int pre_size, char *str)
 {
-	char	*str;
+	int	size;
+	int	return_size;
 
-	if (c == 'c')
-		str = ft_ctos(va_arg(ap, int));
-	else if (c == 's')
-		str = ft_stos(va_arg(ap, char *));
-	else if (c == 'd' || c == 'i')
-		str = ft_itos(va_arg(ap, int));
-	else if (c == 'x' || c == 'X' || c == 'p')
-		str = ft_ultos(va_arg(ap, unsigned long));
-	else if (c == 'u')
-		str = ft_utos(va_arg(ap, unsigned int));
-	return (str);
+	size = ft_strlen(str);
+	return_size = size + pre_size;
+	if (return_size - pre_size != size)
+		return (-1);
+	return (size);
+}
+
+int	ft_putstr(char *str, int size)
+{
+	int	return_size;
+
+	
+	return (return_size);
 }
