@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:46:01 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 12:16:09 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 15:44:51 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_parse_ap(char *str, va_list ap)
+char	*ft_parse_ap(const char *str, va_list ap)
 {
 	char	*tmp;
 
@@ -27,6 +27,6 @@ char	*ft_parse_ap(char *str, va_list ap)
 	else if (*str == 'u')
 		tmp = ft_utos(va_arg(ap, unsigned int));
 	else
-		tmp = ctos(*(str + 1));
+		tmp = ft_ctos(*(str + 1));
 	return (tmp);
 }

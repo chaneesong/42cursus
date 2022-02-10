@@ -6,21 +6,20 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 10:57:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 12:16:19 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 15:43:26 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_parse_value(char **str, va_list ap, int size)
+char	*ft_parse_value(const char **str, va_list ap)
 {
-	int		size;
 	char	*tmp;
 
 	if (**str == '%')
 	{
 		(*str)++;
-		tmp = ft_atos(*str, ap);
+		tmp = ft_parse_ap(*str, ap);
 	}
 	else
 		tmp = ft_ctos(**str);
