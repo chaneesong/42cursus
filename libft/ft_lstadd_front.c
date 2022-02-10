@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/08 12:35:00 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/17 17:09:11 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/25 00:43:51 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	va_list	ap;
-	size_t	size;
-
-	va_start(ap, str);
-	size = 0;
-	while (str && *str)
-	{
-		if (*str == '%')
-		{
-			str++;
-			size += ft_print_type(*str, ap);
-			str++;
-			continue ;
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
-		size++;
-	}
-	va_end(ap);
-	return (size);
+	if (!lst)
+		lst = (t_list **)malloc(sizeof(t_list *));
+	if (!new)
+		new = ft_lstnew(NULL);
+	new->next = *lst;
+	*lst = new;
 }

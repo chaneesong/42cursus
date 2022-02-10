@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_unsigned_int.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 12:07:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 16:09:27 by chsong           ###   ########.fr       */
+/*   Created: 2022/01/12 02:51:31 by chsong            #+#    #+#             */
+/*   Updated: 2022/01/18 03:07:59 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int	ft_is_print(int pre_size, char *str)
+static void	ft_put_int_to_char(unsigned int num, int *size)
 {
-	int	size;
-	int	return_size;
-
-	size = ft_strlen(str);
-	return_size = size + pre_size;
-	if (return_size - pre_size != size)
-		return (-1);
-	return (size);
+	if (num == 0)
+		return ;
+	ft_put_int_to_char(num / 10, size);
+	ft_putchar_fd(num % 10 + '0', 1);
+	*size += 1;
 }
 
-int	ft_putstr(char *str, int size)
+int	ft_print_unsigned_int(va_list ap)
 {
-	int	return_size;
+	unsigned int	num;
+	int				size;
 
-	return_size = ft_is_print(size, str);
-	if (return_size == -1)
-		return (return_size);
-	write(1, str, ft_strlen(str));
-	return (return_size);
+	num = va_arg(ap, unsigned int);
+	size = 0;
+	if (num == 0)
+	{
+		ft_putchar_fd('0', 1);
+		size++;
+	}
+	else
+		ft_put_int_to_char(num, &size);
+	return (size);
 }

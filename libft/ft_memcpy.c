@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/08 12:35:00 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/13 18:08:19 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/20 15:42:55 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	va_list	ap;
-	size_t	size;
+	char		*tmp;
+	const char	*s;
 
-	va_start(ap, str);
-	size = 0;
-	while (str && *str)
-	{
-		if (*str == '%')
-		{
-			str++;
-			size += ft_print_type(*str, ap);
-			str++;
-			continue ;
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
-		size++;
-	}
-	va_end(ap);
-	return (size);
+	if (!src && !dst)
+		return (NULL);
+	tmp = dst;
+	s = src;
+	while (n--)
+		*tmp++ = *s++;
+	return (dst);
 }

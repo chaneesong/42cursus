@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/08 12:35:00 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/11 00:09:20 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/21 07:39:27 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+int	ft_isdigit(int c)
 {
-	va_list	ap;
-	size_t	size;
-
-	va_start(ap, str);
-	size = 0;
-	while (str && *str)
-	{
-		if (*str == '%')
-		{
-			str++;
-			size += ft_print_type(*str, ap);
-			str++;
-			continue ;
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
-		size++;
-	}
-	va_end(ap);
-	return (size);
+	if ('0' <= c && c <= '9')
+		return (1);
+	return (0);
 }

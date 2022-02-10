@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stos.c                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 17:43:55 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 15:18:51 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/17 16:14:12 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/28 14:48:49 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-char	*ft_stos(char *str)
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	*tmp;
-	size_t	index;
-
-	index = 0;
-	tmp = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str && str[index])
-		tmp[index] = str[index];
-	tmp[index] = '\0';
-	return (tmp);
+	if (fd < 0 || !s)
+		return ;
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
 }

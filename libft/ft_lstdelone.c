@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/08 12:35:00 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/17 20:22:29 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/17 20:40:12 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	va_list	ap;
-	size_t	size;
-
-	va_start(ap, str);
-	size = 0;
-	while (str && *str)
-	{
-		if (*str == '%')
-		{
-			str++;
-			size += ft_print_type(*str, ap);
-			str++;
-			continue ;
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
-		size++;
-	}
-	va_end(ap);
-	return (size);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }

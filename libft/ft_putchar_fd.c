@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_value.c                                   :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 10:57:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 15:43:26 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/17 16:10:15 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/28 14:48:04 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-char	*ft_parse_value(const char **str, va_list ap)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*tmp;
-
-	if (**str == '%')
-	{
-		(*str)++;
-		tmp = ft_parse_ap(*str, ap);
-	}
-	else
-		tmp = ft_ctos(**str);
-	(*str)++;
-	return (tmp);
+	if (fd < 0)
+		return ;
+	write(fd, &c, 1);
 }

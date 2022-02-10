@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/08 12:35:00 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/14 23:29:12 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/30 11:35:04 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	va_list	ap;
-	size_t	size;
+	char	*tmp;
+	int		join_len;
+	int		cnt;
 
-	va_start(ap, str);
-	size = 0;
-	while (str && *str)
+	join_len = ft_strlen(s1) + ft_strlen(s2);
+	tmp = (char *)malloc(sizeof(char) * (join_len + 1));
+	if (!tmp)
+		return (NULL);
+	cnt = 0;
+	while (s1 && *s1)
 	{
-		if (*str == '%')
-		{
-			str++;
-			size += ft_print_type(*str, ap);
-			str++;
-			continue ;
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
-		size++;
+		tmp[cnt] = *s1;
+		s1++;
+		cnt++;
 	}
-	va_end(ap);
-	return (size);
+	while (s2 && *s2)
+	{
+		tmp[cnt] = *s2;
+		s2++;
+		cnt++;
+	}
+	tmp[cnt] = '\0';
+	return (tmp);
 }

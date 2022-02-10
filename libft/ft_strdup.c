@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/08 12:35:00 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/14 21:28:44 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/21 09:04:41 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+char	*ft_strdup(const char *src)
 {
-	va_list	ap;
-	size_t	size;
+	size_t	i;
+	char	*tmp;
 
-	va_start(ap, str);
-	size = 0;
-	while (str && *str)
+	tmp = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (!tmp)
+		return (NULL);
+	i = 0;
+	while (src[i])
 	{
-		if (*str == '%')
-		{
-			str++;
-			size += ft_print_type(*str, ap);
-			str++;
-			continue ;
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
-		size++;
+		tmp[i] = src[i];
+		i++;
 	}
-	va_end(ap);
-	return (size);
+	tmp[i] = '\0';
+	return (tmp);
 }

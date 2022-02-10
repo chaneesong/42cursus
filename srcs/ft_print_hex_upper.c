@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_hex_upper.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/08 12:35:00 by chsong           ###   ########.fr       */
+/*   Created: 2022/01/12 03:10:02 by chsong            #+#    #+#             */
+/*   Updated: 2022/01/18 03:31:59 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+static void	ft_print_recur(unsigned int num, int *size)
 {
-	va_list	ap;
-	size_t	size;
+	if (num == 0)
+		return ;
+	ft_print_recur(num / 16, size);
+	if (num % 16 < 10)
+		ft_putchar_fd((num % 16) + '0', 1);
+	else
+		ft_putchar_fd((num % 16) - 10 + 'A', 1);
+	*size += 1;
+}
 
-	va_start(ap, str);
+int	ft_print_hex_upper(va_list ap)
+{
+	unsigned int	num;
+	int				size;
+
 	size = 0;
-	while (str && *str)
+	num = va_arg(ap, unsigned int);
+	if (num == 0)
 	{
-		if (*str == '%')
-		{
-			str++;
-			size += ft_print_type(*str, ap);
-			str++;
-			continue ;
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
+		ft_putchar_fd('0', 1);
 		size++;
 	}
-	va_end(ap);
+	ft_print_recur(num, &size);
 	return (size);
 }

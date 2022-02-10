@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/08 12:35:00 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/13 20:35:33 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/21 08:27:05 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+char	*ft_strrchr(const char *s, int c)
 {
-	va_list	ap;
-	size_t	size;
+	char	*tmp;
 
-	va_start(ap, str);
-	size = 0;
-	while (str && *str)
+	tmp = NULL;
+	while (*s != '\0')
 	{
-		if (*str == '%')
-		{
-			str++;
-			size += ft_print_type(*str, ap);
-			str++;
-			continue ;
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
-		size++;
+		if (*s == (char)c)
+			tmp = (char *)s;
+		s++;
 	}
-	va_end(ap);
-	return (size);
+	if (c == 0)
+		tmp = (char *)s;
+	return ((char *)tmp);
 }

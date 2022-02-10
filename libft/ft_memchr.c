@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ctos.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 17:40:03 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 11:02:26 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/14 18:18:29 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/14 18:27:42 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char	*ft_ctos(char c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*str;
+	const unsigned char	*tmp;
 
-	str = (char *)malloc(sizeof(char) * 2);
-	str[0] = c;
-	str[1] = '\0';
-	return (str);
+	tmp = s;
+	while (n--)
+	{
+		if (*tmp == (unsigned char)c)
+			return ((void *)tmp);
+		tmp++;
+	}
+	return (NULL);
 }

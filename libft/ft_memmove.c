@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/08 12:35:00 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/13 02:13:14 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/24 21:11:57 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	va_list	ap;
-	size_t	size;
+	unsigned char		*tmp;
+	const unsigned char	*s;
 
-	va_start(ap, str);
-	size = 0;
-	while (str && *str)
+	if (!dst && !src)
+		return (NULL);
+	tmp = dst;
+	s = src;
+	if (dst <= src)
 	{
-		if (*str == '%')
-		{
-			str++;
-			size += ft_print_type(*str, ap);
-			str++;
-			continue ;
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
-		size++;
+		while (len--)
+			*tmp++ = *s++;
 	}
-	va_end(ap);
-	return (size);
+	else
+	{
+		tmp += len - 1;
+		s += len - 1;
+		while (len--)
+			*tmp-- = *s--;
+	}
+	return (dst);
 }

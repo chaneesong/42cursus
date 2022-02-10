@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/08 12:35:00 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/14 23:04:26 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/28 14:44:17 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	va_list	ap;
-	size_t	size;
+	char			*tmp;
+	size_t			i;
 
-	va_start(ap, str);
-	size = 0;
-	while (str && *str)
+	i = 0;
+	if (!s)
+		return (NULL);
+	tmp = (char *)malloc(sizeof(char) * (len + 1));
+	if (!tmp)
+		return (NULL);
+	while (len && (size_t)start + i < ft_strlen(s))
 	{
-		if (*str == '%')
-		{
-			str++;
-			size += ft_print_type(*str, ap);
-			str++;
-			continue ;
-		}
-		ft_putchar_fd(*str, 1);
-		str++;
-		size++;
+		tmp[i] = s[start + i];
+		i++;
+		len--;
 	}
-	va_end(ap);
-	return (size);
+	tmp[i] = '\0';
+	return (tmp);
 }
