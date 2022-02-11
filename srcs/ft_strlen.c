@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:50:40 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/11 13:19:26 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/11 13:34:51 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_strlen(char *str)
 {
 	size_t	size;
-	
+
 	size = 0;
 	while (str && str[size])
 		size++;
