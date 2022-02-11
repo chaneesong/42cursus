@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 03:22:51 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 21:18:31 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/11 14:32:03 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int	ft_print_type(char c, va_list ap, int pre_size)
 	else if (c == 'u')
 		size = ft_print_unsigned_int(ap, pre_size);
 	else
-		size = ft_putchar_fd(c, pre_size);
+		size = ft_putchar(c, pre_size);
 	return (size);
 }
