@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:27:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 20:56:58 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 21:10:38 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-
+# include <stdio.h>
 int		ft_printf(const char *str, ...);
 int		ft_print_type(char c, va_list ap, int pre_size);
 int		ft_print_char(va_list ap, int pre_size);

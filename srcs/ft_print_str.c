@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 22:32:12 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 20:48:35 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 21:19:34 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	ft_print_str(va_list ap, int pre_size)
 	if (tmp == 0)
 	{
 		size = ft_putstr_fd("(null)", pre_size);
-		return (6);
+		return (size);
 	}
 	else
-		size = ft_putstr_fd(tmp, 1);
+		size = ft_putstr_fd(tmp, pre_size);
 	return (size);
 }

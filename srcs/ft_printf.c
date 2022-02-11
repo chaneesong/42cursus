@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 20:19:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 20:42:23 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 21:18:14 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ int	ft_printf(const char *str, ...)
 			size = ft_print_type(*str, ap, size);
 			str++;
 		}
-		size = ft_putchar_fd(*str, size);
-		str++;
+		else
+		{
+			size = ft_putchar_fd(*str, size);
+			str++;
+		}
 		if (size == -1)
 			return (size);
 	}

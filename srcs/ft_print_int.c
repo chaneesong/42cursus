@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 13:58:45 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 20:48:48 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/11 11:04:33 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 int	ft_print_int(va_list ap, int pre_size)
 {
 	char	*tmp;
-	int		len;
+	int		size;
 
 	tmp = ft_itoa(va_arg(ap, int));
-	ft_putstr_fd(tmp, pre_size);
-	len = ft_strlen(tmp);
+	size = ft_putstr_fd(tmp, pre_size);
 	free(tmp);
-	return (len);
+	return (size);
 }

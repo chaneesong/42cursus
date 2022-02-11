@@ -12,7 +12,8 @@ FILES			= ft_printf \
 				ft_putchar_fd \
 				ft_putstr_fd \
 				ft_itoa \
-				ft_strlen
+				ft_strlen \
+				ft_check_size
 
 SRCS = $(addprefix srcs/, $(addsuffix .c, $(FILES)))
 

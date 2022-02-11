@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 03:22:51 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/10 20:42:31 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/10 21:18:31 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	ft_print_type(char c, va_list ap, int pre_size)
 {
 	int		size;
 
-	size = 0;
 	if (c == 'c')
 		size = ft_print_char(ap, pre_size);
 	else if (c == 's')
