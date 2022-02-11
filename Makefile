@@ -9,8 +9,8 @@ FILES			= ft_printf \
 				ft_print_void_ptr \
 				ft_print_hex_lower \
 				ft_print_hex_upper \
-				ft_putchar_fd \
-				ft_putstr_fd \
+				ft_putchar \
+				ft_putstr \
 				ft_itoa \
 				ft_strlen \
 				ft_check_size

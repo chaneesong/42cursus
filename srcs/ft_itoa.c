@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 20:52:52 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/11 13:33:53 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/11 13:40:17 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,6 @@ char	*ft_itoa(int n)
 		res = (char *)malloc(sizeof(char) * (len + 2));
 	else
 		res = (char *)malloc(sizeof(char) * (len + 1));
-	if (!res)
-		return (NULL);
 	ft_setnum(res, tmp);
 	ft_strrev(res, len);
 	return (res);

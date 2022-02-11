@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 03:10:02 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/11 11:17:42 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/11 13:39:18 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	ft_print_recur(unsigned int num, int *pre_size, int *size)
 		return ;
 	ft_print_recur(num / 16, pre_size, size);
 	if (num % 16 < 10)
-		*pre_size = ft_putchar_fd((num % 16) + '0', *pre_size);
+		*pre_size = ft_putchar((num % 16) + '0', *pre_size);
 	else
-		*pre_size = ft_putchar_fd((num % 16) - 10 + 'A', *pre_size);
+		*pre_size = ft_putchar((num % 16) - 10 + 'A', *pre_size);
 	*size = *pre_size;
 }
 
@@ -32,7 +32,7 @@ int	ft_print_hex_upper(va_list ap, int pre_size)
 	size = pre_size;
 	num = va_arg(ap, unsigned int);
 	if (num == 0)
-		size = ft_putchar_fd('0', pre_size);
+		size = ft_putchar('0', pre_size);
 	ft_print_recur(num, &pre_size, &size);
 	return (size);
 }

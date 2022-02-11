@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:22:29 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/11 11:02:46 by chsong           ###   ########.fr       */
+/*   Updated: 2022/02/11 13:38:06 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_putchar_fd(char c, int pre_size)
+int	ft_putchar(char c, int pre_size)
 {
 	int	size;
 
