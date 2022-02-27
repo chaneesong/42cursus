@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/27 12:27:26 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/17 17:41:26 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/25 00:44:51 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+int	ft_lstsize(t_list *lst)
 {
-	if (argc > 1)
+	int		i;
+	t_list	*tmp;
+
+	if (!lst)
+		return (0);
+	i = 1;
+	tmp = lst;
+	while (tmp->next)
 	{
-		printf("%s\n", argv[0]);
+		tmp = tmp->next;
+		i++;
 	}
-	return (0);
+	return (i);
 }

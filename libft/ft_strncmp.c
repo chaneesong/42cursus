@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/27 12:27:26 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/13 22:33:17 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/19 16:00:39 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (argc > 1)
+	size_t			cnt;
+	unsigned char	*tmp1;
+	unsigned char	*tmp2;
+
+	tmp1 = (unsigned char *)s1;
+	tmp2 = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	cnt = 0;
+	while (cnt < n - 1 && tmp1[cnt] == tmp2[cnt] && tmp1[cnt])
 	{
-		printf("%s\n", argv[0]);
+		if (tmp1[cnt] != tmp2[cnt])
+			break ;
+		cnt++;
 	}
-	return (0);
+	return (tmp1[cnt] - tmp2[cnt]);
 }

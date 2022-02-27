@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/27 12:27:26 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/13 18:07:46 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/20 15:07:27 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+static int	ft_isupper(int c)
 {
-	if (argc > 1)
-	{
-		printf("%s\n", argv[0]);
-	}
+	if ('A' <= c && c <= 'Z')
+		return (1);
 	return (0);
+}
+
+int	ft_tolower(int c)
+{
+	if (ft_isupper(c))
+		c += 32;
+	return (c);
 }

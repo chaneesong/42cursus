@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/27 12:27:26 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/13 18:08:19 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/20 15:42:55 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	if (argc > 1)
-	{
-		printf("%s\n", argv[0]);
-	}
-	return (0);
+	char		*tmp;
+	const char	*s;
+
+	if (!src && !dst)
+		return (NULL);
+	tmp = dst;
+	s = src;
+	while (n--)
+		*tmp++ = *s++;
+	return (dst);
 }

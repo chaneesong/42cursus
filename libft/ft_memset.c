@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/27 12:27:26 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/13 18:11:50 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/25 11:57:25 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	*ft_memset(void *b, int c, size_t len)
 {
-	if (argc > 1)
-	{
-		printf("%s\n", argv[0]);
-	}
-	return (0);
+	unsigned char	*res;
+
+	res = b;
+	while (len--)
+		*res++ = (unsigned char)c;
+	return (b);
 }

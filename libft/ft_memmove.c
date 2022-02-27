@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/27 12:27:26 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/13 02:13:14 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/24 21:11:57 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (argc > 1)
+	unsigned char		*tmp;
+	const unsigned char	*s;
+
+	if (!dst && !src)
+		return (NULL);
+	tmp = dst;
+	s = src;
+	if (dst <= src)
 	{
-		printf("%s\n", argv[0]);
+		while (len--)
+			*tmp++ = *s++;
 	}
-	return (0);
+	else
+	{
+		tmp += len - 1;
+		s += len - 1;
+		while (len--)
+			*tmp-- = *s--;
+	}
+	return (dst);
 }

@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/27 12:27:26 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/14 23:04:26 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/28 14:44:17 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (argc > 1)
+	char			*tmp;
+	size_t			i;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	tmp = (char *)malloc(sizeof(char) * (len + 1));
+	if (!tmp)
+		return (NULL);
+	while (len && (size_t)start + i < ft_strlen(s))
 	{
-		printf("%s\n", argv[0]);
+		tmp[i] = s[start + i];
+		i++;
+		len--;
 	}
-	return (0);
+	tmp[i] = '\0';
+	return (tmp);
 }

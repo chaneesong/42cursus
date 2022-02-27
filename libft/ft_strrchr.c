@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/27 12:27:26 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/13 20:35:33 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/21 08:27:05 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_strrchr(const char *s, int c)
 {
-	if (argc > 1)
+	char	*tmp;
+
+	tmp = NULL;
+	while (*s != '\0')
 	{
-		printf("%s\n", argv[0]);
+		if (*s == (char)c)
+			tmp = (char *)s;
+		s++;
 	}
-	return (0);
+	if (c == 0)
+		tmp = (char *)s;
+	return ((char *)tmp);
 }

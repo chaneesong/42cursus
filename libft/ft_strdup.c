@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/02/27 12:27:26 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/14 21:28:44 by chsong            #+#    #+#             */
+/*   Updated: 2021/11/21 09:04:41 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_strdup(const char *src)
 {
-	if (argc > 1)
+	size_t	i;
+	char	*tmp;
+
+	tmp = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (!tmp)
+		return (NULL);
+	i = 0;
+	while (src[i])
 	{
-		printf("%s\n", argv[0]);
+		tmp[i] = src[i];
+		i++;
 	}
-	return (0);
+	tmp[i] = '\0';
+	return (tmp);
 }
