@@ -1,8 +1,10 @@
 NAME		= push_swap
 
-FILES			= main
+SRCS			= main.c \
+				parse/parse_argv.c \
+				parse/insert_list.c
 
-SRCS = $(addsuffix .c, $(FILES))
+# SRCS = $(addsuffix .c, $(FILES))
 
 RM			= rm -f
 
@@ -14,8 +16,8 @@ AR			= AR -rcs
 
 OBJS	= $(SRCS:.c=.o)
 
-$(NAME): 	$(SRCS) libft
-			$(CC) $(CFLAGS) $< libft/libft.a -o $@
+$(NAME): 	libft
+			$(CC) $(CFLAGS) $(SRCS) libft/libft.a -o $@
 
 all:		$(NAME)
 
