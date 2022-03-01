@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:44:41 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/01 19:54:01 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/01 20:36:30 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	parse_argv(char **argv)
 	t_linkedlist	*head;
 
 	index = 1;
+	head = (t_linkedlist *)malloc(sizeof(t_linkedlist));
 	while (argv && argv[index])
 	{
 		split = ft_split(argv[index], ' ');
@@ -29,6 +30,7 @@ void	parse_argv(char **argv)
 			current = insert_list(ft_atoi(*split));
 			split++;
 		}
+		free_multi_array(split);
 		index++;
 	}
 	// return (head);

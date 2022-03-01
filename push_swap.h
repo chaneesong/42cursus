@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/01 19:52:14 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/01 20:39:37 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_linkedlist
 
 int		main(int argc, char *argv[]);
 void	parse_argv(char **str);
-t_linkedlist	insert_list(int *number);
+t_linkedlist	*insert_list(int *number);
+void	free_multi_array(char **str);
 
 #endif

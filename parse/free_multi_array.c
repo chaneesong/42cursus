@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_list.c                                      :+:      :+:    :+:   */
+/*   free_multi_array.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 19:40:02 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/01 20:31:35 by chsong           ###   ########.fr       */
+/*   Created: 2022/03/01 20:36:45 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/01 20:38:25 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-t_linkedlist	*insert_list(int *number)
+void	free_multi_array(char **str)
 {
-	t_linkedlist	*new;
-
-	new = (t_linkedlist *)malloc(sizeof(t_linkedlist));
-	new->content = number;
-	new->prev = NULL;
-	new->next = NULL;
-	return (new);
+	while (str && *str)
+	{
+		free(*str);
+		(*str)++;
+	}
+	free(str);
 }

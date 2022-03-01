@@ -1,10 +1,11 @@
 NAME		= push_swap
 
-SRCS			= main.c \
-				parse/parse_argv.c \
-				parse/insert_list.c
+SRCS			= main \
+				parse/parse_argv \
+				parse/insert_list \
+				parse/free_multi_array
 
-# SRCS = $(addsuffix .c, $(FILES))
+SRCS = $(addsuffix .c, $(FILES))
 
 RM			= rm -f
 
