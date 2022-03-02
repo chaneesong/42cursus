@@ -6,11 +6,11 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:57:06 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/23 15:57:28 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/02 15:53:52 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
 static int	ft_isspace(int c)
 {

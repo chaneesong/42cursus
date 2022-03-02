@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_multi_array.c                                 :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 20:36:45 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/01 20:38:25 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/11 00:09:20 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/02 15:55:24 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	free_multi_array(char **str)
+#include "../push_swap.h"
+
+int	ft_isdigit(int c)
 {
-	while (str && *str)
-	{
-		free(*str);
-		(*str)++;
-	}
-	free(str);
+	if ('0' <= c && c <= '9')
+		return (1);
+	return (0);
 }

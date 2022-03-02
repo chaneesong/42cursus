@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   create_node.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 00:09:20 by chsong            #+#    #+#             */
-/*   Updated: 2021/11/21 07:39:27 by chsong           ###   ########.fr       */
+/*   Created: 2022/03/02 15:02:55 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/02 15:04:26 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-int	ft_isdigit(int c)
+t_node	*create_node(int value)
 {
-	if ('0' <= c && c <= '9')
-		return (1);
-	return (0);
+	t_node	*node;
+
+	node = (t_node *)malloc(sizeof(t_node));
+	node->prev = NULL;
+	node->value = value;
+	node->next = NULL;
+	return (node);
 }

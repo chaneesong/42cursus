@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/01 20:39:37 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/02 15:55:46 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "libft/libft.h"
 
-typedef struct s_linkedlist
+typedef struct s_node
 {
-	int				*content;
-	struct s_list	*next;
-	struct s_list	*prev;
-}	t_linkedlist;
+	struct s_node	*prev;
+	int				value;
+	struct s_node	*next;
+}	t_node;
 
 int		main(int argc, char *argv[]);
-void	parse_argv(char **str);
-t_linkedlist	*insert_list(int *number);
-void	free_multi_array(char **str);
+void	parse_argv(t_node **stack, char **argv);
+t_node	*create_node(int value);
+void	push_stack(t_node **stack, t_node *current);
+int	ft_atoi(const char *str);
+char	**ft_split(char const *s, char c);
+int	ft_isdigit(int c);
 
 #endif

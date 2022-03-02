@@ -1,11 +1,14 @@
 NAME		= push_swap
 
-SRCS			= main \
-				parse/parse_argv \
-				parse/insert_list \
-				parse/free_multi_array
+SRCS			= main.c \
+				init/parse_argv.c \
+				init/create_node.c \
+				init/push_stack.c \
+				utils/ft_split.c \
+				utils/ft_atoi.c \
+				utils/ft_isdigit.c
 
-SRCS = $(addsuffix .c, $(FILES))
+# SRCS = $(addsuffix .c, $(FILES))
 
 RM			= rm -f
 
@@ -17,19 +20,15 @@ AR			= AR -rcs
 
 OBJS	= $(SRCS:.c=.o)
 
-$(NAME): 	libft
-			$(CC) $(CFLAGS) $(SRCS) libft/libft.a -o $@
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS) $(OBJS) -o $@
 
 all:		$(NAME)
 
-libft:
-			$(MAKE) -C ./libft all
 clean:
-			$(MAKE) -C ./libft clean
-			$(RM) $(OBJS) $(OBJS_BONUS)
+			$(RM) $(OBJS)
 
 fclean:		clean
-			$(MAKE) -C ./libft fclean
 			$(RM) $(NAME)
 
 re:			fclean all

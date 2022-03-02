@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_list.c                                      :+:      :+:    :+:   */
+/*   parse_argv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 19:40:02 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/01 20:31:35 by chsong           ###   ########.fr       */
+/*   Created: 2022/03/02 14:56:17 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/02 15:13:52 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_linkedlist	*insert_list(int *number)
+void	parse_argv(t_node **stack, char **argv)
 {
-	t_linkedlist	*new;
+	char	**split;
+	t_node	*current;
 
-	new = (t_linkedlist *)malloc(sizeof(t_linkedlist));
-	new->content = number;
-	new->prev = NULL;
-	new->next = NULL;
-	return (new);
+	argv++;
+	while (argv && *argv)
+	{
+		split = ft_split(*argv, ' ');
+		while (split && *split)
+		{
+			current = create_node(ft_atoi(*split));
+			push_stack(stack, current);
+			split++;
+		}
+		argv++;
+	}
 }
