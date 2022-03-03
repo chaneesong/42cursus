@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/02 18:06:20 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/03 15:16:18 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int	main(int argc, char **argv)
 {
-	t_node	*head;
+	t_list	*stack;
 
-	head = create_node(0);
 	if(argc > 2)
-		parse_argv(&head, argv);
+		stack = parse_argv(argv);
 	return (0);
 }

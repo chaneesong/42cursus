@@ -6,16 +6,17 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:56:17 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/02 15:13:52 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/03 15:17:32 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	parse_argv(t_node **stack, char **argv)
+t_list	*parse_argv(char **argv)
 {
 	char	**split;
 	t_node	*current;
+	t_list	*tmp;
 
 	argv++;
 	while (argv && *argv)
@@ -24,9 +25,11 @@ void	parse_argv(t_node **stack, char **argv)
 		while (split && *split)
 		{
 			current = create_node(ft_atoi(*split));
-			push_stack(stack, current);
+			link_node(current);
 			split++;
 		}
 		argv++;
 	}
+	init_stack(&tmp);
+	return (tmp);
 }
