@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pop_stack.c                                        :+:      :+:    :+:   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 18:23:30 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/03 15:17:03 by chsong           ###   ########.fr       */
+/*   Created: 2022/03/03 15:49:45 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/03 16:01:23 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_node	*link_node(t_node **stack)
+void	init_stack(t_list **stack, t_node *init)
 {
-	t_node	*current;
+	int	size;
 
-	current = *stack;
-	*stack = (*stack)->prev;
-	(*stack)->next = NULL;
-	current->prev = NULL;
-	return (current);
+	(*stack)->top = init;
+	size = 0;
+	while(init->prev)
+	{
+		init = init->prev;
+		size++;
+	}
+	(*stack)->bottom = init;
+	(*stack)->size = ++size;
 }

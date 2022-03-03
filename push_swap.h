@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/03 15:18:40 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/03 15:55:16 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ typedef struct s_list
 }	t_list;
 
 int		main(int argc, char *argv[]);
-t_list	*parse_argv(t_node **stack, char **argv);
+t_list	*parse_argv(char **argv);
 t_node	*create_node(int value);
 t_node	*pop_stack(t_node **stack);
-void	link_node(t_node **current);
+void	link_node(t_node **init, t_node *current);
+void	init_stack(t_list **stack, t_node *init);
 
 int		ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);

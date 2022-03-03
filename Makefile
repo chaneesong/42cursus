@@ -3,7 +3,8 @@ NAME		= push_swap
 SRCS			= main.c \
 				init/parse_argv.c \
 				init/create_node.c \
-				init/push_stack.c \
+				init/link_node.c \
+				init/init_stack.c \
 				utils/ft_split.c \
 				utils/ft_atoi.c \
 				utils/ft_isdigit.c
