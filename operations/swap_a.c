@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 18:27:30 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/02 21:31:57 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/03 12:55:46 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap_a(t_node **stack_a)
+void	swap(t_node **stack)
 {
 	
 }
