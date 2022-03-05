@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/03 16:02:01 by chsong           ###   ########.fr       */
+/*   Created: 2022/03/03 16:21:13 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/03 16:21:28 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
+static void	*ft_memset(void *b, int c, size_t len)
 {
-	t_list	*stack;
+	unsigned char	*res;
 
-	if(argc > 2)
-		stack = parse_argv(argv);
-	return (0);
+	res = b;
+	while (len--)
+		*res++ = (unsigned char)c;
+	return (b);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*tmp;
+
+	tmp = (void *)malloc(size * count);
+	if (!tmp)
+		return (NULL);
+	tmp = ft_memset(tmp, 0, size * count);
+	return (tmp);
 }

@@ -1,13 +1,15 @@
 NAME		= push_swap
 
-SRCS			= main.c \
+SRCS			= push_swap.c \
 				init/parse_argv.c \
 				init/create_node.c \
-				init/link_node.c \
-				init/init_stack.c \
+				init/push.c \
+				init/pop.c \
 				utils/ft_split.c \
 				utils/ft_atoi.c \
-				utils/ft_isdigit.c
+				utils/ft_isdigit.c \
+				utils/print_error.c \
+				utils/ft_calloc.c
 
 # SRCS = $(addsuffix .c, $(FILES))
 

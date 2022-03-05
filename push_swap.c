@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 15:49:45 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/03 16:01:23 by chsong           ###   ########.fr       */
+/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/05 16:33:03 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	init_stack(t_list **stack, t_node *init)
+int	main(int argc, char **argv)
 {
-	int	size;
+	t_list	*stack;
 
-	(*stack)->top = init;
-	size = 0;
-	while(init->prev)
+	if (argc < 2)
+		print_error();
+	stack = parse_argv(argv);
+	while(stack->a_top)
 	{
-		init = init->prev;
-		size++;
+		printf("val = %d\n", pop_a(&stack)->value);
 	}
-	(*stack)->bottom = init;
-	(*stack)->size = ++size;
+	return (0);
 }
