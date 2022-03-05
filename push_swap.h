@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/05 16:32:30 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/05 18:56:48 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,22 @@ t_node	*pop_a(t_list **stack);
 t_node	*pop_b(t_list **stack);
 
 /* operation part*/
-
+void	sa(t_list **stack);
+void	sb(t_list **stack);
+void	ss(t_list **stack);
+void	pa(t_list **stack);
+void	pb(t_list **stack);
+void	ra(t_list **stack);
+void	rb(t_list **stack);
+void	rr(t_list **stack);
+void	rra(t_list **stack);
+void	rrb(t_list **stack);
+void	rrr(t_list **stack);
 
 /*utils part*/
 int		ft_atoi(const char *str);
-char	**ft_split(char const *s, char c);
 int		ft_isdigit(int c);
+char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	print_error();
 

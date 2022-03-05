@@ -9,7 +9,18 @@ SRCS			= push_swap.c \
 				utils/ft_atoi.c \
 				utils/ft_isdigit.c \
 				utils/print_error.c \
-				utils/ft_calloc.c
+				utils/ft_calloc.c \
+				operations/pa.c \
+				operations/pb.c \
+				operations/sa.c \
+				operations/sb.c \
+				operations/ss.c \
+				operations/ra.c \
+				operations/rb.c \
+				operations/rr.c \
+				operations/rra.c \
+				operations/rrb.c \
+				operations/rrr.c
 
 # SRCS = $(addsuffix .c, $(FILES))
 
