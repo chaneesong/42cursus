@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:57:06 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/02 15:53:52 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/08 14:14:44 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,21 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
+static int	update_sign(const char **str)
+{
+	const char	*sign;
+
+	sign = *str;
+	(*str)++;
+	if (*sign == '+')
+		return (1);
+	return (-1);
+}
+
 int	ft_atoi(const char *str)
 {
-	int	negative;
-	int	res;
+	int			negative;
+	long long	result;
 
 	negative = 1;
 	while (*str)
@@ -32,18 +43,19 @@ int	ft_atoi(const char *str)
 			break ;
 		str++;
 	}
-	if (*str == '-')
-	{
-		negative *= -1;
-		str++;
-	}
-	else if (*str == '+')
-		str++;
-	res = 0;
+	if (*str == '+' || *str == '-')
+		negative *= update_sign(&str);
+	result = 0;
 	while (ft_isdigit(*str))
 	{
-		res = res * 10 + (*str - '0');
+		result = result * 10 + (*str - '0');
 		str++;
 	}
-	return ((int)(res * negative));
+	result = result * negative;
+	if (*str != '\0' || result > 2147483647 || result < -2147483648)
+	{
+		print_error();
+		exit(-1);
+	}
+	return (result);
 }

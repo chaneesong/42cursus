@@ -6,11 +6,29 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:56:17 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/05 18:44:17 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/08 14:15:13 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+static int	check_same_value(t_list **stack, t_node *current)
+{
+	t_node	*top;
+
+	top = (*stack)->a_top;
+	while((*stack)->a_top)
+	{
+		if ((*stack)->a_top->value == current->value)
+		{
+			(*stack)->a_top = top;
+			return (1);
+		}
+		(*stack)->a_top = (*stack)->a_top->next;
+	}
+	(*stack)->a_top = top;
+	return (0);
+}
 
 static void	push_init(t_list **stack, t_node *current)
 {
@@ -27,6 +45,18 @@ static void	push_init(t_list **stack, t_node *current)
 	(*stack)->a_size++;
 }
 
+static void	free_split(char **split)
+{
+	int	tmp;
+
+	tmp = 0;
+	while(split[tmp])
+	{
+		free(split[tmp]);
+		tmp++;
+	}
+}
+
 t_list	*parse_argv(char **argv)
 {
 	char	**split;
@@ -41,9 +71,12 @@ t_list	*parse_argv(char **argv)
 		while (split && *split)
 		{
 			current = create_node(ft_atoi(*split));
+			if (check_same_value(&stack, current))
+				exit(-1);
 			push_init(&stack, current);
 			split++;
 		}
+		free_split(split);
 		argv++;
 	}
 	return (stack);
