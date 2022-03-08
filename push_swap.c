@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/08 18:25:40 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/08 19:09:55 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ static int	check_null(char **argv)
 int	main(int argc, char **argv)
 {
 	t_list	*stack;
-	t_node	*tmp;
+	// t_node	*tmp;
 
+	if (argc == 1)
+		return (0);
 	if (argc < 2 || check_null(argv))
 	{
 		print_error();
@@ -35,13 +37,10 @@ int	main(int argc, char **argv)
 	}
 	stack = parse_argv(argv);
 	sort_stack(&stack);
-	while (stack->a_top)
-	{
-		printf("%d ", stack->a_top->value);
-		tmp = stack->a_top->prev;
-		free(stack->a_top);
-		stack->a_top = tmp;
-	}
-	free(stack);
+	// while (stack->a_top)
+	// {
+	// 	printf("%d ", stack->a_top->value);
+	// 	stack->a_top = stack->a_top->prev;
+	// }
 	return (0);
 }

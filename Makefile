@@ -21,9 +21,12 @@ SRCS			= push_swap.c \
 				operations/rra.c \
 				operations/rrb.c \
 				operations/rrr.c \
-				sort/sort_stack.c
+				sort/sort_stack.c \
+				sort/sort_small_size.c
 
 # SRCS = $(addsuffix .c, $(FILES))
+
+OBJSDIR		= objs
 
 RM			= rm -f
 
@@ -33,7 +36,7 @@ CFLAGS		= -Wall -Wextra -Werror
 
 AR			= AR -rcs
 
-OBJS	= $(SRCS:.c=.o)
+OBJS	=	$(SRCS:.c=.o)
 
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) $(OBJS) -g -o $@

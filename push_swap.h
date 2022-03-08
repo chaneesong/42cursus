@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/08 17:48:49 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/09 05:51:51 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ void	*ft_calloc(size_t count, size_t size);
 void	print_error(void);
 
 void	sort_stack(t_list **stack);
+void	sort_two_node(t_list **stack);
+void	sort_three_node(t_list **stack);
 
 #endif
