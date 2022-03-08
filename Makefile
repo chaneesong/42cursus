@@ -20,7 +20,8 @@ SRCS			= push_swap.c \
 				operations/rr.c \
 				operations/rra.c \
 				operations/rrb.c \
-				operations/rrr.c
+				operations/rrr.c \
+				sort/sort_stack.c
 
 # SRCS = $(addsuffix .c, $(FILES))
 
