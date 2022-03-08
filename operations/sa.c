@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:34:45 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/05 19:16:53 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/08 14:38:41 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void	sa(t_list **stack)
 	second = pop_a(stack);
 	push_a(stack, first);
 	push_a(stack, second);
+	write(1, "sa\n", 3);
 }

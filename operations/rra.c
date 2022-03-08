@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 18:50:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/05 19:45:01 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/08 14:38:13 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	rra(t_list **stack)
 	bottom->next = NULL;
 	(*stack)->a_size--;
 	push_a(stack, bottom);
+	write(1, "rra\n", 4);
 }

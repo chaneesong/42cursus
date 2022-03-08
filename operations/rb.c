@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:52:43 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/05 17:53:21 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/08 14:38:01 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	rb(t_list **stack)
 	(*stack)->b_bottom->prev = top;
 	top->next = (*stack)->b_bottom->prev;
 	(*stack)->b_bottom = top;
+	write(1, "rb\n", 3);
 }
