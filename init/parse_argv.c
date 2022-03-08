@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:56:17 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/08 14:15:13 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/08 15:02:50 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,7 @@ static void	push_init(t_list **stack, t_node *current)
 
 static void	free_split(char **split)
 {
-	int	tmp;
-
-	tmp = 0;
-	while(split[tmp])
-	{
-		free(split[tmp]);
-		tmp++;
-	}
+	free(split[0]);
 }
 
 t_list	*parse_argv(char **argv)

@@ -35,7 +35,7 @@ AR			= AR -rcs
 OBJS	= $(SRCS:.c=.o)
 
 $(NAME):	$(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -o $@
+			$(CC) $(CFLAGS) $(OBJS) -g -o $@
 
 all:		$(NAME)
 

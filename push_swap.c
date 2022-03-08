@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/08 14:12:11 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/08 15:04:28 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 		printf("%d ", stack->a_top->value);
 		stack->a_top = stack->a_top->prev;
 	}
-	// while(1)
-	// {}
+	while(1)
+	{}
 	return (0);
 }
