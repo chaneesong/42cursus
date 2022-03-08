@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:06:17 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/05 18:41:14 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/08 15:37:55 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push_a(t_list **stack, t_node *node)
 {
-	if((*stack)->a_size == 0)
+	if ((*stack)->a_size == 0)
 	{
 		(*stack)->a_top = node;
 		(*stack)->a_bottom = node;
@@ -29,7 +29,7 @@ void	push_a(t_list **stack, t_node *node)
 
 void	push_b(t_list **stack, t_node *node)
 {
-	if((*stack)->b_size == 0)
+	if ((*stack)->b_size == 0)
 	{
 		(*stack)->b_top = node;
 		(*stack)->b_bottom = node;

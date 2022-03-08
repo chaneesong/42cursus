@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:09:28 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/05 19:46:11 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/08 15:37:36 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_node	*pop_a(t_list **stack)
 {
 	t_node	*node;
-	
+
 	if ((*stack)->a_size == 0)
 		return (NULL);
 	node = (t_node *)malloc(sizeof(t_node));
@@ -38,7 +38,7 @@ t_node	*pop_a(t_list **stack)
 t_node	*pop_b(t_list **stack)
 {
 	t_node	*node;
-	
+
 	if ((*stack)->b_size == 0)
 		return (NULL);
 	node = (t_node *)malloc(sizeof(t_node));
