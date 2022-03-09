@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/09 16:36:37 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/09 17:13:45 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_node
 
 typedef struct s_list
 {
+	int				first;
+	int				second;
 	int				a_size;
 	struct s_node	*a_top;
 	struct s_node	*a_bottom;
