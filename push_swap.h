@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:38 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/09 05:51:51 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/09 16:36:37 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,23 @@ int		main(int argc, char *argv[]);
 /*init part*/
 t_list	*parse_argv(char **argv);
 t_node	*create_node(int value);
-void	push_a(t_list **stack, t_node *node);
-void	push_b(t_list **stack, t_node *node);
-t_node	*pop_a(t_list **stack);
-t_node	*pop_b(t_list **stack);
+void	push_a(t_list *stack, t_node *node);
+void	push_b(t_list *stack, t_node *node);
+t_node	*pop_a(t_list *stack);
+t_node	*pop_b(t_list *stack);
 
 /* operation part*/
-void	sa(t_list **stack);
-void	sb(t_list **stack);
-void	ss(t_list **stack);
-void	pa(t_list **stack);
-void	pb(t_list **stack);
-void	ra(t_list **stack);
-void	rb(t_list **stack);
-void	rr(t_list **stack);
-void	rra(t_list **stack);
-void	rrb(t_list **stack);
-void	rrr(t_list **stack);
+void	sb(t_list *stack);
+void	sa(t_list *stack);
+void	ss(t_list *stack);
+void	pa(t_list *stack);
+void	pb(t_list *stack);
+void	ra(t_list *stack);
+void	rb(t_list *stack);
+void	rr(t_list *stack);
+void	rra(t_list *stack);
+void	rrb(t_list *stack);
+void	rrr(t_list *stack);
 
 /*utils part*/
 int		ft_atoi(const char *str);
@@ -65,8 +65,9 @@ char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	print_error(void);
 
-void	sort_stack(t_list **stack);
-void	sort_two_node(t_list **stack);
-void	sort_three_node(t_list **stack);
+void	sort_stack(t_list *stack);
+void	sort_two_node(t_list *stack);
+void	sort_three_node(t_list *stack);
+void	find_pivot(t_list *stack);
 
 #endif

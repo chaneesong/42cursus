@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:38:47 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/08 14:38:52 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/09 16:34:15 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ss(t_list **stack)
+void	ss(t_list *stack)
 {
 	sa(stack);
 	sb(stack);

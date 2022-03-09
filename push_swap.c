@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/08 19:09:55 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/09 16:36:56 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 		exit(-1);
 	}
 	stack = parse_argv(argv);
-	sort_stack(&stack);
+	sort_stack(stack);
 	// while (stack->a_top)
 	// {
 	// 	printf("%d ", stack->a_top->value);
