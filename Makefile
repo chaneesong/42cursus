@@ -23,7 +23,8 @@ SRCS			= push_swap.c \
 				operations/rrr.c \
 				sort/sort_stack.c \
 				sort/sort_small_size.c \
-				sort/find_pivot.c
+				sort/find_pivot.c \
+				sort/sort_big_size.c
 
 # SRCS = $(addsuffix .c, $(FILES))
 
