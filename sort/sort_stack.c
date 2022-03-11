@@ -6,7 +6,11 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 14:40:24 by chsong            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/03/11 17:18:01 by chsong           ###   ########.fr       */
+=======
+/*   Updated: 2022/03/10 23:08:24 by chsong           ###   ########.fr       */
+>>>>>>> 0b7f38403b93443ad4645eb842c1901aaa5ebb4e
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +46,12 @@ void	sort_stack(t_list *stack)
 	else
 	{
 		divide_into_three(stack);
+<<<<<<< HEAD
 		sort_three_node(stack);
 		sort_big_size(stack);
+=======
+		while (stack->b_size != 11)
+			sort_big_size(stack);
+>>>>>>> 0b7f38403b93443ad4645eb842c1901aaa5ebb4e
 	}
 }

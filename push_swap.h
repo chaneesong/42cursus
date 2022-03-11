@@ -6,7 +6,11 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:56:38 by chsong            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/03/11 16:38:34 by chsong           ###   ########.fr       */
+=======
+/*   Updated: 2022/03/10 22:02:37 by chsong           ###   ########.fr       */
+>>>>>>> 0b7f38403b93443ad4645eb842c1901aaa5ebb4e
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +76,12 @@ void	sort_two_node(t_list *stack);
 void	sort_three_node(t_list *stack);
 void	find_pivot(t_list *stack);
 void	sort_big_size(t_list *stack);
+<<<<<<< HEAD
 int		return_value(int total, int cur_size);
 int		low_value(t_list *stack, t_node *current);
 int		high_value(t_list *stack, t_node *current);
 int		upsign(int value);
+=======
+>>>>>>> 0b7f38403b93443ad4645eb842c1901aaa5ebb4e
 
 #endif
