@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:52:43 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/09 16:33:20 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/11 17:16:27 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	rb(t_list *stack)
 	currnet->next = stack->b_bottom;
 	stack->b_bottom = currnet;
 	stack->b_size++;
-	write(1, "rb\n", 3);
+	// write(1, "rb\n", 3);
 }

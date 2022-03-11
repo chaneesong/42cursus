@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 14:40:24 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/09 17:51:46 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/11 17:18:01 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	divide_into_three(t_list *stack)
 		else
 			ra(stack);
 	}
-	while (stack->a_top)
+	while (stack->a_size != 3)
 		pb(stack);
 }
 
@@ -40,5 +40,9 @@ void	sort_stack(t_list *stack)
 	else if (stack->a_size == 3)
 		sort_three_node(stack);
 	else
+	{
 		divide_into_three(stack);
+		sort_three_node(stack);
+		sort_big_size(stack);
+	}
 }
