@@ -76,12 +76,9 @@ void	sort_two_node(t_list *stack);
 void	sort_three_node(t_list *stack);
 void	find_pivot(t_list *stack);
 void	sort_big_size(t_list *stack);
-<<<<<<< HEAD
 int		return_value(int total, int cur_size);
 int		low_value(t_list *stack, t_node *current);
 int		high_value(t_list *stack, t_node *current);
 int		upsign(int value);
-=======
->>>>>>> 0b7f38403b93443ad4645eb842c1901aaa5ebb4e
 
 #endif
