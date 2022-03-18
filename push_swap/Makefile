@@ -1,35 +1,6 @@
 NAME		= push_swap
 
 SRCS			= push_swap.c \
-				init/parse_argv.c \
-				init/create_node.c \
-				init/push.c \
-				init/pop.c \
-				utils/ft_split.c \
-				utils/ft_atoi.c \
-				utils/ft_isdigit.c \
-				utils/print_error.c \
-				utils/ft_calloc.c \
-				operations/pa.c \
-				operations/pb.c \
-				operations/sa.c \
-				operations/sb.c \
-				operations/ss.c \
-				operations/ra.c \
-				operations/rb.c \
-				operations/rr.c \
-				operations/rra.c \
-				operations/rrb.c \
-				operations/rrr.c \
-				sort/sort_stack.c \
-				sort/sort_small_size.c \
-				sort/find_pivot.c \
-<<<<<<< HEAD
-				sort/sort_big_size.c \
-				sort/util.c
-=======
-				sort/sort_big_size.c
->>>>>>> 0b7f38403b93443ad4645eb842c1901aaa5ebb4e
 
 # SRCS = $(addsuffix .c, $(FILES))
 
