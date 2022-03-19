@@ -5,19 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 17:21:32 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/18 19:58:22 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/14 18:57:06 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/08 14:14:44 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-static int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
 
 static int	ft_isspace(int c)
 {
@@ -60,6 +53,9 @@ int	ft_atoi(const char *str)
 	}
 	result = result * negative;
 	if (*str != '\0' || result > 2147483647 || result < -2147483648)
+	{
+		print_error();
 		exit(-1);
+	}
 	return (result);
 }

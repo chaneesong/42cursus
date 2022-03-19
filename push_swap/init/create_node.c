@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_argv.c                                       :+:      :+:    :+:   */
+/*   create_node.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 17:37:49 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/18 20:02:14 by chsong           ###   ########.fr       */
+/*   Created: 2022/03/02 15:02:55 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/05 15:08:30 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	parse_argv(t_stack *a, char **argv)
+t_node	*create_node(int value)
 {
-	char	**current;
-	int		i;
+	t_node	*node;
 
-	while (argv && *argv)
-	{
-		i = 0;
-		current = ft_split(*argv, ' ');
-		while (current && current[i])
-		{
-			init_push(a, ft_atoi(current[i]));
-			i++;
-		}
-		free(current);
-		argv++;
-	}
+	node = (t_node *)malloc(sizeof(t_node));
+	node->value = value;
+	node->next = NULL;
+	return (node);
 }

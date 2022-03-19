@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 16:21:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/03 16:21:28 by chsong           ###   ########.fr       */
+/*   Created: 2021/11/11 00:09:20 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/02 15:55:24 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	*ft_memset(void *b, int c, size_t len)
+int	ft_isdigit(int c)
 {
-	unsigned char	*res;
-
-	res = b;
-	while (len--)
-		*res++ = (unsigned char)c;
-	return (b);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*tmp;
-
-	tmp = (void *)malloc(size * count);
-	if (!tmp)
-		return (NULL);
-	tmp = ft_memset(tmp, 0, size * count);
-	return (tmp);
+	if ('0' <= c && c <= '9')
+		return (1);
+	return (0);
 }
