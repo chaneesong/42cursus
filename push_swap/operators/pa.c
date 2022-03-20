@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 00:09:20 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/02 15:55:24 by chsong           ###   ########.fr       */
+/*   Created: 2022/03/20 11:48:27 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/20 13:17:57 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_isdigit(int c)
+void	pa(t_list *stack)
 {
-	if ('0' <= c && c <= '9')
-		return (1);
-	return (0);
+	if (stack->b_size == 0)
+		return ;
+	push_a_top(stack, pop_b_top(stack));
 }

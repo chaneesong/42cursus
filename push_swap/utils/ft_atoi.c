@@ -6,11 +6,18 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 18:57:06 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/08 14:14:44 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/20 11:33:55 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+static int	ft_isdigit(int c)
+{
+	if ('0' <= c && c <= '9')
+		return (1);
+	return (0);
+}
 
 static int	ft_isspace(int c)
 {

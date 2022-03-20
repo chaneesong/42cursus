@@ -7,10 +7,19 @@ SRCS			= push_swap.c \
 				init/pop.c \
 				utils/ft_split.c \
 				utils/ft_atoi.c \
-				utils/ft_isdigit.c \
 				utils/print_error.c \
-				utils/ft_calloc.c
-
+				utils/ft_calloc.c \
+				operators/sa.c \
+				operators/sb.c \
+				operators/ss.c \
+				operators/pa.c \
+				operators/pb.c \
+				operators/ra.c \
+				operators/rb.c \
+				operators/rr.c \
+				operators/rra.c \
+				operators/rrb.c \
+				operators/rrr.c
 # SRCS = $(addsuffix .c, $(FILES))
 
 OBJSDIR		= objs

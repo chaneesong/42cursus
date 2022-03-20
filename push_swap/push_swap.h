@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:50:39 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/19 21:50:42 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/20 13:08:56 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,14 @@ int		main(int argc, char *argv[]);
 /*init part*/
 t_list	*parse_argv(char **argv);
 t_node	*create_node(int value);
-void	push_a(t_list *stack, t_node *node);
-void	push_b(t_list *stack, t_node *node);
-t_node	*pop_a(t_list *stack);
-t_node	*pop_b(t_list *stack);
+void	push_a_top(t_list *stack, t_node *node);
+void	push_b_top(t_list *stack, t_node *node);
+void	push_a_bottom(t_list *stack, t_node *node);
+void	push_b_bottom(t_list *stack, t_node *node);
+t_node	*pop_a_top(t_list *stack);
+t_node	*pop_b_top(t_list *stack);
+t_node	*pop_a_bottom(t_list *stack);
+t_node	*pop_b_bottom(t_list *stack);
 
 /* operation part*/
 void	sb(t_list *stack);
@@ -62,19 +66,8 @@ void	rrr(t_list *stack);
 
 /*utils part*/
 int		ft_atoi(const char *str);
-int		ft_isdigit(int c);
 char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	print_error(void);
-
-void	sort_stack(t_list *stack);
-void	sort_two_node(t_list *stack);
-void	sort_three_node(t_list *stack);
-void	find_pivot(t_list *stack);
-void	sort_big_size(t_list *stack);
-int		return_value(int total, int cur_size);
-int		low_value(t_list *stack, t_node *current);
-int		high_value(t_list *stack, t_node *current);
-int		upsign(int value);
 
 #endif
