@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 11:50:22 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/20 13:17:38 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/21 14:36:16 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,5 @@ void	pb(t_list *stack)
 	if (stack->a_size == 0)
 		return ;
 	push_b_top(stack, pop_a_top(stack));
+	write(1, "pb\n", 3);
 }
