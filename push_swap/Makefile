@@ -19,7 +19,12 @@ SRCS			= push_swap.c \
 				operators/rr.c \
 				operators/rra.c \
 				operators/rrb.c \
-				operators/rrr.c
+				operators/rrr.c \
+				sort/sort_stack.c \
+				sort/find_partition_value.c \
+				sort/a_to_b.c \
+				sort/b_to_a.c \
+				utils/print_a.c
 # SRCS = $(addsuffix .c, $(FILES))
 
 OBJSDIR		= objs

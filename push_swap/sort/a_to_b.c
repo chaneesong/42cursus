@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   a_to_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/21 14:34:53 by chsong           ###   ########.fr       */
+/*   Created: 2022/03/21 13:38:57 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/21 15:59:27 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static int	check_null(char **argv)
+void	a_to_b(t_list *stack)
 {
-	while (*argv)
-	{
-		if (*argv[0] == 0)
-			return (1);
-		argv++;
-	}
-	return (0);
-}
+	int	size;
 
-int	main(int argc, char **argv)
-{
-	t_list	*stack;
-
-	if (argc == 1)
-		return (0);
-	if (argc < 2 || check_null(argv))
+	size = -1;
+	while (++size != stack->a_size + stack->b_size)
 	{
-		print_error();
-		exit(-1);
+		if (stack->a_top->value > stack->part2)
+			ra(stack);
+		else if (stack->a_top->value > stack->part1 &&
+				stack->a_top->value <= stack->part2)
+			pb(stack);
+		else
+		{
+			pb(stack);
+			rb(stack);
+		}
 	}
-	stack = parse_argv(argv);
-	sort_stack(stack);
-	return (0);
+	while (stack->a_size)
+		pb(stack);
 }

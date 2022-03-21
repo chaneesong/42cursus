@@ -1,40 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/21 14:34:53 by chsong           ###   ########.fr       */
+/*   Created: 2022/03/21 12:11:19 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/21 17:18:47 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static int	check_null(char **argv)
+void	sort_stack(t_list *stack)
 {
-	while (*argv)
-	{
-		if (*argv[0] == 0)
-			return (1);
-		argv++;
-	}
-	return (0);
-}
-
-int	main(int argc, char **argv)
-{
-	t_list	*stack;
-
-	if (argc == 1)
-		return (0);
-	if (argc < 2 || check_null(argv))
-	{
-		print_error();
-		exit(-1);
-	}
-	stack = parse_argv(argv);
-	sort_stack(stack);
-	return (0);
+	find_partition_value(stack);
+	a_to_b(stack);
+	// b_to_a(stack);
 }

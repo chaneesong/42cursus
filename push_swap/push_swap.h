@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:50:39 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/20 13:08:56 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/21 14:29:42 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_node
 
 typedef struct s_list
 {
-	int				first;
-	int				second;
+	int				part1;
+	int				part2;
 	int				a_size;
 	struct s_node	*a_top;
 	struct s_node	*a_bottom;
@@ -64,10 +64,20 @@ void	rra(t_list *stack);
 void	rrb(t_list *stack);
 void	rrr(t_list *stack);
 
-/*utils part*/
+/*sort part*/
+void	sort_stack(t_list *stack);
+void	find_partition_value(t_list *stack);
+void	a_to_b(t_list *stack);
+void	b_to_a(t_list *stack);
+
+/*util part*/
 int		ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	print_error(void);
+
+/* please delete */
+void	print_a(t_list *stack);
+void	print_b(t_list *stack);
 
 #endif
