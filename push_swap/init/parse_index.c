@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 12:17:05 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/22 13:57:49 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/22 15:15:19 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	check_index(int *arr, int cur, int size)
 {
-	int idx;
+	int	idx;
 	int	i;
-	
+
 	i = -1;
 	idx = 0;
 	while (++i < size)

@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:10:23 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/22 14:46:24 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/22 15:15:38 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	pass_to_b(t_list *stack, int chunk)
 void	a_to_b(t_list *stack)
 {
 	int	chunk;
-	
+
 	if (stack->a_size < 100)
 		chunk = 5;
 	else if (stack->a_size >= 100 && stack->a_size < 500)

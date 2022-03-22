@@ -6,16 +6,30 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:46:59 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/22 14:54:14 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/22 15:17:52 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static void	rotate_stack(t_list *stack, int n, int position)
+{
+	if (stack->a_size / 2 > position)
+	{
+		while (stack->a_top->value != n)
+			ra(stack);
+	}
+	else
+	{
+		while (stack->a_top->value != n)
+			rra(stack);
+	}
+}
+
 void	sort_five_node(t_list *stack)
 {
-	int	n;
-	int	position;
+	int		n;
+	int		position;
 	t_node	*node;
 
 	n = 0;
@@ -28,16 +42,7 @@ void	sort_five_node(t_list *stack)
 			position++;
 			node = node->prev;
 		}
-		if (stack->a_size / 2 > position)
-		{
-			while (stack->a_top->value != n)
-				ra(stack);
-		}
-		else
-		{
-			while (stack->a_top->value != n)
-				rra(stack);
-		}
+		rotate_stack(stack, n, position);
 		pb(stack);
 		n++;
 	}
