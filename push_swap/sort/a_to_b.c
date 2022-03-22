@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:10:23 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/22 15:15:38 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/22 18:56:54 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ static void	pass_to_b(t_list *stack, int chunk)
 		else if (stack->a_top->value > i && stack->a_top->value <= i + chunk)
 		{
 			pb(stack);
-			rb(stack);
+			rb(stack, 1);
 			i++;
 		}
 		else
-			ra(stack);
+			ra(stack, 1);
 	}
 }
 

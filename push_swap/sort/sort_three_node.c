@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 18:13:42 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/21 18:41:49 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/23 01:52:56 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ void	sort_three_node(t_list *stack)
 	third = stack->a_top->prev->prev->value;
 	if (first < second && second > third && third > first)
 	{
-		rra(stack);
-		sa(stack);
+		rra(stack, 1);
+		sa(stack, 1);
 	}
 	else if (first > second && second < third && third > first)
-		sa(stack);
+		sa(stack, 1);
 	else if (first < second && second > third && third < first)
-		rra(stack);
+		rra(stack, 1);
 	else if (first > second && second < third && third < first)
-		ra(stack);
+		ra(stack, 1);
 	else if (first > second && second > third && third < first)
 	{
-		sa(stack);
-		rra(stack);
+		sa(stack, 1);
+		rra(stack, 1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 12:17:05 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/22 15:15:19 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/22 18:33:43 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,20 @@ static void	set_index(t_list *stack, int *arr)
 	}
 }
 
+static int	check_sorted(t_list *stack)
+{
+	t_node	*tmp;
+
+	tmp = stack->a_top;
+	while (tmp->prev)
+	{
+		if (tmp->value > tmp->prev->value)
+			return (0);
+		tmp = tmp->prev;
+	}
+	return (1);
+}
+
 void	parse_index(t_list *stack)
 {
 	int		*value_arr;
@@ -64,4 +78,6 @@ void	parse_index(t_list *stack)
 	set_index(stack, index_arr);
 	free(value_arr);
 	free(index_arr);
+	if (check_sorted(stack))
+		exit(-1);
 }

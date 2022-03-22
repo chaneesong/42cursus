@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:50:39 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/22 14:54:29 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/22 18:52:12 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,16 @@ t_node	*pop_b_bottom(t_list *stack);
 void	parse_index(t_list *stack);
 
 /* operation part*/
-void	sb(t_list *stack);
-void	sa(t_list *stack);
-void	ss(t_list *stack);
 void	pa(t_list *stack);
 void	pb(t_list *stack);
-void	ra(t_list *stack);
-void	rb(t_list *stack);
+void	sb(t_list *stack, int check);
+void	sa(t_list *stack, int check);
+void	ss(t_list *stack);
+void	ra(t_list *stack, int check);
+void	rb(t_list *stack, int check);
 void	rr(t_list *stack);
-void	rra(t_list *stack);
-void	rrb(t_list *stack);
+void	rra(t_list *stack, int check);
+void	rrb(t_list *stack, int check);
 void	rrr(t_list *stack);
 
 /*sort part*/
@@ -78,6 +78,7 @@ void	a_to_b(t_list *stack);
 int		ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
+void	print_operator(char *str, int check);
 void	print_error(void);
 
 /* please delete */

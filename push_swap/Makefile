@@ -10,6 +10,7 @@ SRCS			= push_swap.c \
 				utils/ft_atoi.c \
 				utils/print_error.c \
 				utils/ft_calloc.c \
+				utils/print_operator.c \
 				operators/sa.c \
 				operators/sb.c \
 				operators/ss.c \
@@ -26,7 +27,6 @@ SRCS			= push_swap.c \
 				sort/sort_three_node.c \
 				sort/sort_five_node.c \
 				sort/a_to_b.c \
-				utils/print_a.c
 
 RM			= rm -f
 

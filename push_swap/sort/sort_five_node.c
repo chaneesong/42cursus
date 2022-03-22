@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:46:59 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/22 15:17:52 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/22 18:57:18 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ static void	rotate_stack(t_list *stack, int n, int position)
 	if (stack->a_size / 2 > position)
 	{
 		while (stack->a_top->value != n)
-			ra(stack);
+			ra(stack, 1);
 	}
 	else
 	{
 		while (stack->a_top->value != n)
-			rra(stack);
+			rra(stack, 1);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 12:11:19 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/22 14:47:00 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/23 01:52:33 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static void	b_to_a(t_list *stack)
 	if (stack->b_size / 2 > position)
 	{
 		while (stack->b_top->value != cur)
-			rb(stack);
+			rb(stack, 1);
 	}
 	else
 	{
 		while (stack->b_top->value != cur)
-			rrb(stack);
+			rrb(stack, 1);
 	}
 	pa(stack);
 }

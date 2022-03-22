@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 11:48:27 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/21 14:36:05 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/22 18:56:20 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	pa(t_list *stack)
 	if (stack->b_size == 0)
 		return ;
 	push_a_top(stack, pop_b_top(stack));
-	write(1, "pa\n", 3);
+	print_operator("pa", 1);
 }

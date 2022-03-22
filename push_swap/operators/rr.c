@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 13:21:36 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/21 14:36:26 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/22 18:54:19 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rr(t_list *stack)
 {
-	ra(stack);
-	rb(stack);
-	write(1, "rr\n", 3);
+	ra(stack, 0);
+	rb(stack, 0);
+	print_operator("rr", 1);
 }
