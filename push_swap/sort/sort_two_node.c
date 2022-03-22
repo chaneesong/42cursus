@@ -1,40 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_two_node.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 16:56:13 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/22 15:07:54 by chsong           ###   ########.fr       */
+/*   Created: 2022/03/21 18:13:39 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/21 18:15:23 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static int	check_null(char **argv)
+void	sort_two_node(t_list *stack)
 {
-	while (*argv)
-	{
-		if (*argv[0] == 0)
-			return (1);
-		argv++;
-	}
-	return (0);
-}
-
-int	main(int argc, char **argv)
-{
-	t_list	*stack;
-
-	if (argc == 1)
-		return (0);
-	if (argc < 2 || check_null(argv))
-	{
-		print_error();
-		exit(-1);
-	}
-	stack = parse_argv(argv);
-	sort_stack(stack);
-	return (0);
+	if (stack->a_top->value > stack->a_bottom->value)
+		sa(stack);
 }

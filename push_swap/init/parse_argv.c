@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:56:17 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/09 16:37:26 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/22 12:16:38 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,6 @@ static int	check_same_value(t_list *stack, t_node *current)
 	return (0);
 }
 
-static void	push_init(t_list *stack, t_node *current)
-{
-	if (stack->a_size == 0)
-	{
-		stack->a_top = current;
-		stack->a_bottom = current;
-		stack->a_size++;
-		return ;
-	}
-	stack->a_bottom->prev = current;
-	current->next = stack->a_bottom;
-	stack->a_bottom = current;
-	stack->a_size++;
-}
-
 t_list	*parse_argv(char **argv)
 {
 	char	**split;
@@ -63,12 +48,13 @@ t_list	*parse_argv(char **argv)
 			current = create_node(ft_atoi(split[tmp]));
 			if (check_same_value(stack, current))
 				exit(-1);
-			push_init(stack, current);
+			push_a_bottom(stack, current);
 			free(split[tmp]);
 			tmp++;
 		}
 		free(split);
 		argv++;
 	}
+	parse_index(stack);
 	return (stack);
 }

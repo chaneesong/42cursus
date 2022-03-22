@@ -1,49 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a_to_b.c                                           :+:      :+:    :+:   */
+/*   sort_five_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 14:10:23 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/22 14:46:24 by chsong           ###   ########.fr       */
+/*   Created: 2022/03/22 14:46:59 by chsong            #+#    #+#             */
+/*   Updated: 2022/03/22 14:54:14 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	pass_to_b(t_list *stack, int chunk)
+void	sort_five_node(t_list *stack)
 {
-	int	i;
+	int	n;
+	int	position;
+	t_node	*node;
 
-	i = 0;
-	while (stack->a_size)
+	n = 0;
+	while (stack->a_size != 3)
 	{
-		if (stack->a_top->value <= i)
+		node = stack->a_top;
+		position = 0;
+		while (node->value != n)
 		{
-			pb(stack);
-			i++;
+			position++;
+			node = node->prev;
 		}
-		else if (stack->a_top->value > i && stack->a_top->value <= i + chunk)
+		if (stack->a_size / 2 > position)
 		{
-			pb(stack);
-			rb(stack);
-			i++;
+			while (stack->a_top->value != n)
+				ra(stack);
 		}
 		else
-			ra(stack);
+		{
+			while (stack->a_top->value != n)
+				rra(stack);
+		}
+		pb(stack);
+		n++;
 	}
-}
-
-void	a_to_b(t_list *stack)
-{
-	int	chunk;
-	
-	if (stack->a_size < 100)
-		chunk = 5;
-	else if (stack->a_size >= 100 && stack->a_size < 500)
-		chunk = 15;
-	else
-		chunk = 30;
-	pass_to_b(stack, chunk);
+	sort_three_node(stack);
+	while (stack->b_size)
+		pa(stack);
 }

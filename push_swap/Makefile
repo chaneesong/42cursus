@@ -5,6 +5,7 @@ SRCS			= push_swap.c \
 				init/create_node.c \
 				init/push.c \
 				init/pop.c \
+				init/parse_index.c \
 				utils/ft_split.c \
 				utils/ft_atoi.c \
 				utils/print_error.c \
@@ -21,13 +22,11 @@ SRCS			= push_swap.c \
 				operators/rrb.c \
 				operators/rrr.c \
 				sort/sort_stack.c \
-				sort/find_partition_value.c \
+				sort/sort_two_node.c \
+				sort/sort_three_node.c \
+				sort/sort_five_node.c \
 				sort/a_to_b.c \
-				sort/b_to_a.c \
 				utils/print_a.c
-# SRCS = $(addsuffix .c, $(FILES))
-
-OBJSDIR		= objs
 
 RM			= rm -f
 
@@ -40,7 +39,7 @@ AR			= AR -rcs
 OBJS	=	$(SRCS:.c=.o)
 
 $(NAME):	$(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -g -o $@
+			$(CC) $(CFLAGS) $(OBJS) -o $@
 
 all:		$(NAME)
 

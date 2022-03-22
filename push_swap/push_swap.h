@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:50:39 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/21 14:29:42 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/22 14:54:29 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,16 @@ typedef struct s_node
 
 typedef struct s_list
 {
-	int				part1;
-	int				part2;
 	int				a_size;
 	struct s_node	*a_top;
 	struct s_node	*a_bottom;
 	int				b_size;
 	struct s_node	*b_top;
 	struct s_node	*b_bottom;
+	int				a_min;
+	int				a_max;
+	int				part1;
+	int				part2;
 }	t_list;
 
 /* main function*/
@@ -50,6 +52,7 @@ t_node	*pop_a_top(t_list *stack);
 t_node	*pop_b_top(t_list *stack);
 t_node	*pop_a_bottom(t_list *stack);
 t_node	*pop_b_bottom(t_list *stack);
+void	parse_index(t_list *stack);
 
 /* operation part*/
 void	sb(t_list *stack);
@@ -66,9 +69,10 @@ void	rrr(t_list *stack);
 
 /*sort part*/
 void	sort_stack(t_list *stack);
-void	find_partition_value(t_list *stack);
+void	sort_two_node(t_list *stack);
+void	sort_three_node(t_list *stack);
+void	sort_five_node(t_list *stack);
 void	a_to_b(t_list *stack);
-void	b_to_a(t_list *stack);
 
 /*util part*/
 int		ft_atoi(const char *str);
