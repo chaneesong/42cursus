@@ -6,13 +6,13 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 15:20:04 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/08 15:38:46 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/23 03:59:26 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include <unistd.h>
 
 void	print_error(void)
 {
-	write(1, "ERROR\n", 6);
+	write(1, "Error\n", 6);
 }

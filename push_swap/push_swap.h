@@ -6,16 +6,14 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:50:39 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/22 18:52:12 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/23 03:54:12 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 typedef struct s_node
 {
@@ -32,10 +30,6 @@ typedef struct s_list
 	int				b_size;
 	struct s_node	*b_top;
 	struct s_node	*b_bottom;
-	int				a_min;
-	int				a_max;
-	int				part1;
-	int				part2;
 }	t_list;
 
 /* main function*/
@@ -80,9 +74,5 @@ char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	print_operator(char *str, int check);
 void	print_error(void);
-
-/* please delete */
-void	print_a(t_list *stack);
-void	print_b(t_list *stack);
 
 #endif

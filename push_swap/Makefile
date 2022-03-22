@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/03/23 02:00:46 by chsong            #+#    #+#              #
+#    Updated: 2022/03/23 03:52:30 by chsong           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= push_swap
 
 SRCS			= push_swap.c \
@@ -26,7 +38,7 @@ SRCS			= push_swap.c \
 				sort/sort_two_node.c \
 				sort/sort_three_node.c \
 				sort/sort_five_node.c \
-				sort/a_to_b.c \
+				sort/a_to_b.c
 
 RM			= rm -f
 
