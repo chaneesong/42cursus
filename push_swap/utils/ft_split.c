@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:54:58 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/02 15:53:47 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/23 13:32:57 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ char	*ft_cutstr(char const **s, char c)
 	while (s[0][i] && s[0][i] != c)
 		i++;
 	tmp = (char *)malloc(sizeof(char) * (i + 1));
-	if (!tmp)
-		return (NULL);
 	j = 0;
 	while (**s && **s != c)
 	{
@@ -78,8 +76,6 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	size = ft_get_size(s, c);
 	arr = (char **)malloc(sizeof(char *) * (size + 1));
-	if (!arr)
-		return (NULL);
 	i = 0;
 	while (*s && i < size)
 	{
