@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:56:17 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/23 13:58:26 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/23 15:59:36 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	check_same_value(t_list *stack, t_node *node)
 	top = stack->a_top;
 	while (top)
 	{
-		if (top->value == node->value)
+		if (top || top->value == node->value)
 			return (1);
 		top = top->prev;
 	}
