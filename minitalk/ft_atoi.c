@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 12:56:39 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/27 15:24:27 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/28 22:23:37 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	result = result * negative;
-	if (*str != '\0' || result > 2147483647 || result < -2147483648)
+	if (*str != '\0' || result > 99999 || result < 101)
 	{
 		ft_putstr("pid Error\n");
 		exit(1);

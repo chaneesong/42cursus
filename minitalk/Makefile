@@ -17,13 +17,13 @@ CFLAGS		= -Wall -Wextra -Werror
 CLIENT_OBJS	=	$(CLIENT_SRCS:.c=.o)
 SERVER_OBJS	=	$(SERVER_SRCS:.c=.o)
 
-$(CLIENT):	$(CLIENT_OBJS)
-			$(CC) $(CLIENT_OBJS) -o $@
-
-$(SERVER):	$(SERVER_OBJS)
-			$(CC) $(SERVER_OBJS) -o $@
-
 all:		$(CLIENT) $(SERVER)
+
+client:		$(CLIENT_OBJS)
+			$(CC) $(CFLAGS) $(CLIENT_OBJS) -o $@
+
+server:		$(SERVER_OBJS)
+			$(CC) $(CFLAGS) $(SERVER_OBJS) -o $@
 
 clean:
 			$(RM) $(CLIENT_OBJS) $(SERVER_OBJS)

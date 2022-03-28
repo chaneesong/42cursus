@@ -6,29 +6,40 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 13:19:23 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/27 16:39:48 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/28 22:42:28 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static void sig_usr1(int signo){
-	if (signo == SIGUSR1)
-		printf("0\n");
-}
+static void sig_usr(int signo){
+	static int	num;
+	static int	cnt;
 
-static void sig_usr2(int signo){
-	if (signo == SIGUSR2)
-		printf("1\n");
+	if (signo == SIGUSR1)
+		num = (num << 1);
+	else
+		num = (num << 1) | 1;
+	cnt++;
+	if (cnt == 8 && num)
+	{
+		ft_putchar(num);
+		cnt = 0;
+		num = 0;
+	}
+	else if (cnt == 8)
+	{
+		ft_putchar('\n');
+		cnt = 0;
+		num = 0;
+	}
 }
 
 int main(void){
-	int a = 0;
-	printf("%d\n", getpid());
-	signal(SIGUSR1, sig_usr1);
-	signal(SIGUSR2, sig_usr2);
-	printf("%d\n", a);
-	a++;
+	ft_putnbr(getpid());
+	ft_putchar('\n');
+	signal(SIGUSR1, sig_usr);
+	signal(SIGUSR2, sig_usr);
 	while (1)
-		usleep(150);
+		pause();
 }
