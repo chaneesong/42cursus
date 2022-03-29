@@ -6,11 +6,11 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 13:19:30 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/28 22:26:20 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/29 09:46:28 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "client.h"
 
 static void	send_signal(int pid, int signal)
 {

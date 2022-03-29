@@ -1,35 +1,26 @@
-CLIENT		= client
-SERVER		= server
+NAME		= minitalk
+CDIR		= ./client
+SDIR		= ./server
 
-CLIENT_SRCS			= client.c \
-					ft_atoi.c \
-					ft_put.c
+all:		$(NAME)
 
-SERVER_SRCS			= server.c \
-					ft_put.c
+$(NAME):
+			@$(MAKE) -C $(CDIR) all
+			@$(MAKE) -C $(SDIR) all
 
-RM			= rm -f
+server:
+			@$(MAKE) -C $(SDIR) all
 
-CC			= gcc
-
-CFLAGS		= -Wall -Wextra -Werror
-
-CLIENT_OBJS	=	$(CLIENT_SRCS:.c=.o)
-SERVER_OBJS	=	$(SERVER_SRCS:.c=.o)
-
-all:		$(CLIENT) $(SERVER)
-
-client:		$(CLIENT_OBJS)
-			$(CC) $(CFLAGS) $(CLIENT_OBJS) -o $@
-
-server:		$(SERVER_OBJS)
-			$(CC) $(CFLAGS) $(SERVER_OBJS) -o $@
+client:
+			@$(MAKE) -C $(CDIR) all
 
 clean:
-			$(RM) $(CLIENT_OBJS) $(SERVER_OBJS)
+			@$(MAKE) -C $(CDIR) clean
+			@$(MAKE) -C $(SDIR) clean
 
-fclean:		clean
-			$(RM) $(CLIENT) $(SERVER)
+fclean:		
+			@$(MAKE) -C $(CDIR) fclean
+			@$(MAKE) -C $(SDIR) fclean
 
 re:			fclean all
 

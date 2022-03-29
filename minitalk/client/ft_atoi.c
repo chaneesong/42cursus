@@ -6,11 +6,11 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 12:56:39 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/28 22:23:37 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/29 09:30:33 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "client.h"
 
 static int	ft_isdigit(int c)
 {

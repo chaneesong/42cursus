@@ -6,11 +6,11 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 13:19:23 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/28 22:42:28 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/29 09:33:07 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "server.h"
 
 static void sig_usr(int signo){
 	static int	num;
