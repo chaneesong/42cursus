@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 13:19:30 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/29 09:46:28 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/29 10:23:56 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	pid = ft_atoi(argv[1]);
-	ft_putstr(argv[1]);
+	ft_putnbr(getpid());
+	ft_putchar('\n');
 	i = -1;
 	while (argv[2] && argv[2][++i])
 		send_char(pid, argv[2][i], 0);

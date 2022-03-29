@@ -2,11 +2,11 @@ NAME		= minitalk
 CDIR		= ./client
 SDIR		= ./server
 
-all:		$(NAME)
+MAKE		= make --no-print-directory
 
-$(NAME):
-			@$(MAKE) -C $(CDIR) all
-			@$(MAKE) -C $(SDIR) all
+$(NAME):	server client
+
+all:		$(NAME)
 
 server:
 			@$(MAKE) -C $(SDIR) all
