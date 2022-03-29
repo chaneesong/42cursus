@@ -6,16 +6,16 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 13:08:18 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/29 10:22:39 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/29 12:18:04 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLIENT_H
 # define CLIENT_H
 
-#include <signal.h>
-#include <stdlib.h>
-#include <unistd.h>
+# include <signal.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 int		ft_atoi(const char *str);
 void	ft_putstr(char *s);

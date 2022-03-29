@@ -6,13 +6,14 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 13:19:23 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/29 09:33:07 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/29 12:15:36 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.h"
 
-static void sig_usr(int signo){
+static void	sig_usr(int signo)
+{
 	static int	num;
 	static int	cnt;
 
@@ -35,7 +36,8 @@ static void sig_usr(int signo){
 	}
 }
 
-int main(void){
+int	main(void)
+{
 	ft_putnbr(getpid());
 	ft_putchar('\n');
 	signal(SIGUSR1, sig_usr);

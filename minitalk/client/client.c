@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 13:19:30 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/29 10:23:56 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/29 12:17:43 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	send_end_line(int pid)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int	pid;
 	int	i;
