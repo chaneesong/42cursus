@@ -6,35 +6,43 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 13:14:15 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/31 13:44:42 by chsong           ###   ########.fr       */
+/*   Updated: 2022/03/31 18:29:31 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+void	put_img_to_window(char c, int x, int y, t_mlx *mlx)
+{
+	if (c == '1')
+		mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->cliff, x, y);
+	else
+	{
+		mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tile, x, y);
+		if (c == 'P')
+		{
+			mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->shipn, x, y);
+			mlx->size->p_x = x / mlx->size->x;
+			mlx->size->p_y = y / mlx->size->y;
+		}
+		else if (c == 'E')
+			mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->chest, x, y);
+		else if (c == 'C')
+			mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->goal, x, y);
+	}
+}
+
 void	put_img(t_mlx *mlx, t_size *size, char **map)
 {
 	int	i;
 	int	j;
-	
+
 	i = -1;
+	printf("%d %d\n", size->width, size->height);
 	while (++i * size->x < size->height)
 	{
 		j = -1;
 		while (++j * size->y < size->width)
-		{
-			if (map[i][j] == '1')
-				mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->cliff, j * size->y, i * size->x);
-			else
-			{
-				mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tile, j * size->y, i * size->x);
-				if (map[i][j] == 'P')
-					mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->shipS, j * size->y, i * size->x);
-				else if (map[i][j] == 'E')
-					mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->chest, j * size->y, i * size->x);
-				else if (map[i][j] == 'C')
-					mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->goal, j * size->y, i * size->x);
-			}
-		}
+			put_img_to_window(map[i][j], j * size->x, i * size->y, mlx);
 	}
 }
