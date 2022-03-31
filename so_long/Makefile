@@ -1,17 +1,35 @@
-NAME	= so_long
+NAME		= so_long
 
-SRCS	= so_long.c
+SRCS		= so_long.c \
+			init/read_map.c \
+			init/set_mlx.c \
+			init/put_img.c \
+			gnl/get_next_line.c \
+			gnl/get_next_line_utils.c
 
-OBJS	= $(SRCS:.c=.o)
+OBJS		= $(SRCS:.c=.o)
 
-CC		= -L ./mlx -lmlx -framework OpenGL -framework Appkit
+CC			= gcc
 
-all:
+CFLAGS		= -Wall -Werror -Wextra
+
+MLX			= -L ./mlx -lmlx -framework OpenGL -framework Appkit
+
+FSANITIZE	= -g -fsanitize=address
+
+RM			= rm -f
+
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS) $(MLX) -g $(OBJS) -o $@
+
+all:		$(NAME)
 
 clean:
+			$(RM) $(OBJS)
 
-fclean:
+fclean:		clean
+			$(RM) $(NAME)
 
-re:
+re:			fclean all
 
 .PHONY: all clean fclean re
