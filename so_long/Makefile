@@ -9,6 +9,8 @@ SRCS		= so_long.c \
 			gnl/get_next_line.c \
 			gnl/get_next_line_utils.c
 
+MLXDIR		= mlx
+
 OBJS		= $(SRCS:.c=.o)
 
 CC			= gcc
@@ -22,11 +24,13 @@ FSANITIZE	= -g -fsanitize=address
 RM			= rm -f
 
 $(NAME):	$(OBJS)
+			make -C $(MLXDIR)
 			$(CC) $(CFLAGS) $(FSANITIZE) $(MLX) -g $(OBJS) -o $@
 
 all:		$(NAME)
 
 clean:
+			make -C $(MLXDIR) clean
 			$(RM) $(OBJS)
 
 fclean:		clean
