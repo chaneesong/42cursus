@@ -6,56 +6,73 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:12:39 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/31 18:49:08 by chsong           ###   ########.fr       */
+/*   Updated: 2022/04/01 15:38:41 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static void	move_up(t_mlx *mlx, t_size *size, char **map)
+static void	move_before(t_mlx *mlx, void *img)
 {
-	if (map[size->p_y - 1][size->p_x] == '1')
-		return ;
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tile, size->p_x * 64, size->p_y * 64);
-	size->p_y--;
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->shipn, size->p_x * 64, size->p_y * 64);
+	mlx_put_image_to_window(mlx->mlx, mlx->win, \
+		mlx->tile, mlx->size->p_x * 64, mlx->size->p_y * 64);
+	mlx_put_image_to_window(mlx->mlx, mlx->win, \
+		img, mlx->size->p_x * 64, mlx->size->p_y * 64);
 }
 
-static void	move_right(t_mlx *mlx, t_size *size, char **map)
+static void	move_after(t_mlx *mlx, void *img, char **map)
 {
-	if (map[size->p_y][size->p_x + 1] == '1')
-		return ;
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tile, size->p_x * 64, size->p_y * 64);
-	size->p_x++;
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->shipe, size->p_x * 64, size->p_y * 64);
+	if (map[mlx->size->p_y][mlx->size->p_x] == 'C')
+	{
+		map[mlx->size->p_y][mlx->size->p_x] = '0';
+		mlx->size->chest--;
+	}
+	mlx_put_image_to_window(mlx->mlx, mlx->win, \
+		mlx->tile, mlx->size->p_x * 64, mlx->size->p_y * 64);
+	mlx_put_image_to_window(mlx->mlx, mlx->win, \
+		img, mlx->size->p_x * 64, mlx->size->p_y * 64);
 }
 
-static void	move_down(t_mlx *mlx, t_size *size, char **map)
+static int	move(t_mlx *mlx, char **map, void *img, int id)
 {
-	if (map[size->p_y + 1][size->p_x] == '1')
-		return ;
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tile, size->p_x * 64, size->p_y * 64);
-	size->p_y++;
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->ships, size->p_x * 64, size->p_y * 64);
-}
+	const int	mx[4] = {0, 1, 0, -1};
+	const int	my[4] = {-1, 0, 1, 0};
 
-static void	move_left(t_mlx *mlx, t_size *size, char **map)
-{
-	if (map[size->p_y][size->p_x - 1] == '1')
-		return ;
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tile, size->p_x * 64, size->p_y * 64);
-	size->p_x--;
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->shipw, size->p_x * 64, size->p_y * 64);
+	move_before(mlx, img);
+	if (map[mlx->size->p_y + my[id]][mlx->size->p_x + mx[id]] == '1' || \
+		(map[mlx->size->p_y + my[id]][mlx->size->p_x + mx[id]] == 'E' && \
+		mlx->size->chest))
+		return (0);
+	mlx_put_image_to_window(mlx->mlx, mlx->win, \
+		mlx->tile, mlx->size->p_x * 64, mlx->size->p_y * 64);
+	mlx->size->p_x += mx[id];
+	mlx->size->p_y += my[id];
+	move_after(mlx, img, map);
+	return (1);
 }
 
 void	move_position(int key, t_mlx *mlx)
 {
+	static int	count;
+	int			cur;
+
+	cur = 0;
 	if (key == W || key == UP)
-		move_up(mlx, mlx->size, mlx->map);
+		cur = move(mlx, mlx->map, mlx->shipn, 0);
 	else if (key == D || key == RIGHT)
-		move_right(mlx, mlx->size, mlx->map);
+		cur = move(mlx, mlx->map, mlx->shipe, 1);
 	else if (key == S || key == DOWN)
-		move_down(mlx, mlx->size, mlx->map);
+		cur = move(mlx, mlx->map, mlx->ships, 2);
 	else if (key == A || key == LEFT)
-		move_left(mlx, mlx->size, mlx->map);
+		cur = move(mlx, mlx->map, mlx->shipw, 3);
+	if (cur)
+	{
+		count++;
+		printf("move = %d\n", count);
+	}
+	if (mlx->map[mlx->size->p_y][mlx->size->p_x] == 'E' && !mlx->size->chest)
+	{
+		mlx_destroy_window(mlx->mlx, mlx->win);
+		exit(0);
+	}
 }

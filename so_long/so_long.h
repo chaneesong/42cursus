@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 15:08:42 by chsong            #+#    #+#             */
-/*   Updated: 2022/03/31 18:18:00 by chsong           ###   ########.fr       */
+/*   Updated: 2022/04/01 11:02:02 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_size
 	int	y;
 	int	p_x;
 	int	p_y;
+	int	chest;
 }	t_size;
 
 typedef struct s_mlx
@@ -61,6 +62,9 @@ void	put_img(t_mlx *mlx, t_size *size, char **map);
 
 void	move_position(int key, t_mlx *mlx);
 
-void	*ft_calloc(size_t count, size_t size);
+int	check_rectangle(char **map);
+int	check_side_wall(char **map);
+int	check_chest(char **map);
+int	check_goal(char **map);
 
 #endif
