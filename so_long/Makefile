@@ -4,6 +4,7 @@ SRCS		= so_long.c \
 			init/read_map.c \
 			init/set_mlx.c \
 			init/check_map.c \
+			init/check_other_item.c \
 			init/put_img.c \
 			move/move_position.c \
 			gnl/get_next_line.c \

@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 13:04:33 by chsong            #+#    #+#             */
-/*   Updated: 2022/04/01 11:47:25 by chsong           ###   ########.fr       */
+/*   Updated: 2022/04/01 18:10:57 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 static int	check_map_error(char **map)
 {
+	if (check_other_item(map))
+		return (1);
 	if (check_rectangle(map))
 		return (1);
 	if (check_side_wall(map))
 		return (1);
-	if (check_chest(map))
+	if (check_item(map, 'C'))
 		return (1);
-	if (check_goal(map))
+	if (check_item(map, 'E'))
+		return (1);
+	if (check_player(map))
 		return (1);
 	return (0);
 }
@@ -43,7 +47,7 @@ char	**read_map(char *filename)
 		map[i] = str;
 		i++;
 	}
-	map[i] = (char *)0;
+	map[i] = NULL;
 	if (check_map_error(map))
 		exit(1);
 	return (map);

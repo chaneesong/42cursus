@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 13:14:15 by chsong            #+#    #+#             */
-/*   Updated: 2022/04/01 15:15:44 by chsong           ###   ########.fr       */
+/*   Updated: 2022/04/01 17:45:17 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	put_img_to_window(char c, int x, int y, t_mlx *mlx)
 		if (c == 'P')
 		{
 			mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->shipn, x, y);
-			mlx->size->p_x = x / mlx->size->x;
-			mlx->size->p_y = y / mlx->size->y;
+			mlx->size->px = x / mlx->size->x;
+			mlx->size->py = y / mlx->size->y;
 		}
 		else if (c == 'C')
 		{

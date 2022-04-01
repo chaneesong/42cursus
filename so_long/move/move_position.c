@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:12:39 by chsong            #+#    #+#             */
-/*   Updated: 2022/04/01 15:38:41 by chsong           ###   ########.fr       */
+/*   Updated: 2022/04/01 17:45:38 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 static void	move_before(t_mlx *mlx, void *img)
 {
 	mlx_put_image_to_window(mlx->mlx, mlx->win, \
-		mlx->tile, mlx->size->p_x * 64, mlx->size->p_y * 64);
+		mlx->tile, mlx->size->px * 64, mlx->size->py * 64);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, \
-		img, mlx->size->p_x * 64, mlx->size->p_y * 64);
+		img, mlx->size->px * 64, mlx->size->py * 64);
 }
 
 static void	move_after(t_mlx *mlx, void *img, char **map)
 {
-	if (map[mlx->size->p_y][mlx->size->p_x] == 'C')
+	if (map[mlx->size->py][mlx->size->px] == 'C')
 	{
-		map[mlx->size->p_y][mlx->size->p_x] = '0';
+		map[mlx->size->py][mlx->size->px] = '0';
 		mlx->size->chest--;
 	}
 	mlx_put_image_to_window(mlx->mlx, mlx->win, \
-		mlx->tile, mlx->size->p_x * 64, mlx->size->p_y * 64);
+		mlx->tile, mlx->size->px * 64, mlx->size->py * 64);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, \
-		img, mlx->size->p_x * 64, mlx->size->p_y * 64);
+		img, mlx->size->px * 64, mlx->size->py * 64);
 }
 
 static int	move(t_mlx *mlx, char **map, void *img, int id)
@@ -39,14 +39,14 @@ static int	move(t_mlx *mlx, char **map, void *img, int id)
 	const int	my[4] = {-1, 0, 1, 0};
 
 	move_before(mlx, img);
-	if (map[mlx->size->p_y + my[id]][mlx->size->p_x + mx[id]] == '1' || \
-		(map[mlx->size->p_y + my[id]][mlx->size->p_x + mx[id]] == 'E' && \
+	if (map[mlx->size->py + my[id]][mlx->size->px + mx[id]] == '1' || \
+		(map[mlx->size->py + my[id]][mlx->size->px + mx[id]] == 'E' && \
 		mlx->size->chest))
 		return (0);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, \
-		mlx->tile, mlx->size->p_x * 64, mlx->size->p_y * 64);
-	mlx->size->p_x += mx[id];
-	mlx->size->p_y += my[id];
+		mlx->tile, mlx->size->px * 64, mlx->size->py * 64);
+	mlx->size->px += mx[id];
+	mlx->size->py += my[id];
 	move_after(mlx, img, map);
 	return (1);
 }
@@ -70,7 +70,7 @@ void	move_position(int key, t_mlx *mlx)
 		count++;
 		printf("move = %d\n", count);
 	}
-	if (mlx->map[mlx->size->p_y][mlx->size->p_x] == 'E' && !mlx->size->chest)
+	if (mlx->map[mlx->size->py][mlx->size->px] == 'E' && !mlx->size->chest)
 	{
 		mlx_destroy_window(mlx->mlx, mlx->win);
 		exit(0);

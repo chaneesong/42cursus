@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:46:14 by chsong            #+#    #+#             */
-/*   Updated: 2022/04/01 14:23:35 by chsong           ###   ########.fr       */
+/*   Updated: 2022/04/01 17:34:31 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,46 +61,46 @@ int	check_side_wall(char **map)
 	return (0);
 }
 
-int	check_chest(char **map)
+int	check_item(char **map, char item)
 {
 	int	i;
 	int	j;
-	int	chest;
+	int	target;
 
 	i = -1;
-	chest = 0;
+	target = 0;
 	while (map && map[++i])
 	{
 		j = -1;
 		while (map[i][++j])
 		{
-			if (map[i][j] == 'C')
-				chest++;
+			if (map[i][j] == item)
+				target++;
 		}
 	}
-	if (chest == 0)
+	if (target == 0)
 		return (1);
 	return (0);
 }
 
-int	check_goal(char **map)
+int	check_player(char **map)
 {
 	int	i;
 	int	j;
-	int	goal;
+	int	target;
 
 	i = -1;
-	goal = 0;
+	target = 0;
 	while (map && map[++i])
 	{
 		j = -1;
 		while (map[i][++j])
 		{
-			if (map[i][j] == 'E')
-				goal++;
+			if (map[i][j] == 'P')
+				target++;
 		}
 	}
-	if (goal == 0)
+	if (target != 1)
 		return (1);
 	return (0);
 }
