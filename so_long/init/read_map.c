@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 13:04:33 by chsong            #+#    #+#             */
-/*   Updated: 2022/04/01 18:10:57 by chsong           ###   ########.fr       */
+/*   Updated: 2022/04/06 17:06:34 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	**read_map(char *filename)
 	int		i;
 
 	fd = open(filename, O_RDONLY);
-	map = (char **)ft_calloc(7, sizeof(char *));
+	map = (char **)ft_calloc(100, sizeof(char *));
 	str = get_next_line(fd);
 	map[0] = str;
 	i = 1;

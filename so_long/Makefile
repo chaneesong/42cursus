@@ -26,7 +26,7 @@ RM			= rm -f
 
 $(NAME):	$(OBJS)
 			make -C $(MLXDIR)
-			$(CC) $(CFLAGS) $(FSANITIZE) $(MLX) -g $(OBJS) -o $@
+			$(CC) $(CFLAGS) $(MLX) -g $(OBJS) -o $@
 
 all:		$(NAME)
 
