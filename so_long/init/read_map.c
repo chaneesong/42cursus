@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 13:04:33 by chsong            #+#    #+#             */
-/*   Updated: 2022/04/07 11:35:53 by chsong           ###   ########.fr       */
+/*   Updated: 2022/04/07 11:38:29 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ char	**read_map(char *filename)
 	if (check_map_error(map))
 	{
 		printf("Parsing Error\n");
-		system("leaks so_long");
 		exit(1);
 	}
 	return (map);
