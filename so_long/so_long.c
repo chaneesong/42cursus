@@ -6,7 +6,7 @@
 /*   By: chsong <chsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 15:09:24 by chsong            #+#    #+#             */
-/*   Updated: 2022/04/06 15:47:28 by chsong           ###   ########.fr       */
+/*   Updated: 2022/04/07 11:35:33 by chsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	send_key(int key, t_mlx *mlx)
 {
 	if (key == ESC)
 	{
-		printf("pressed ESC!\n");
+		printf("Pressed ESC!\n");
 		mlx_destroy_window(mlx->mlx, mlx->win);
 		exit(0);
 	}

@@ -20,8 +20,6 @@ CFLAGS		= -Wall -Werror -Wextra
 
 MLX			= -L ./mlx -lmlx -framework OpenGL -framework Appkit
 
-FSANITIZE	= -g -fsanitize=address
-
 RM			= rm -f
 
 $(NAME):	$(OBJS)
